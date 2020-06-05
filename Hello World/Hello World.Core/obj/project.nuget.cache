@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "3h45pyrfl8OtAG6yiTIspXwToLWT8DxxNjTwJCnLVvdINvgYj6EeeSPR7KK1knQRqW9jaGTF90tfLYIf4NM0fQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vince\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Vince\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
