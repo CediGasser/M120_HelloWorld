@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3h45pyrfl8OtAG6yiTIspXwToLWT8DxxNjTwJCnLVvdINvgYj6EeeSPR7KK1knQRqW9jaGTF90tfLYIf4NM0fQ==",
+  "dgSpecHash": "FhXxbdU0pYea2smOm8vyI7kbX97et/OBsVDyCr/MWkRYrBUium5SikfnUuK9MMHVVtEzmNkkpT08TjP44Q3ZOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+  "projectFilePath": "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Vince\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Vince\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\VIGam\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\VIGam\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
