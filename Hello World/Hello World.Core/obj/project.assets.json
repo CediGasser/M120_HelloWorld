@@ -180,19 +180,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vince\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
       "projectName": "Hello World.Core",
-      "projectPath": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
-      "packagesPath": "C:\\Users\\Vince\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\obj\\",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Vince\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -233,7 +233,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

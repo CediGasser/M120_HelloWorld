@@ -1,0 +1,21 @@
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.exe
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.deps.json
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.runtimeconfig.json
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.runtimeconfig.dev.json
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.dll
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.pdb
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World_MarkupCompile.cache
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World_MarkupCompile.lref
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.g.resources
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.dll
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.pdb
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.genruntimeconfig.cache
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Views\GameView.g.cs
+C:\Users\User\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Views\GameView.baml
