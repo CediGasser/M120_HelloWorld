@@ -59,6 +59,13 @@
         <TextBox Style="{StaticResource ScrollableTextBoxViewer}" Text="Hello World" Grid.Column="2" Grid.ColumnSpan="5" Grid.Row="2" Grid.RowSpan="3"></TextBox>
 
         <Button Content="Hello World" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="6" ></Button>
+
+        <Button  Grid.Column="0" Grid.Row="0">
+            <Image Source="..\icon\HamburgerMenu_icon.png" />
+        </Button>
+        <Button  Grid.Column="0" Grid.Row="7">
+            <Image Source="..\icon\ShopingCart_icon.png" />
+        </Button>
     </Grid>
 
 
