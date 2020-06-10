@@ -26,13 +26,11 @@ C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\bin\Debu
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.dll
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.pdb
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.csprojAssemblyReference.cache
-C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainMenuView.g.cs
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\PageView\GameView.g.cs
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World_MarkupCompile.cache
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World_MarkupCompile.lref
-C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainMenuView.baml
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\PageView\GameView.baml
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.g.resources
@@ -42,3 +40,7 @@ C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debu
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.dll
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.pdb
 C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.genruntimeconfig.cache
+C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ConsolePage\ConsoleView.g.cs
+C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ShopPage\ShopView.g.cs
+C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ConsolePage\ConsoleView.baml
+C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ShopPage\ShopView.baml

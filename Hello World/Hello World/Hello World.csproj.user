@@ -10,9 +10,6 @@
     <Compile Update="ConsolePage\ConsoleView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MainMenuView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="ShopPage\ShopView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,9 +19,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MainMenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ShopPage\ShopView.xaml">
