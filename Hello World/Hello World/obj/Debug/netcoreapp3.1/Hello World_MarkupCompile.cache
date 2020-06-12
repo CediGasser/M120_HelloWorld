@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\
+D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\
 Hello_World
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\App.xaml
-4-281886746
+D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\App.xaml
+4-972747182
 
-6774604949
+61012904498
 1921654412462
-ConsolePage\ConsoleView.xaml;MainWindow.xaml;PageView\GameView.xaml;ShopPage\ShopView.xaml;
+ConsolePage\ConsoleView.xaml;GamePage\GameView.xaml;MainWindow.xaml;ShopPage\ShopView.xaml;
 
 False
 

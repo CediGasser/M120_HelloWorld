@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj": {}
+    "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj": {
+    "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
+        "projectUniqueName": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
         "projectName": "Hello World",
-        "projectPath": "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
-        "packagesPath": "C:\\Users\\VIGam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World\\obj\\",
+        "projectPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
+        "packagesPath": "C:\\Users\\Vince\\.nuget\\packages\\",
+        "outputPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\VIGam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Vince\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
