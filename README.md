@@ -17,6 +17,7 @@ Eine Projektarbeit mit MVVM und WPF
 ## Entwicklung
 ### Voraussetzungen / Programme
 ### UML - Diagramm
+### Fody (PropertyChanged)
 ### Codebeispiele
 
 
