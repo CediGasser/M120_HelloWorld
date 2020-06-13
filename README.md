@@ -22,4 +22,4 @@ Eine Projektarbeit mit MVVM und WPF
 
 
 
-[Prozessdiagramm]: url
+[Prozessdiagramm]: /res/Prozessdiagramm.PNG
