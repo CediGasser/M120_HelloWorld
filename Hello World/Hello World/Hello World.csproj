@@ -19,4 +19,8 @@
     <Resource Include="icon\ShopingCart_icon.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MainMenuPage\" />
+  </ItemGroup>
+
 </Project>
