@@ -75,7 +75,7 @@ Mit dem Grundprinzip ausgearbeitet, wollten wir das Thema und genäuere Funktion
 ## GUI
 ### Startmenü
 #### Startmenü -View
-![Startmenü-View][Startmenu]
+![Startmenü-View][Startmenu]  
 Bei Programmstart soll dieses View angezeigt werden. Von hier kann eine neues Spiel gestartet werden, oder ein bestehender Spielstand geladen werden.
 | Element | Zweck |
 |--|--|
@@ -85,7 +85,7 @@ Bei Programmstart soll dieses View angezeigt werden. Von hier kann eine neues Sp
 | GitHub Link - Button | Einen Button um auf dieses GitHub Repository zu linken. |
 
 #### Spiel laden -View
-![Spiel laden-View][Spiel laden]
+![Spiel laden-View][Spiel laden]  
 Wenn ein vorhandener Spielstand geladen werden soll, wird in diesem View eine Liste mit den vorhandenen Spielständen gezeigt. Eventuell kann man hier auch die Namen der Spielstände anpassen. Standardmässig soll ein Spielstand mit Datum und Uhrzeit als Namen gespeicher werden.
 | Element | Zweck |
 |--|--|
@@ -95,7 +95,7 @@ Wenn ein vorhandener Spielstand geladen werden soll, wird in diesem View eine Li
 
 ### Im Spiel
 #### Game -View
-![Game-View][Game]
+![Game-View][Game]  
 Diese View soll die Hauptview während eines Spiels sein. Hier sollen die wichtigsten Informationen wie Hello World pro Sekunde oder Totales Karma angezeigt werden.
 | Element | Zweck |
 |--|--|
@@ -107,7 +107,7 @@ Diese View soll die Hauptview während eines Spiels sein. Hier sollen die wichti
 | Menu - Button | Über diesen Button wird ein kleines Menu angezeigt, in welchem man den Spielstand speichern kann oder das Spiel beenden kann. |
 
 #### Konsole -View
-![Konsole-View][Konsole]
+![Konsole-View][Konsole]  
 Bei einem neuen Spiel wird noch vor der GameView diese View angezeigt. Diese View soll als Intro dazu dienen die Story des Games besser darzustellen. Man soll zuerst mit einer Konsolenapplikation anfangen und mit der Zeit eine Graphische Benutzeroberfläche bekommen. Diese View kann grundsätzlich das gleiche ViewModel wie die GameView brauchen, da das Selbe einfach anders dargestellt wird. Funktionen werden ausgeführt, indem Befehle in die Konsole eingegeben werden.
 | Element | Zweck |
 |--|--|
@@ -118,7 +118,7 @@ Bei einem neuen Spiel wird noch vor der GameView diese View angezeigt. Diese Vie
 | >exit | Das Spiel wird beendet, aber nicht gespeichert, denn bei einem Spielstand wo man noch immer im KonsolenView ist, lohnt es sich nicht zu speichern. 
 
 #### Shop -View
-![Shop-View][Shop]
+![Shop-View][Shop]  
 In dieser View werden alle Devices aufgelistet. Devices die nicht gekauft werden können weil man zu wenig Karma hat, werden ausgegraut. 
 | Element | Zweck |
 |--|--|
@@ -129,7 +129,7 @@ In dieser View werden alle Devices aufgelistet. Devices die nicht gekauft werden
 | Zurück - Button | So kann man aus dem Shop wieder auf die GameView kommen |
 
 #### Hamburgermenü -View
-![Hamburgermenü-View][Burgermenu]
+![Hamburgermenü-View][Burgermenu]  
 Diese View soll wenn möglich als Overlay dargestellt werden, sonst als feste Page so wie alle anderen Views. 
 | Element | Zweck |
 |--|--|
@@ -138,7 +138,7 @@ Diese View soll wenn möglich als Overlay dargestellt werden, sonst als feste Pa
 | Spiel speichern zum Hauptmenü - Button | Das Spiel soll gespeichert werden, und das Startmenü soll angezeigt werden. |
 
 ### Prozessdiagramm
-![BPMN Prozessdiagramm mit BizAgi-Modeler gemacht][Prozessdiagramm]
+![BPMN Prozessdiagramm mit BizAgi-Modeler gemacht][Prozessdiagramm]  
 
 ## Entwicklung
 ### Voraussetzungen / Programme
