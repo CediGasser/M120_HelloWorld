@@ -148,7 +148,7 @@ Diese View soll wenn möglich als Overlay dargestellt werden, sonst als feste Pa
 
 
 [Startmenu]: /res/Hauptmenu.PNG
-[Spiel laden]:_/res/Spielladen.PNG
+[Spiel laden]: /res/Spielladen.PNG
 [Game]: /res/GameView.PNG
 [Konsole]: /res/ConsoleView.PNG
 [Shop]: /res/ShopView.PNG
