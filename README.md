@@ -79,10 +79,10 @@ Mit dem Grundprinzip ausgearbeitet, wollten wir das Thema und genäuere Funktion
 Bei Programmstart soll dieses View angezeigt werden. Von hier kann eine neues Spiel gestartet werden, oder ein bestehender Spielstand geladen werden.
 | Element | Zweck |
 |--|--|
-| Neues Spiel - Button | Erstellt ein neues Spiel und zeigt die GameView an. |
-| Spiel Laden - Button | Zeigt eine View mit den gesicherten Spielständen an. |
-| Beenden - Button | Mit diesem Button soll das Programm beendet werden können. |
-| GitHub Link - Button | Einen Button um auf dieses GitHub Repository zu linken. |
+| Load Game - Button | Zeigt eine View mit den gesicherten Spielständen an. |
+| New Game - Button | Erstellt ein neues Spiel und zeigt die GameView an. |
+| Exit - Button | Mit diesem Button soll das Programm beendet werden können. |
+| GitHub Link - Button | (Optional) Einen Button um auf dieses GitHub Repository zu linken. |
 
 #### Spiel laden -View
 ![Spiel laden-View][Spiel laden]  
@@ -92,6 +92,8 @@ Wenn ein vorhandener Spielstand geladen werden soll, wird in diesem View eine Li
 | Zurück - Button | Um wieder zum Startmenü zu kommen, falls man nun doch ein neues Spiel anfangen will. |
 | Liste | In dieser Liste werden alle vorhandenen Spielstände, vermutlich aus einem Ordner, angezeigt. |
 | Listen Element | Stellt einen Spielstand dar. Dieser Spielstand kann auch geladen werden. |
+| Load Game | Damit kann der Ensprechende Spielstand geladen werden, und die GameView wird geöffnet. |
+| Delete Game | So kann ein Spielstand gelöscht werden. |
 
 ### Im Spiel
 #### Game -View
@@ -135,7 +137,7 @@ Diese View soll wenn möglich als Overlay dargestellt werden, sonst als feste Pa
 |--|--|
 | Resume - Button | Mit dem Spiel weiterfahren, also zurück auf das GameView gehen. |
 | Spielstand Speichern - Button | Der Spielstand soll gespeichert werden, und man soll wieder auf die GameView kommen. |
-| Spiel speichern zum Hauptmenü - Button | Das Spiel soll gespeichert werden, und das Startmenü soll angezeigt werden. |
+| Spiel speichern & zum Hauptmenü - Button | Das Spiel soll gespeichert werden, und das Startmenü soll angezeigt werden. |
 
 ### Prozessdiagramm
 ![BPMN Prozessdiagramm mit BizAgi-Modeler gemacht][Prozessdiagramm]  
@@ -149,10 +151,10 @@ Diese View soll wenn möglich als Overlay dargestellt werden, sonst als feste Pa
 
 [Startmenu]: /res/Hauptmenu.PNG
 [Spiel laden]: /res/Spielladen.PNG
-[Game]: /res/GameView.PNG
-[Konsole]: /res/ConsoleView.PNG
-[Shop]: /res/ShopView.PNG
-[Burgermenu]: /res/Burgermenu.PNG
+[Game]: /res/GameView.png
+[Konsole]: /res/ConsoleView.png
+[Shop]: /res/ShopView.png
+[Burgermenu]: /res/Burgermenu.png
 
 
 [Prozessdiagramm]: /res/Prozessdiagramm.PNG
