@@ -1,5 +1,5 @@
 # Hello World
-Eine Projektarbeit mit MVVM und WPF
+_Eine Projektarbeit mit MVVM und WPF_
 
 ## Inhaltsverzeichnis
 []()
@@ -77,6 +77,21 @@ Die Tagesjournale können unter folgendem Link gefunden werden: [Tagesjournale](
 ### Prototyp
 Um uns über MVVM und WPF zu informieren, und ein Grundverständnis einer solchen Applikation zu bekommen, haben wir einen Prototyp angefertigt. Dieser soll einfach eine kleine WPF Applikation nach dem MVVM-Pattern darstellen.
 
+### Referenzen (Tutorials)
+Wir waren begeistert von MVVM als wir genäuer darüber gelesen haben. MVVM ist unserer Meinung nach um einiges besser als MVC, einfach schon weil dort mehr Sachen genäuer definiert sind und weil die lose Kopplung von View und ViewModel ein unabhängigeres Entwickeln ermöglichen. Wir haben auch noch einige andere Tutorial überflogen.
+- [Wikipedia Artikel](https://de.wikipedia.org/wiki/Model_View_ViewModel#:~:text=Model%20View%20ViewModel%20(MVVM)%20ist,Logik%20der%20Benutzerschnittstelle%20(UI).)
+- [LinekdIn Tutorial](https://www.linkedin.com/learning/einfuhrung-in-die-softwarearchitektur-2-architekturmuster/was-ist-mvvm?u=2976210)
+- [YouTube Tutorial](https://www.youtube.com/watch?v=EpGvqVtSYjs)
+
+Jedoch hatten wir einige Probleme bei der Codetechnischen umsetzung vom Prototypen, vorallem weil wir keine Ahnung von Events und Delegates hatten. Der Ausbildner von Vincent und diese YouTube Tutorials halfen uns zu verstehen wie Events funktionieren.
+- [Events und Delegates](https://youtu.be/jQgwEsJISy0?)
+- [Delegates](https://www.youtube.com/watch?v=G5R4C8BLEOc)
+- [Events](https://www.youtube.com/watch?v=TdiN18PR4zk)
+
+Wir hörten auch, dass Noah und Nick ihre Dokumentation mit Markdown auf GitHub erstellen. Wir haben uns bei Ihnen erkundigt und waren überzeugt von Markdown. Zu unserem Vorteil war Mark Down ziemlich schnell zu lernen und somit konnten wir unsere Dokumentation auf GitHub übernehmen.
+- [10 Minuten Markdown Tutorial](https://www.markdowntutorial.com/)
+- [GitHub Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- [Alte Word-Dokumentation](res/Dokumentation.docx)
 
 ### Konzept
 Mit dem Grundprinzip ausgearbeitet, wollten wir das Thema und genäuere Funktionen für unser Game festlegen:  
