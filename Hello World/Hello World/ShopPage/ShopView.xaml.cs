@@ -8,15 +8,14 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Hello_World.ShopPage
 {
     /// <summary>
-    /// Interaktionslogik für ShopView.xaml
+    /// Interaction logic for ShopView.xaml
     /// </summary>
-    public partial class ShopView : Page
+    public partial class ShopView : Window
     {
         public ShopView()
         {
