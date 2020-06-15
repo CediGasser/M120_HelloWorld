@@ -64,13 +64,13 @@ Die Tagesjournale können unter folgendem Link gefunden werden: [Tagesjournale](
 | Konzept erstellen | Vincent | Ongoing |
 | Dokumentation zu GitHub in MarkDown übernehmen | Cedric | Fertig |
 | Bedienkonzept zu Mockup | Cedric | Fertig |
-| Startmenü Views umsetzen | Cedric | Ongoing |
+| Startmenü Views umsetzen | Vincent | Ongoing |
 | Spiel-Views umsetzen | Vincent | Fertig |
-| ViewModel/View Struktur ausarbeiten | Cedric | - |
-| UML für Model definieren | Vincent | - |
-| Model-Klassen erstellen | Vincent | - |
-| UML wenn nötig anpassen & Model besprechen | Vincent Cedric | - |
-| ViewModel/View ausprogrammieren | Cedric | - |
+| ViewModel/View Struktur ausarbeiten | Vincent & Cedric | - |
+| UML für Model definieren | Vincent & Cedric | - |
+| Model-Klassen erstellen | Vincent & Cedric | - |
+| UML wenn nötig anpassen & Model besprechen | Vincent & Cedric | - |
+| ViewModel/View ausprogrammieren | Vincent & Cedric | - |
 | Model ausprogrammieren | Vincent & Cedric | - |
 | Testing | Vincent & Cedric | - |
 
@@ -168,8 +168,8 @@ Diese View soll wenn möglich als Overlay dargestellt werden, sonst als feste Pa
 | Element | Zweck |
 |--|--|
 | Resume - Button | Mit dem Spiel weiterfahren, also zurück auf das GameView gehen. |
-| Spielstand Speichern - Button | Der Spielstand soll gespeichert werden, und man soll wieder auf die GameView kommen. |
-| Spiel speichern & zum Hauptmenü - Button | Das Spiel soll gespeichert werden, und das Startmenü soll angezeigt werden. |
+| Options - Button | Optionen anzeigen |
+| Save and Exit - Button | Das Spiel soll gespeichert werden, und das Startmenü soll angezeigt werden. |
 
 ### Prozessdiagramm
 ![BPMN Prozessdiagramm mit BizAgi-Modeler gemacht][Prozessdiagramm]  
