@@ -55,7 +55,24 @@ Die Tagesjournale können unter folgendem Link gefunden werden: [Tagesjournale](
 - Jeder der das File bearbeiten darf, kann somit neue Objekte Hinzufügen oder alte löschen. 
 
 ### Arbeitspaketeeinteilung
-`tbd`
+| Task | Bearbeiter | Status |
+|--|--|--|
+| Mockup mit Adobe XD | Vincent | Fertig |
+| User Stories | Vincent & Cedric | Fertig |
+| Repository anlegen | Cedric | Fertig |
+| Prototyp erstellen | Vincent & Cedric | Fertig |
+| Konzept erstellen | Vincent | Ongoing |
+| Dokumentation zu GitHub in MarkDown übernehmen | Cedric | Fertig |
+| Bedienkonzept zu Mockup | Cedric | Fertig |
+| Startmenü Views umsetzen | Cedric | Ongoing |
+| Spiel-Views umsetzen | Vincent | Fertig |
+| ViewModel/View Struktur ausarbeiten | Cedric | - |
+| UML für Model definieren | Vincent | - |
+| Model-Klassen erstellen | Vincent | - |
+| UML wenn nötig anpassen & Model besprechen | Vincent Cedric | - |
+| ViewModel/View ausprogrammieren | Cedric | - |
+| Model ausprogrammieren | Vincent & Cedric | - |
+| Testing | Vincent & Cedric | - |
 
 ### Prototyp
 Um uns über MVVM und WPF zu informieren, und ein Grundverständnis einer solchen Applikation zu bekommen, haben wir einen Prototyp angefertigt. Dieser soll einfach eine kleine WPF Applikation nach dem MVVM-Pattern darstellen.
@@ -146,6 +163,29 @@ Diese View soll wenn möglich als Overlay dargestellt werden, sonst als feste Pa
 ### Voraussetzungen / Programme
 ### UML - Diagramm
 ### Fody (PropertyChanged)
+Fody ist ein Nuggetpack welches sehr viele Erweiterungen für Visual Studio beinhaltet. 
+Wir brauchen nur Fody propertychanged. Dieses Nugget generiert den Code nach dem er Gebuildet wird. Das heisst, er verändert die Intermediate Language. Ein Beispiel wäre die set-methode: 
+````c#
+    public string Title { get; set; }
+````
+Dieser code wird wegen dem Fody in der Intermediate Language zum Equivalent von:
+````c#
+    public string Title 
+    { 
+        get => this.title 
+        set
+        {
+            if (value != this.title)
+            {
+                this.title = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+    }
+````
+
+
+
 ### Codebeispiele
 
 
@@ -155,7 +195,6 @@ Diese View soll wenn möglich als Overlay dargestellt werden, sonst als feste Pa
 [Konsole]: /res/ConsoleView.png
 [Shop]: /res/ShopView.png
 [Burgermenu]: /res/Burgermenu.png
-
 
 [Prozessdiagramm]: /res/Prozessdiagramm.PNG
 
