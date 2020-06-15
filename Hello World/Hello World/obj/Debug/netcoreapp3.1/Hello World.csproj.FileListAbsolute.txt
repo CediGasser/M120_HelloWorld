@@ -50,7 +50,6 @@ D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hell
 D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.runtimeconfig.dev.json
 D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.dll
 D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.pdb
-D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.csprojAssemblyReference.cache
 D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ConsolePage\ConsoleView.g.cs
 D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ShopPage\ShopView.g.cs
@@ -69,3 +68,8 @@ D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hell
 D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.genruntimeconfig.cache
 D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\GamePage\GameView.g.cs
 D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\GamePage\GameView.baml
+D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainMenuPage\MainWindowView.g.cs
+D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Menu\MenuView.g.cs
+D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainMenuPage\MainWindowView.baml
+D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Menu\MenuView.baml
+D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.csprojAssemblyReference.cache

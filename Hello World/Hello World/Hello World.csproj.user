@@ -10,6 +10,9 @@
     <Compile Update="ConsolePage\ConsoleView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MainMenuPage\MainMenuView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Menu\MenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="ConsolePage\ConsoleView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainMenuPage\MainMenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

@@ -6,5 +6,10 @@
         xmlns:local="clr-namespace:Hello_World"
         mc:Ignorable="d"
         Title="Hello World!" Height="450" Width="800">
-    <Frame x:Name="Frame"></Frame>
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+            <Image Stretch="None" Source="Resources/pictures/background.jpg" />
+        </ScrollViewer>
+        <Frame x:Name="Frame"></Frame>
+    </Grid>
 </Window>
