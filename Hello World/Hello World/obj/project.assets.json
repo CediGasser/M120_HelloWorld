@@ -8,33 +8,24 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\VIGam\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\vincentdittli\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
+      "projectUniqueName": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
       "projectName": "Hello World",
-      "projectPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
-      "packagesPath": "C:\\Users\\Vince\\.nuget\\packages\\",
-      "outputPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
-      "projectName": "Hello World",
-      "projectPath": "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
-      "packagesPath": "C:\\Users\\VIGam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World\\obj\\",
->>>>>>> Core
+      "projectPath": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
+      "packagesPath": "C:\\Users\\vincentdittli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\VIGam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\vincentdittli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -74,7 +65,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

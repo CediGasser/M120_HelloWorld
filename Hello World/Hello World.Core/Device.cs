@@ -24,6 +24,7 @@ namespace Hello_World.Core
         {
 
         }
+
     }
 
     class Supercomputer : Device

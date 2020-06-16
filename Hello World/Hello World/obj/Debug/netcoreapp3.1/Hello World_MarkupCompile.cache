@@ -4,22 +4,13 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
-D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\
-=======
-C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\
->>>>>>> Core
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\
 Hello_World
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-<<<<<<< HEAD
-D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\App.xaml
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\App.xaml
 6933968931
-=======
-C:\Users\VIGam\Documents\GitHub\M120_HelloWorld\Hello World\Hello World\App.xaml
-11151548125
->>>>>>> Core
 
 8196380915
 1921654412462
