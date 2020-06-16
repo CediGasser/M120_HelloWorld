@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World\\Hello World.csproj": {}
+    "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World\\Hello World.csproj": {
+    "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World\\Hello World.csproj",
+        "projectUniqueName": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
         "projectName": "Hello World",
-        "projectPath": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World\\Hello World.csproj",
+        "projectPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\Hello World.csproj",
         "packagesPath": "C:\\Users\\Vince\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World\\obj\\",
+        "outputPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vince\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
