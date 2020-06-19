@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace Hello_World.MainMenuPage
 {
     /// <summary>
-    /// Interaction logic for MainWindowView.xaml
+    /// Interaction logic for MainMenuView.xaml
     /// </summary>
-    public partial class MainWindowView : Page
+    public partial class MainMenuView : Page
     {
-        public MainWindowView()
+        public MainMenuView()
         {
             InitializeComponent();
         }

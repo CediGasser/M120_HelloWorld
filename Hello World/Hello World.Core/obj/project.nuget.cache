@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "X5yP8DFTTTGP3CJDHJBGLX0gqiz2NpIiOWrJ0r2JPTsNfbk/wSbR7uvqK/eNXQEtiqT2xKuPQpqpkSKOrHmxRA==",
+  "dgSpecHash": "4u67YIANiAF3i0DPCJFCE555VELEBAY8OXI0nv3Xg0w81BKfGoV256pDVk3pUyEQdh+qHl2h2t4worfQ8uc3AQ==",
   "success": true,
-  "projectFilePath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+  "projectFilePath": "C:\\Users\\VIGam\\Documents\\GitHub\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Vince\\.nuget\\packages\\fody\\6.1.1\\fody.6.1.1.nupkg.sha512",
-    "C:\\Users\\Vince\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Vince\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\Vince\\.nuget\\packages\\propertychanged.fody\\3.2.8\\propertychanged.fody.3.2.8.nupkg.sha512"
+    "C:\\Users\\VIGam\\.nuget\\packages\\fody\\6.1.1\\fody.6.1.1.nupkg.sha512",
+    "C:\\Users\\VIGam\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\VIGam\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\VIGam\\.nuget\\packages\\propertychanged.fody\\3.2.8\\propertychanged.fody.3.2.8.nupkg.sha512"
   ],
   "logs": []
 }

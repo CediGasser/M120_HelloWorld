@@ -1,6 +1,7 @@
 ﻿using Hello_World.GamePage;
 using Hello_World.ConsolePage;
 using Hello_World.ShopPage;
+using Hello_World.MainMenuPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Hello_World.MainMenuPage;
 
 namespace Hello_World
 {
@@ -27,7 +27,7 @@ namespace Hello_World
         public MainWindow()
         {
             InitializeComponent();
-            Frame.NavigationService.Navigate(new GameView());
+            Frame.NavigationService.Navigate(new MainMenuView());
         }
     }
 }
