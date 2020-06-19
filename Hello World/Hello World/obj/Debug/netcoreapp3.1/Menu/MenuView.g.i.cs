@@ -53,7 +53,7 @@ namespace Hello_World.Menu {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Hello World;V1.0.0.0;component/menu/menuview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Hello World;component/menu/menuview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Menu\MenuView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
