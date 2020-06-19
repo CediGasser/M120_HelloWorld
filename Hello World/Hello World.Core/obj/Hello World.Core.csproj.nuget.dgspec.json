@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\Hello World.Core.csproj": {}
+    "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\Hello World.Core.csproj": {
+    "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+        "projectUniqueName": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
         "projectName": "Hello World.Core",
-        "projectPath": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
-        "packagesPath": "C:\\Users\\Vince\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vince\\source\\repos\\Hello World\\Hello World.Core\\obj\\",
+        "projectPath": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+        "packagesPath": "C:\\Users\\vincentdittli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Vince\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vincentdittli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +58,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

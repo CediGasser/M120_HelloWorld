@@ -1,0 +1,29 @@
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.exe
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.deps.json
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.runtimeconfig.json
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.runtimeconfig.dev.json
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.dll
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\bin\Debug\netcoreapp3.1\Hello World.pdb
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.csprojAssemblyReference.cache
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ConsolePage\ConsoleView.g.cs
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\GamePage\GameView.g.cs
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainMenuPage\MainMenuView.g.cs
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Menu\MenuView.g.cs
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ShopPage\ShopView.g.cs
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World_MarkupCompile.cache
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World_MarkupCompile.lref
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ConsolePage\ConsoleView.baml
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\GamePage\GameView.baml
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainMenuPage\MainMenuView.baml
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Menu\MenuView.baml
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\ShopPage\ShopView.baml
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.g.resources
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.csproj.CoreCompileInputs.cache
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.AssemblyInfoInputs.cache
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.AssemblyInfo.cs
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.dll
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.pdb
+C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\Hello World.genruntimeconfig.cache

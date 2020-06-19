@@ -7,4 +7,21 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\icon\HamburgerMenu_icon.png" />
+    <None Remove="Resources\icon\icon.png" />
+    <None Remove="Resources\icon\ShopingCart_icon.png" />
+    <None Remove="Resources\pictures\background.jpg" />
+    <None Remove="Resources\pictures\Background.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\icon\HamburgerMenu_icon.png" />
+    <Resource Include="Resources\icon\icon.png" />
+    <Resource Include="Resources\icon\ShopingCart_icon.png" />
+    <Resource Include="Resources\pictures\background.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>
