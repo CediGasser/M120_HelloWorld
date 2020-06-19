@@ -9,16 +9,30 @@
     ".NETStandard,Version=v2.0/": {
       "Hello World.Core/1.0.0": {
         "dependencies": {
-          "NETStandard.Library": "2.0.3"
+          "NETStandard.Library": "2.0.3",
+          "PropertyChanged.Fody": "3.2.8"
         },
         "runtime": {
           "Hello World.Core.dll": {}
         }
       },
+      "Fody/6.1.1": {},
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "PropertyChanged.Fody/3.2.8": {
+        "dependencies": {
+          "Fody": "6.1.1",
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.0/PropertyChanged.dll": {
+            "assemblyVersion": "3.2.8.0",
+            "fileVersion": "3.2.8.0"
+          }
         }
       }
     }
@@ -28,6 +42,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Fody/6.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-i7vuMDp1LmatLaAXqfOrJt6U0lVSxAQFpjYcWmX+MEM8t6r4b8Z8NtwwcS3XbtQCDRey6QIAe3ujNoOTn7DQ1A==",
+      "path": "fody/6.1.1",
+      "hashPath": "fody.6.1.1.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -42,6 +63,13 @@
       "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "PropertyChanged.Fody/3.2.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UfhhtFPgbqwx8cpuxdRbz9cuHve2BXEs1DjPAA/4p/TfqnTct3glcUz5MQ/TGDjFxHmO1Dc4ETS+B1Zk38TnbQ==",
+      "path": "propertychanged.fody/3.2.8",
+      "hashPath": "propertychanged.fody.3.2.8.nupkg.sha512"
     }
   }
 }
