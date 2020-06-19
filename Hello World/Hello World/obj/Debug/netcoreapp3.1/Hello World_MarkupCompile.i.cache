@@ -1,20 +1,20 @@
 ﻿Hello World
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\
+D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\obj\Debug\netcoreapp3.1\
 Hello_World
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\vincentdittli\Documents\Visual Studio 2019\Project\M120_HelloWorld\Hello World\Hello World\App.xaml
+D:\Dokumente\Visual Studio 2019\Project\Hello World Clicker\M120_HelloWorld\Hello World\Hello World\App.xaml
 6933968931
 
-9-536142980
+102049934353
 1921654412462
 ConsolePage\ConsoleView.xaml;GamePage\GameView.xaml;MainMenuPage\MainMenuView.xaml;MainWindow.xaml;Menu\MenuView.xaml;ShopPage\ShopView.xaml;
 
-True
+False
 

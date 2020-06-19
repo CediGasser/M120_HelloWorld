@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj": {}
+    "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj": {
+    "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+        "projectUniqueName": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
         "projectName": "Hello World.Core",
-        "projectPath": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
-        "packagesPath": "C:\\Users\\vincentdittli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\obj\\",
+        "projectPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+        "packagesPath": "C:\\Users\\Vince\\.nuget\\packages\\",
+        "outputPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\vincentdittli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vince\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,6 +43,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[3.2.8, )"
             }
           },
           "imports": [
@@ -58,7 +59,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

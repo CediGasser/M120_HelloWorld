@@ -2,6 +2,12 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Fody/6.1.1": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -25,10 +31,59 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "PropertyChanged.Fody/3.2.8": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.1.1",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/PropertyChanged.Fody.props": {}
+        }
       }
     }
   },
   "libraries": {
+    "Fody/6.1.1": {
+      "sha512": "i7vuMDp1LmatLaAXqfOrJt6U0lVSxAQFpjYcWmX+MEM8t6r4b8Z8NtwwcS3XbtQCDRey6QIAe3ujNoOTn7DQ1A==",
+      "type": "package",
+      "path": "fody/6.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/Fody.targets",
+        "fody.6.1.1.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -171,31 +226,46 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "PropertyChanged.Fody/3.2.8": {
+      "sha512": "UfhhtFPgbqwx8cpuxdRbz9cuHve2BXEs1DjPAA/4p/TfqnTct3glcUz5MQ/TGDjFxHmO1Dc4ETS+B1Zk38TnbQ==",
+      "type": "package",
+      "path": "propertychanged.fody/3.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/PropertyChanged.Fody.props",
+        "lib/net40/PropertyChanged.dll",
+        "lib/net40/PropertyChanged.xml",
+        "lib/netstandard1.0/PropertyChanged.dll",
+        "lib/netstandard1.0/PropertyChanged.xml",
+        "propertychanged.fody.3.2.8.nupkg.sha512",
+        "propertychanged.fody.nuspec",
+        "weaver/PropertyChanged.Fody.dll",
+        "weaver/PropertyChanged.Fody.xcf"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "NETStandard.Library >= 2.0.3"
+      "NETStandard.Library >= 2.0.3",
+      "PropertyChanged.Fody >= 3.2.8"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vincentdittli\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Vince\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+      "projectUniqueName": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
       "projectName": "Hello World.Core",
-      "projectPath": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
-      "packagesPath": "C:\\Users\\vincentdittli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vincentdittli\\Documents\\Visual Studio 2019\\Project\\M120_HelloWorld\\Hello World\\Hello World.Core\\obj\\",
+      "projectPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\Hello World.Core.csproj",
+      "packagesPath": "C:\\Users\\Vince\\.nuget\\packages\\",
+      "outputPath": "D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\vincentdittli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vince\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -224,6 +294,10 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "PropertyChanged.Fody": {
+            "target": "Package",
+            "version": "[3.2.8, )"
           }
         },
         "imports": [
@@ -236,8 +310,16 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Dokumente\\Visual Studio 2019\\Project\\Hello World Clicker\\M120_HelloWorld\\Hello World\\Hello World.Core\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

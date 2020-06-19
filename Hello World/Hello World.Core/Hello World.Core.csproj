@@ -5,4 +5,8 @@
     <RootNamespace>Hello_World.Core</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="PropertyChanged.Fody" Version="3.2.8" />
+  </ItemGroup>
+
 </Project>
