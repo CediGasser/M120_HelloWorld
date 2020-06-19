@@ -53,7 +53,7 @@ namespace Hello_World.ConsolePage {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Hello World;component/consolepage/consoleview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Hello World;V1.0.0.0;component/consolepage/consoleview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ConsolePage\ConsoleView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

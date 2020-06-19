@@ -6,15 +6,11 @@ namespace Hello_World.Core
 {
     public class Game
     {
-        public List<IHelloWorldProducer> HelloWorldProducers { get; set; }
-        public List<IUpgrade> Upgrades { get; set; }
-
-
-        public event EventHandler<IUpgrade> NotifyUpgrading;
-
-        protected virtual void OnNotifyUpgrading(IUpgrade e)
+        public Game(int karma)
         {
-            NotifyUpgrading?.Invoke(this, e);
+            Karma = karma;
         }
+
+        public int Karma { get; }
     }
 }

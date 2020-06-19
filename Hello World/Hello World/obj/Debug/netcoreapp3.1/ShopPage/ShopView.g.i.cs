@@ -53,7 +53,7 @@ namespace Hello_World.ShopPage {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Hello World;component/shoppage/shopview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Hello World;V1.0.0.0;component/shoppage/shopview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ShopPage\ShopView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
