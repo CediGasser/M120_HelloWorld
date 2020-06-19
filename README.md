@@ -64,18 +64,19 @@ Die Tagesjournale können unter folgendem Link gefunden werden: [Tagesjournale](
 | Konzept erstellen | Vincent | Ongoing |
 | Dokumentation zu GitHub in MarkDown übernehmen | Cedric | Fertig |
 | Bedienkonzept zu Mockup | Cedric | Fertig |
-| Startmenü Views umsetzen | Vincent | Ongoing |
+| Startmenü Views umsetzen | Vincent | Fertig |
 | Spiel-Views umsetzen | Vincent | Fertig |
-| ViewModel/View Struktur ausarbeiten | Vincent & Cedric | - |
-| UML für Model definieren | Vincent & Cedric | - |
-| Model-Klassen erstellen | Vincent & Cedric | - |
+| UML für Model definieren | Vincent & Cedric | Ongoing |
+| Feature-Hello_World_ausgeben | Vincent | Ongoing |
+| Feature-Startmenü | Cedric | Ongoing |
+| Feature-Shop | Vincent | - |
+| Feature-Hamburgermenü | Vincent | - |
+| Feature-Daten_laden | Cedric | - |
 | UML wenn nötig anpassen & Model besprechen | Vincent & Cedric | - |
-| ViewModel/View ausprogrammieren | Vincent & Cedric | - |
-| Model ausprogrammieren | Vincent & Cedric | - |
 | Testing | Vincent & Cedric | - |
 
 ### Prototyp
-Um uns über MVVM und WPF zu informieren, und ein Grundverständnis einer solchen Applikation zu bekommen, haben wir einen Prototyp angefertigt. Dieser soll einfach eine kleine WPF Applikation nach dem MVVM-Pattern darstellen.
+Um uns über MVVM und WPF zu informieren, und ein Grundverständnis einer solchen Applikation zu bekommen, haben wir einen [Prototyp](/Prototyp) angefertigt. Dieser soll einfach eine kleine WPF Applikation nach dem MVVM-Pattern darstellen.
 
 ### Referenzen (Tutorials)
 Wir waren begeistert von MVVM als wir genäuer darüber gelesen haben. MVVM ist unserer Meinung nach um einiges besser als MVC, einfach schon weil dort mehr Sachen genäuer definiert sind und weil die lose Kopplung von View und ViewModel ein unabhängigeres Entwickeln ermöglichen. Wir haben auch noch einige andere Tutorial überflogen.
