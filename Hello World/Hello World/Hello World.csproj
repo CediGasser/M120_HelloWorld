@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Hello World.Core\Hello World.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\icon\HamburgerMenu_icon.png" />
     <Resource Include="Resources\icon\icon.png" />
     <Resource Include="Resources\icon\ShopingCart_icon.png" />
