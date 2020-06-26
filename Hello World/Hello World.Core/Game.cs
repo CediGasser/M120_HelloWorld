@@ -11,6 +11,6 @@ namespace Hello_World.Core
             Karma = karma;
         }
 
-        public int Karma { get; }
+        public int Karma { get; set; }
     }
 }
