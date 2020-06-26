@@ -27,7 +27,7 @@
     <Page Update="MainMenuPage\MainMenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="MainWindowView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Menu\MenuView.xaml">
