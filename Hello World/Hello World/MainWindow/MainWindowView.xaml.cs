@@ -27,7 +27,6 @@ namespace Hello_World
         public MainWindowView()
         {
             InitializeComponent();
-            Frame.NavigationService.Navigate(new GameView());
         }
     }
 }
