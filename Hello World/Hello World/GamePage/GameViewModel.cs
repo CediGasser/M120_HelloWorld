@@ -6,7 +6,7 @@ using Hello_World.Infrastructure.Commands;
 
 namespace Hello_World.GamePage
 {
-    class GameViewModel
+    class GameViewModel : FodyNotifyPropertyChangedBase
     {
         private readonly Game game;
 

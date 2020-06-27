@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace Hello_World.Core
 {
-    public class Game
+    public class Game : FodyNotifyPropertyChangedBase
     {
         public Game(int karma)
         {
