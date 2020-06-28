@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
@@ -10,7 +6,7 @@ using Hello_World.Infrastructure.ViewModels;
 
 namespace Hello_World.GamePage
 {
-    class GameViewModel : ViewModelBase
+    internal class GameViewModel : ViewModelBase
     {
         private readonly Game game;
 
@@ -18,36 +14,34 @@ namespace Hello_World.GamePage
 
         private int clicksPerSecond;
 
-        public int HelloWorldPerSecond { get; set; }
-
-        public RelayCommand DoThis { get; set; }
-
         public GameViewModel(Game game)
         {
             this.game = game;
-            this.DoThis = new RelayCommand(DoSomething);
-            this.oneSecondTimer = new OneSecondTimer();
-            this.oneSecondTimer.Setup();
-            this.oneSecondTimer.dispatcherTimer.Tick += OnTimerEnd;
+            OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
+            oneSecondTimer = new OneSecondTimer();
+            oneSecondTimer.dispatcherTimer.Tick += OnTimerEnd;
         }
+
+        public int HelloWorldPerSecond { get; set; }
+
+        public RelayCommand OnHelloWorldButtonClickCommand { get; set; }
 
         public int Karma
         {
             get => game.Karma;
             set => game.Karma = value;
         }
-        
-        private void DoSomething()
+
+        private void OnHelloWorldButtonClick()
         {
-            this.Karma += 1;
-            this.clicksPerSecond += 1 ;
+            Karma += 1;
+            clicksPerSecond += 1;
         }
 
         private void OnTimerEnd(object sender, EventArgs e)
         {
-            this.HelloWorldPerSecond = this.clicksPerSecond;
-            this.clicksPerSecond = 0;
+            HelloWorldPerSecond = clicksPerSecond;
+            clicksPerSecond = 0;
         }
-
     }
 }

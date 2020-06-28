@@ -8,7 +8,7 @@ namespace Hello_World.Infrastructure.Timer
     {
         public System.Windows.Threading.DispatcherTimer dispatcherTimer;
 
-        public void Setup()
+        public OneSecondTimer()
         {
             dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
