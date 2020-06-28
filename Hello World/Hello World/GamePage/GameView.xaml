@@ -57,7 +57,7 @@
             <Label Style="{StaticResource CenteredTextLabel}" Content="{Binding HelloWorldPerSecond}"></Label>
         </Border>
 
-        <TextBox Style="{StaticResource ScrollableTextBoxViewer}" Text="Hello World" Grid.Column="2" Grid.ColumnSpan="5" Grid.Row="2" Grid.RowSpan="3"></TextBox>
+        <TextBox Style="{StaticResource ScrollableTextBoxViewer}" Text="{Binding TextBoxText}" Grid.Column="2" Grid.ColumnSpan="5" Grid.Row="2" Grid.RowSpan="3"></TextBox>
 
         <Button Content="Hello World" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="6" Command="{Binding OnHelloWorldButtonClickCommand}"></Button>
 

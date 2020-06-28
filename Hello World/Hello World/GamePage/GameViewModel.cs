@@ -9,8 +9,7 @@ namespace Hello_World.GamePage
     internal class GameViewModel : ViewModelBase
     {
         private readonly Game game;
-
-        private readonly OneSecondTimer oneSecondTimer;
+        private const string TextToPrint = "Hello World";
 
         private int clicksPerSecond;
 
@@ -18,7 +17,7 @@ namespace Hello_World.GamePage
         {
             this.game = game;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
-            oneSecondTimer = new OneSecondTimer();
+            OneSecondTimer oneSecondTimer = new OneSecondTimer();
             oneSecondTimer.dispatcherTimer.Tick += OnTimerEnd;
         }
 
@@ -32,10 +31,13 @@ namespace Hello_World.GamePage
             set => game.Karma = value;
         }
 
+        public string TextBoxText { get; set; } = TextToPrint;
+
         private void OnHelloWorldButtonClick()
         {
             Karma += 1;
             clicksPerSecond += 1;
+            this.TextBoxText += $"{Environment.NewLine}{TextToPrint}";
         }
 
         private void OnTimerEnd(object sender, EventArgs e)
