@@ -11,6 +11,6 @@
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
             <Image Stretch="None" Source="/Resources/pictures/background.jpg" />
         </ScrollViewer>
-        <Frame x:Name="Frame" Content="{Binding SelectedViewModel}"></Frame>
+        <Frame x:Name="Frame" Content="{Binding SelectedPageView}"></Frame>
     </Grid>
 </Window>

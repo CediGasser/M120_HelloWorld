@@ -18,10 +18,10 @@ namespace Hello_World.MainWindow
             this.selectedPageView = selectedPageView;
         }
 
-        public object SelectedViewModel
+        public object SelectedPageView
         {
             get => selectedPageView;
-            set => SelectedViewModel = value;
+            set => selectedPageView = (IDisplayablePageView) value;
         }
     }
 }
