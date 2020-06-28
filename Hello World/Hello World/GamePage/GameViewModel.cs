@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
+using Hello_World.Infrastructure.ViewModels;
 
 namespace Hello_World.GamePage
 {
-    class GameViewModel : FodyNotifyPropertyChangedBase
+    class GameViewModel : ViewModelBase
     {
         private readonly Game game;
-
+        
         public RelayCommand DoThis { get; set; }
 
         public GameViewModel(Game game)
@@ -18,11 +21,18 @@ namespace Hello_World.GamePage
             this.DoThis = new RelayCommand(DoSomething);
         }
 
-        public int Karma => game.Karma;
+        public int Karma
+        {
+            get => game.Karma;
+            set => game.Karma = value;
+        }
+
+        //public int Karma { get; set; } = 53;
 
         private void DoSomething()
         {
-            game.Karma = 100;
+            this.Karma = 100;
         }
+
     }
 }
