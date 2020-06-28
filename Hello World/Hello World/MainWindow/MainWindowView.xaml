@@ -1,0 +1,16 @@
+﻿<Window x:Class="Hello_World.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mainWindow="clr-namespace:Hello_World.MainWindow"
+        mc:Ignorable="d"
+        Title="Hello World!" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance Type=mainWindow:MainWindowViewModel, IsDesignTimeCreatable=True}">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+            <Image Stretch="None" Source="/Resources/pictures/background.jpg" />
+        </ScrollViewer>
+        <Frame x:Name="Frame" Content="{Binding SelectedPageView}"></Frame>
+    </Grid>
+</Window>
