@@ -18,7 +18,7 @@ namespace Hello_World.GamePage
             this.game = game;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
-            oneSecondTimer.dispatcherTimer.Tick += OnTimerEnd;
+            oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
         }
 
         public int HelloWorldPerSecond { get; set; }

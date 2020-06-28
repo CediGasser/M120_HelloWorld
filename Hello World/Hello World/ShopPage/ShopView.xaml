@@ -24,7 +24,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding Name}" Height="32" />
+                    <Image Source="" Height="32" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
