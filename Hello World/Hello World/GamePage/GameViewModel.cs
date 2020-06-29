@@ -16,12 +16,10 @@ namespace Hello_World.GamePage
 
         private int clicksPerSecond;
 
-        private ICreaterViewModel createrViewModel;
 
-        public GameViewModel(Game game, ICreaterViewModel createrViewModel)
+        public GameViewModel(Game game)
         {
             this.game = game;
-            this.createrViewModel = createrViewModel;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
             OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
@@ -41,6 +39,7 @@ namespace Hello_World.GamePage
         }
 
         public string TextBoxText { get; set; } = TextToPrint;
+
         private void OnTimerEnd(object sender, EventArgs e)
         {
             int allHelloWorldPerSecond = CalculateAllAutomaticHelloWorldPerSecond();
@@ -58,7 +57,7 @@ namespace Hello_World.GamePage
 
         private void OnShopButtonClick()
         {
-            ShopView shopView = new ShopView(){DataContext = new ShopViewModel()};
+            ShopView shopView = new ShopView(){DataContext = new ShopViewModel(this.game)};
             shopView.Show();
         }
 

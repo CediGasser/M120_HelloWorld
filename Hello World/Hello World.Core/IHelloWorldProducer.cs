@@ -7,5 +7,7 @@
         int Prize { get; set; }
 
         int Count { get; set; }
+
+        void AddToCount();
     }
 }

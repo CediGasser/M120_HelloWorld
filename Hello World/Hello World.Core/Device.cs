@@ -19,6 +19,11 @@ namespace Hello_World.Core
 
         public int Count { get; set; }
 
+        public void AddToCount()
+        {
+            this.Count++;
+        }
+
         public int HelloWorldPerSecond => this.baseHelloWorldPerSecond * Count;
 
 

@@ -20,7 +20,7 @@ namespace Hello_World
         {
             GameView gameView = new GameView();
             MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(gameView);
-            gameView.DataContext = new GameViewModel(new Game(23), mainWindowViewModel);
+            gameView.DataContext = new GameViewModel(new Game(23));
             MainWindowView mainWindowView = new MainWindowView(){DataContext = mainWindowViewModel};
             mainWindowView.InitializeComponent();
             mainWindowView.Show();
