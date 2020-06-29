@@ -1,5 +1,4 @@
 ﻿using Hello_World.GamePage;
-using Hello_World.ConsolePage;
 using Hello_World.Shop;
 using System;
 using System.Collections.Generic;

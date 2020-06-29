@@ -14,6 +14,7 @@ namespace Hello_World.GamePage
     internal class GameViewModel : ViewModelBase
     {
         private readonly Game game;
+        private readonly ShopView shopView;
 
         private const string TextToPrint = "Hello World!";
 
@@ -29,6 +30,7 @@ namespace Hello_World.GamePage
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
             oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
             this.baseViewModel = baseViewModel;
+            this.shopView = new ShopView() {DataContext = new ShopViewModel(this.game)};
         }
 
         public int HelloWorldPerSecond { get; set; }
@@ -47,6 +49,7 @@ namespace Hello_World.GamePage
 
         public string TextBoxText { get; set; } = TextToPrint;
 
+        //MVVM Event Handlers
         private void OnTimerEnd(object sender, EventArgs e)
         {
             int allHelloWorldPerSecond = CalculateAllAutomaticHelloWorldPerSecond();
@@ -62,12 +65,20 @@ namespace Hello_World.GamePage
             UpdateClicksPerSecond(1);
         }
 
-        private void OnShopButtonClick()
+        private void OnMenuButtonClick()
         {
-            ShopView shopView = new ShopView(){DataContext = new ShopViewModel(this.game)};
-            shopView.Show();
+            this.shopView.Close();
+            MenuView menuView = new MenuView() { DataContext = new MenuViewModel(game, baseViewModel) };
+            ((MenuViewModel)menuView.DataContext).View = menuView;
+            menuView.ShowDialog();
         }
 
+        private void OnShopButtonClick()
+        {
+            this.shopView.Show();
+        }
+
+        //Methods
         private void UpdateClicksPerSecond(int newClicks)
         {
             clicksPerSecond += newClicks;
@@ -106,13 +117,6 @@ namespace Hello_World.GamePage
                 }
             }
             return allAutomaticHelloWorldsPerSecond;
-        }
-
-        private void OnMenuButtonClick()
-        {
-            MenuView menuView = new MenuView() {DataContext = new MenuViewModel(game, baseViewModel)};
-            ((MenuViewModel) menuView.DataContext).View = menuView;
-            menuView.ShowDialog();
         }
     }
 }

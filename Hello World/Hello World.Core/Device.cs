@@ -15,7 +15,6 @@ namespace Hello_World.Core
 
         public Device()
         {
-            
         }
 
         public string Name { get; set; }
