@@ -21,10 +21,10 @@ namespace Hello_World.Core.Device_Factory
 
         public void CreateDevice()
         {
-           HelloWorldProducers.Add(new Device("Nyffis Power PC", 13, 600));
-           HelloWorldProducers.Add(new Device("BBZW Sursee Schüler PC", 1, 10));
-           HelloWorldProducers.Add(new Device("Roland Buchers God Of Sursee Laptop", 100, 1000));
-           HelloWorldProducers.Add(new Device("Burgers Salsa Boom Box", 5, 10000));
+           HelloWorldProducers.Add(new Device("Nokia", 1, 10));
+           HelloWorldProducers.Add(new Device("BBZW Sursee Schüler PC", 5, 150));
+           HelloWorldProducers.Add(new Device("Samsung Fridge", 50, 1000));
+           HelloWorldProducers.Add(new Device("Roland Buchers Fachleiter Laptop", 600, 9000));
         }
     }
 }
