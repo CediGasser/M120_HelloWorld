@@ -11,7 +11,7 @@ namespace Hello_World.Core
         public Game(int karma)
         {
             Karma = karma;
-            this.helloWorldProducers.Add(new Device("lolz",3));
+            this.helloWorldProducers.Add(new Device("lolz",3, 123));
         }
         
         public List<IHelloWorldProducer> HelloWorldProducers

@@ -8,16 +8,16 @@ namespace Hello_World.Core
     {
         private readonly int baseHelloWorldPerSecond;
 
-        public Device(string name, int baseHelloWorldPerSecond)
+        public Device(string name, int baseHelloWorldPerSecond, int prize)
         {
             this.Name = name;
             this.baseHelloWorldPerSecond = baseHelloWorldPerSecond;
-            this.Count++;
+            this.Prize = prize;
         }
 
         public string Name { get; }
 
-        public int Count { get; set; }
+        public int Count { get; set; } = 0;
 
         public void AddToCount()
         {
