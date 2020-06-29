@@ -4,20 +4,26 @@ using System.Text;
 
 namespace Hello_World.Core
 {
-    class Device : IHelloWorldProducer
+    public class Device : IHelloWorldProducer
     {
-        public Device(float baseHWps, string name)
+        private readonly int baseHelloWorldPerSecond;
+
+        public Device(string name, int baseHelloWorldPerSecond)
         {
-            BaseHWps = baseHWps;
-            Name = name;
+            this.Name = name;
+            this.baseHelloWorldPerSecond = baseHelloWorldPerSecond;
+            this.Count++;
         }
 
         public string Name { get; }
+
         public int Count { get; set; }
+
+        public int HelloWorldPerSecond => this.baseHelloWorldPerSecond * Count;
+
+
         public int Prize { get; set; }
-        public float HWps => BaseHWps * Count;
-        public float BaseHWps { get; }
-        public float UpgradeFactor { get; set; }
+
 
     }
 }
