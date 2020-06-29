@@ -18,9 +18,12 @@ namespace Hello_World
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            MainWindowView mainWindow = new MainWindowView(){DataContext = new MainWindowViewModel(new GameView(){DataContext = new GameViewModel(new Game(23))})};
-            mainWindow.InitializeComponent();
-            mainWindow.Show();
+            GameView gameView = new GameView();
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(gameView);
+            gameView.DataContext = new GameViewModel(new Game(23), mainWindowViewModel);
+            MainWindowView mainWindowView = new MainWindowView(){DataContext = mainWindowViewModel};
+            mainWindowView.InitializeComponent();
+            mainWindowView.Show();
         }
     }
 }

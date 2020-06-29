@@ -4,20 +4,26 @@ using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
 using Hello_World.Infrastructure.ViewModels;
+using Hello_World.Shop;
 
 namespace Hello_World.GamePage
 {
     internal class GameViewModel : ViewModelBase
     {
         private readonly Game game;
+
         private const string TextToPrint = "Hello World";
 
         private int clicksPerSecond;
 
-        public GameViewModel(Game game)
+        private ICreaterViewModel createrViewModel;
+
+        public GameViewModel(Game game, ICreaterViewModel createrViewModel)
         {
             this.game = game;
+            this.createrViewModel = createrViewModel;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
+            OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
             oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
         }
@@ -26,6 +32,8 @@ namespace Hello_World.GamePage
 
         public RelayCommand OnHelloWorldButtonClickCommand { get; set; }
 
+        public RelayCommand OnShopButtonClickCommand { get; set; }
+
         public int Karma
         {
             get => game.Karma;
@@ -33,6 +41,13 @@ namespace Hello_World.GamePage
         }
 
         public string TextBoxText { get; set; } = TextToPrint;
+        private void OnTimerEnd(object sender, EventArgs e)
+        {
+            int allHelloWorldPerSecond = CalculateAllAutomaticHelloWorldPerSecond();
+            RefreshHelloWorldPerSecond();
+            UpdateKarma(allHelloWorldPerSecond);
+            UpdateHelloWorldPerSecond(allHelloWorldPerSecond);
+        }
 
         private void OnHelloWorldButtonClick()
         {
@@ -41,12 +56,10 @@ namespace Hello_World.GamePage
             UpdateClicksPerSecond(1);
         }
 
-        private void OnTimerEnd(object sender, EventArgs e)
+        private void OnShopButtonClick()
         {
-            int allHelloWorldPerSecond = CalculateAllAutomaticHelloWorldPerSecond();
-            RefreshHelloWorldPerSecond();
-            UpdateKarma(allHelloWorldPerSecond);
-            UpdateHelloWorldPerSecond(allHelloWorldPerSecond);
+            ShopView shopView = new ShopView(){DataContext = new ShopViewModel()};
+            shopView.Show();
         }
 
         private void UpdateClicksPerSecond(int newClicks)

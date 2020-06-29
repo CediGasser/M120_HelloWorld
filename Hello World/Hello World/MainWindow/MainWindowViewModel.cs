@@ -8,20 +8,13 @@ using Hello_World.Infrastructure.Views;
 
 namespace Hello_World.MainWindow
 {
-    class MainWindowViewModel : ViewModelBase
+    class MainWindowViewModel : ViewModelBase, ICreaterViewModel
     {
-       
-        private IDisplayablePageView selectedPageView;
-
         public MainWindowViewModel(IDisplayablePageView selectedPageView)
         {
-            this.selectedPageView = selectedPageView;
+            this.SelectedPageView = selectedPageView;
         }
 
-        public object SelectedPageView
-        {
-            get => selectedPageView;
-            set => selectedPageView = (IDisplayablePageView) value;
-        }
+        public IDisplayablePageView SelectedPageView { get; set; }
     }
 }
