@@ -105,10 +105,17 @@ Ein weiterer Baustein war der Timer. Um zu berechnen, wie vielle HelloWorlds wir
 
 Das Speichern und Laden vom JSON File ging erstaunlich leicht. Das einzige Problem war, dass es Keine Interfaces speichern und laden kann. Deshalb haben wir das Interface IHelloWorldProducer entfernt, und einfach die Klasse Devices benutzt. Da wir sowieso kein anderen HelloWorldProducer hatten war das kein Problem, ausser dass der Code nicht so leicht erweiterbar ist.
 - [Load and Save JSON File](https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to)
-###Testing
+### Testing
 Wir haben das Programm nur wärend dem Entwickeln getestet. Es hat ein paar Fehler oder eher Sicherheitslücken, welche aber nicht ohne übermässigen Aufwand zu beheben wären.
 - Karma ist ein int. Dass heisst wenn Karma eine gewisse Zahl überschritten hat, schreibt es nur noch müll.
 - Das Game wird von einem JSON File geladen. Es gibt aber keine Validierung was dort drinnen steht. Kann zu einem Programmabsturz führen.
+### Nicht umgesetzt
+Die ConsoleView haben wir nicht umgesetzt, weil wir zu wenig Zeit hatten, und weil es den Aufwand nicht Wert gewesen wäre. Sonst haben wir alle User Stories umgesetzt.
+
+### Fazit
+Wir beide haben unglaublich viel gelernt durch dieses Projekt. Nicht nur MVVM, WPF und C# gelernt, sondern auch wie man Git produktiv benutzt, und wie man Probleme löst und lösen kann. Der Zeitdruck war gegen Ende definitiv da! Was aber auch unsere Produktivität um 80% gesteigert hat... Wir hätten früher mit dem Coding anfangen sollen, aber wir waren halt sehr lange mit dem Konzept unzufrieden und unsicher, was uns viel zu viel Zeit gekostet hat. Mit dem Programm sind wir Fertig geworden, aber das Testing konnten wir nur bedingt und nicht geplant durchfüren. Wir haben einfach explorativ getestet und konnten somit einige Bugs bewältigen.
+
+
 ### Konzept
 Mit dem Grundprinzip ausgearbeitet, wollten wir das Thema und genäuere Funktionen für unser Game festlegen:  
 - Man ist eine AI und möchte “Hello World” ausgeben. 
