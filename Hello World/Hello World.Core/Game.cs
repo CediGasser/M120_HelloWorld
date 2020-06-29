@@ -8,10 +8,9 @@ namespace Hello_World.Core
     {
         private List<IHelloWorldProducer> helloWorldProducers = new List<IHelloWorldProducer>();
 
-        public Game(int karma)
+        public Game()
         {
-            Karma = karma;
-            this.helloWorldProducers.Add(new Device("lolz",3, 123));
+            Karma = 0;
         }
         
         public List<IHelloWorldProducer> HelloWorldProducers

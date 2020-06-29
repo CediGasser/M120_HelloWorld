@@ -5,6 +5,9 @@ using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
 using Hello_World.Infrastructure.ViewModels;
 using Hello_World.Shop;
+using Hello_World.MainMenuPage;
+using Hello_World.MainWindow;
+using Hello_World.Menu;
 
 namespace Hello_World.GamePage
 {
@@ -15,15 +18,16 @@ namespace Hello_World.GamePage
         private const string TextToPrint = "Hello World!";
 
         private int clicksPerSecond;
+        private readonly MainWindowViewModel baseViewModel;
 
-
-        public GameViewModel(Game game)
+        public GameViewModel(Game game, MainWindowViewModel baseViewModel)
         {
             this.game = game;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
-            OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
+            OnMenuCommand = new RelayCommand(OnMenuButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
-            oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
+            oneSecondTimer.dispatcherTimer.Tick += OnTimerEnd;
+            this.baseViewModel = baseViewModel;
         }
 
         public int HelloWorldPerSecond { get; set; }
@@ -31,6 +35,8 @@ namespace Hello_World.GamePage
         public RelayCommand OnHelloWorldButtonClickCommand { get; set; }
 
         public RelayCommand OnShopButtonClickCommand { get; set; }
+        
+        public RelayCommand OnMenuCommand { get; set; }
 
         public int Karma
         {
@@ -99,6 +105,13 @@ namespace Hello_World.GamePage
                 }
             }
             return allAutomaticHelloWorldsPerSecond;
+        }
+
+        private void OnMenuButtonClick()
+        {
+            MenuView menuView = new MenuView() {DataContext = new MenuViewModel(game, baseViewModel)};
+            ((MenuViewModel) menuView.DataContext).view = menuView;
+            menuView.ShowDialog();
         }
     }
 }

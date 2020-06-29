@@ -28,8 +28,8 @@ namespace Hello_World.MainMenuPage
 
         public void OnNewGameButtonClick()
         {
-            Game game = new Game(23);
-            this.baseViewModel.SelectedPageView = new GameView() {DataContext = new GameViewModel(game)};
+            Game game = new Game();
+            this.baseViewModel.SelectedPageView = new GameView() {DataContext = new GameViewModel(game, baseViewModel)};
         }
 
         public void OnLoadGameButtonClick()
@@ -38,7 +38,7 @@ namespace Hello_World.MainMenuPage
             try
             {
                 Game game = jsonFileManager.LoadGame();
-                this.baseViewModel.SelectedPageView = new GameView() { DataContext = new GameViewModel(game) };
+                this.baseViewModel.SelectedPageView = new GameView() { DataContext = new GameViewModel(game, baseViewModel) };
             }
             catch (NoPathSelectedException)
             {
