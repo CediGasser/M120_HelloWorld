@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
@@ -14,7 +15,7 @@ namespace Hello_World.GamePage
     internal class GameViewModel : ViewModelBase
     {
         private readonly Game game;
-        private readonly ShopView shopView;
+        private ShopView shopView;
 
         private const string TextToPrint = "Hello World!";
 
@@ -67,7 +68,7 @@ namespace Hello_World.GamePage
 
         private void OnMenuButtonClick()
         {
-            this.shopView.Hide();
+            this.shopView.Close();
             MenuView menuView = new MenuView() { DataContext = new MenuViewModel(game, baseViewModel) };
             ((MenuViewModel)menuView.DataContext).View = menuView;
             menuView.ShowDialog();
@@ -76,7 +77,15 @@ namespace Hello_World.GamePage
         private void OnShopButtonClick()
         {
             this.shopView.InitializeComponent();
-            this.shopView.Show();
+            try
+            {
+                this.shopView.Show();
+            }
+            catch (System.InvalidOperationException e)
+            {
+                this.shopView = new ShopView() { DataContext = new ShopViewModel(this.game) };
+                this.shopView.Show();
+            }
         }
 
         //Methods
