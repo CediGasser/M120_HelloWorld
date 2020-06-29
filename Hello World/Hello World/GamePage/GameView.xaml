@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GameView"
-      d:DataContext="{d:DesignInstance Type=gamePage:GameViewModel, IsDesignTimeCreatable=True}">
+      d:DataContext="{d:DesignInstance Type=gamePage:GameViewModel}">
     <Page.Resources>
         <Style x:Key="RoundedEdgeBorder" TargetType="Border">
             <Setter Property="BorderBrush" Value="Gray" />
