@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Hello_World.Core;
 using Hello_World.GamePage;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.MainWindow;
 using Hello_World.Infrastructure.ViewModels;
+using Hello_World.LoadAndSaveGame;
 
 namespace Hello_World.MainMenuPage
 {
@@ -33,7 +32,15 @@ namespace Hello_World.MainMenuPage
 
         public void OnLoadGameButtonClick()
         {
-
+            JsonFileManager jsonFileManager = new JsonFileManager();
+            try
+            {
+                Game game = jsonFileManager.LoadGame();
+                this.baseViewModel.SelectedPageView = new GameView() { DataContext = new GameViewModel(game) };
+            }
+            catch (NoPathSelectedException)
+            {
+            }
         }
 
         public void OnQuitButtonClick()
