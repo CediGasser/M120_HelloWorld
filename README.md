@@ -95,16 +95,16 @@ Wir hörten auch, dass Noah und Nick ihre Dokumentation mit Markdown auf GitHub 
 - [Alte Word-Dokumentation](res/Dokumentation.docx)
 
 Alls wir langsam, vielleich auch ein bisschen knapp in die MVVM, WPF und Git Prinzipien reinkamen, bemerkten wir erst unsere "richtigen Probleme". Zum Beispiel wie man mit MVVM ein Button Klick handelt. Zum Glück hatte Vincent's Oberstift ein paar Tips gegeben und sein Projekt zur abschau freigegeben. Dank diesen Tips und der Vorlage, fügten wir ein Ordner Infrastruktur hinzu, in welcher wir die Command Klassen von MyToolkit hinzufügten. Danach waren die Commands kein Hindernis mehr.
--[MyToolkit](https://github.com/MyToolkit/MyToolkit/blob/master/LICENSE.md)
+- [MyToolkit](https://github.com/MyToolkit/MyToolkit/blob/master/LICENSE.md)
 
 Das nächste Problem war, dass wir alle Devices in einer ListView auflisten wollten, und einen Button haben, welcher das spezifische Device ändern sollte. Dafür haben wir ein duzend Websites angeschaut, und nur eine Gefunden, welche das Zeugs erklärt. Bei allen anderen war das Problem, dass wir nicht genau angegeben haben, was wir wollten und deshalb hat es uns auch Zeugs vorgeschlagen, welches wir nicht wollten.
--[Command in ListView](https://codeblitz.wordpress.com/2009/03/17/wpf-commands-part-3-custom-routeduicommand/)
+- [Command in ListView](https://codeblitz.wordpress.com/2009/03/17/wpf-commands-part-3-custom-routeduicommand/)
 
 Ein weiterer Baustein war der Timer. Um zu berechnen, wie vielle HelloWorlds wir per Seckunde produzieren, brauchten wir einen Timer, der jede Sekunde ein Event erstellte. Nach langem informieren, war unsere beste Lösung ein Dispatcher Timer. Als wir das entschieden hatten, ging es eigentlich recht ring zum implementieren.
--[Dispatcher Timer](https://docs.microsoft.com/en-us/dotnet/api/system.windows.threading.dispatchertimer?redirectedfrom=MSDN&view=netcore-3.1)
+- [Dispatcher Timer](https://docs.microsoft.com/en-us/dotnet/api/system.windows.threading.dispatchertimer?redirectedfrom=MSDN&view=netcore-3.1)
 
 Das Speichern und Laden vom JSON File ging erstaunlich leicht. Das einzige Problem war, dass es Keine Interfaces speichern und laden kann. Deshalb haben wir das Interface IHelloWorldProducer entfernt, und einfach die Klasse Devices benutzt. Da wir sowieso kein anderen HelloWorldProducer hatten war das kein Problem, ausser dass der Code nicht so leicht erweiterbar ist.
--[Load and Save JSON File](https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to)
+- [Load and Save JSON File](https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to)
 
 ### Konzept
 Mit dem Grundprinzip ausgearbeitet, wollten wir das Thema und genäuere Funktionen für unser Game festlegen:  
