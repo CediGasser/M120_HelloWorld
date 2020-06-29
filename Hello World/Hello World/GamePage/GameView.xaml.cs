@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Hello_World.Infrastructure.Views;
+using Hello_World.Menu;
 
 namespace Hello_World.GamePage
 {

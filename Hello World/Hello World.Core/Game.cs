@@ -6,9 +6,9 @@ namespace Hello_World.Core
 {
     public class Game : FodyNotifyPropertyChangedBase
     {
-        public Game(int karma)
+        public Game()
         {
-            Karma = karma;
+            Karma = 0;
         }
 
         public int Karma { get; set; }
