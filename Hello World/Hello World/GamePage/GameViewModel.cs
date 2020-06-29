@@ -12,7 +12,7 @@ namespace Hello_World.GamePage
     {
         private readonly Game game;
 
-        private const string TextToPrint = "Hello World";
+        private const string TextToPrint = "Hello World!";
 
         private int clicksPerSecond;
 

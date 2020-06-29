@@ -11,22 +11,20 @@ namespace Hello_World.Shop
     {
         private Game game;
 
-        public readonly List<ListViewModel> ListViewModels = new List<ListViewModel>();
-
         public ShopViewModel(Game game)
         {
             this.game = game;
-            LoadListView();
+            OnBuyButtonClickCommand = new RelayCommand<IHelloWorldProducer>(helloWorldProducer=>OnBuyButtonClick(helloWorldProducer));
         }
-
-        private void LoadListView()
-        {
-            foreach (IHelloWorldProducer helloWorldProducer in this.HelloWorldProducers)
-            {
-                ListViewModels.Add(new ListViewModel(helloWorldProducer));
-            }
-        }
+        
+        public RelayCommand<IHelloWorldProducer> OnBuyButtonClickCommand { get; set; }
+        
 
         public List<IHelloWorldProducer> HelloWorldProducers => game.HelloWorldProducers;
+
+        private void OnBuyButtonClick(IHelloWorldProducer helloWorldProducer)
+        {
+            helloWorldProducer.AddToCount();
+        }
     }
 }

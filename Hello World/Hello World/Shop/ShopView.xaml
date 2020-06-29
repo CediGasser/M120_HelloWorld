@@ -8,39 +8,17 @@
         Title="ShopView" Height="450" Width="800"
         d:DataContext="{d:DesignInstance Type=shop:ShopViewModel}">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="50"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-        <!--<ListView Grid.Row="1" ItemsSource="{Binding HelloWorldProducers}"  BorderThickness="0">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Image Source="" Height="32" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
-        <ListView Grid.Row="1" ItemsSource="{Binding listViews}"  BorderThickness="0">
+        <ListView ItemsSource="{Binding HelloWorldProducers}"  BorderThickness="0" x:Name="HelloWorldProducersListView">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}"/>
-                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Prize}"/>
-                    <GridViewColumn Header="HWpS" DisplayMemberBinding="{Binding HelloWorldPerSecond}"/>
-                    <GridViewColumn Width="35" Header="Buy">
+                    <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Count" Width="100" DisplayMemberBinding="{Binding Count}"/>
+                    <GridViewColumn Header="Prize" Width="200" DisplayMemberBinding="{Binding Prize}"/>
+                    <GridViewColumn Header="HWpS" Width="200" DisplayMemberBinding="{Binding HelloWorldPerSecond}"/>
+                    <GridViewColumn Width="100" Header="Buy">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Buy" Command="{Binding OnBuyButtonClickCommand}" CommandParameter="{Binding HelloWorldProducers[0]}"/>
+                                <Button Content="Buy"  Command="{Binding ElementName=HelloWorldProducersListView, Path=DataContext.OnBuyButtonClickCommand}" CommandParameter="{Binding }"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
