@@ -177,6 +177,20 @@ Diese View soll wenn möglich als Overlay dargestellt werden, sonst als feste Pa
 
 ## Entwicklung
 ### Voraussetzungen / Programme
+Programme, Dienste und Nuget Packete die wir brauchten:
+- Visual Studio 19
+- Git
+- GitHub
+- GitKraken (Vincent)
+- GitHub for Desktop (Cedric)
+- Visual Studio Code (Branches Mergen)
+- FodyPropertyChanged
+- Adobe XD
+- BizAgi Prozess Modeler
+- MS Word
+- Windows 10
+- WPF Framework
+
 ### UML - Diagramm
 ### Fody (PropertyChanged)
 Fody ist ein Nuggetpack welches sehr viele Erweiterungen für Visual Studio beinhaltet. 
@@ -200,9 +214,6 @@ Dieser code wird wegen dem Fody in der Intermediate Language zum Equivalent von:
     }
 ````
 
-
-
-### Codebeispiele
 
 
 [Startmenu]: /res/Hauptmenu.PNG
