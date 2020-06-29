@@ -2,10 +2,12 @@
 {
     public interface IHelloWorldProducer
     {
-        string Name { get; }
+      string Name { get; }
+
         int Prize { get; set; }
+
         int Count { get; set; }
-        float HWps { get; }
-        float BaseHWps { get; }
+
+        void AddToCount();
     }
 }

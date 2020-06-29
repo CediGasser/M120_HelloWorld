@@ -1,29 +1,36 @@
 ﻿using System;
+using System.Linq;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
 using Hello_World.Infrastructure.ViewModels;
+using Hello_World.Shop;
 
 namespace Hello_World.GamePage
 {
     internal class GameViewModel : ViewModelBase
     {
         private readonly Game game;
-        private const string TextToPrint = "Hello World";
+
+        private const string TextToPrint = "Hello World!";
 
         private int clicksPerSecond;
+
 
         public GameViewModel(Game game)
         {
             this.game = game;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
+            OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
-            oneSecondTimer.dispatcherTimer.Tick += OnTimerEnd;
+            oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
         }
 
         public int HelloWorldPerSecond { get; set; }
 
         public RelayCommand OnHelloWorldButtonClickCommand { get; set; }
+
+        public RelayCommand OnShopButtonClickCommand { get; set; }
 
         public int Karma
         {
@@ -33,17 +40,65 @@ namespace Hello_World.GamePage
 
         public string TextBoxText { get; set; } = TextToPrint;
 
+        private void OnTimerEnd(object sender, EventArgs e)
+        {
+            int allHelloWorldPerSecond = CalculateAllAutomaticHelloWorldPerSecond();
+            RefreshHelloWorldPerSecond();
+            UpdateKarma(allHelloWorldPerSecond);
+            UpdateHelloWorldPerSecond(allHelloWorldPerSecond);
+        }
+
         private void OnHelloWorldButtonClick()
         {
-            Karma += 1;
-            clicksPerSecond += 1;
+            PrintHelloWorld();
+            UpdateKarma(1);
+            UpdateClicksPerSecond(1);
+        }
+
+        private void OnShopButtonClick()
+        {
+            ShopView shopView = new ShopView(){DataContext = new ShopViewModel(this.game)};
+            shopView.Show();
+        }
+
+        private void UpdateClicksPerSecond(int newClicks)
+        {
+            clicksPerSecond += newClicks;
+        }
+
+        private void RefreshHelloWorldPerSecond()
+        {
+            this.HelloWorldPerSecond = this.clicksPerSecond;
+            this.clicksPerSecond = 0;
+        }
+
+        private void UpdateKarma(int newHelloWorldCount)
+        {
+            this.Karma += newHelloWorldCount;
+        }
+
+        private void UpdateHelloWorldPerSecond(int newHelloWorldCount)
+        {
+            this.HelloWorldPerSecond += newHelloWorldCount;
+        }
+
+        private void PrintHelloWorld()
+        {
             this.TextBoxText += $"{Environment.NewLine}{TextToPrint}";
         }
 
-        private void OnTimerEnd(object sender, EventArgs e)
+        private int CalculateAllAutomaticHelloWorldPerSecond()
         {
-            HelloWorldPerSecond = clicksPerSecond;
-            clicksPerSecond = 0;
+            int allAutomaticHelloWorldsPerSecond = 0;
+
+            if (game.HelloWorldProducers != null)
+            {
+                foreach (Device device in this.game.HelloWorldProducers)
+                {
+                    allAutomaticHelloWorldsPerSecond += device.HelloWorldPerSecond;
+                }
+            }
+            return allAutomaticHelloWorldsPerSecond;
         }
     }
 }

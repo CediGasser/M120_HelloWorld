@@ -9,7 +9,7 @@ using Hello_World.MainMenuPage;
 
 namespace Hello_World.MainWindow
 {
-    class MainWindowViewModel : ViewModelBase
+    class MainWindowViewModel : ViewModelBase, ICreaterViewModel
     {
         public MainWindowViewModel()
         {

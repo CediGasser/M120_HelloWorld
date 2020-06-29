@@ -6,13 +6,13 @@ namespace Hello_World.Infrastructure.Timer
 {
     class OneSecondTimer
     {
-        public System.Windows.Threading.DispatcherTimer dispatcherTimer;
+        public readonly System.Windows.Threading.DispatcherTimer DispatcherTimer;
 
         public OneSecondTimer()
         {
-            dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
+            DispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            DispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            DispatcherTimer.Start();
         }
     }
 }
