@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Hello_World.Core.Device_Factory;
 
 namespace Hello_World.Core
 {
@@ -11,7 +12,8 @@ namespace Hello_World.Core
         public Game(int karma)
         {
             Karma = karma;
-            this.helloWorldProducers.Add(new Device("lolz",3, 123));
+            DeviceFactory factory = new DeviceFactory();
+            helloWorldProducers = factory.HelloWorldProducers;
         }
         
         public List<IHelloWorldProducer> HelloWorldProducers

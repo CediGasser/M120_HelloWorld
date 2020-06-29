@@ -14,7 +14,7 @@
                     <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Count" Width="100" DisplayMemberBinding="{Binding Count}"/>
                     <GridViewColumn Header="Prize" Width="200" DisplayMemberBinding="{Binding Prize}"/>
-                    <GridViewColumn Header="HWpS" Width="200" DisplayMemberBinding="{Binding HelloWorldPerSecond}"/>
+                    <GridViewColumn Header="HWpS" Width="200" DisplayMemberBinding="{Binding BaseHelloWorldPerSecond}"/>
                     <GridViewColumn Width="100" Header="Buy">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
