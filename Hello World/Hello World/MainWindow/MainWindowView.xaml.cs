@@ -20,7 +20,7 @@ using Hello_World.MainMenuPage;
 namespace Hello_World
 {
     /// <summary>
-    /// Interaction logic for MainWindowView.xaml
+    /// Interaction logic for MainMenuView.xaml
     /// </summary>
     public partial class MainWindowView : Window
     {

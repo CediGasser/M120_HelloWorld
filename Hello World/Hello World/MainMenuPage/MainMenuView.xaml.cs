@@ -10,15 +10,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Hello_World.Infrastructure.Views;
 
 namespace Hello_World.MainMenuPage
 {
     /// <summary>
-    /// Interaction logic for MainWindowView.xaml
+    /// Interaction logic for MainMenuView.xaml
     /// </summary>
-    public partial class MainWindowView : Page
+    public partial class MainMenuView : Page, IDisplayablePageView
     {
-        public MainWindowView()
+        public MainMenuView()
         {
             InitializeComponent();
         }
