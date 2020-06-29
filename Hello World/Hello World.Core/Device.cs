@@ -7,7 +7,7 @@ namespace Hello_World.Core
     public class Device : IHelloWorldProducer
     {
         private readonly int baseHelloWorldPerSecond;
-
+        
         public Device(string name, int baseHelloWorldPerSecond, int prize)
         {
             this.Name = name;
@@ -26,6 +26,7 @@ namespace Hello_World.Core
 
         public int HelloWorldPerSecond => this.baseHelloWorldPerSecond * Count;
 
+        public int BaseHelloWorldPerSecond => baseHelloWorldPerSecond;
 
         public int Prize { get; set; }
 
