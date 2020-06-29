@@ -67,7 +67,7 @@ namespace Hello_World.GamePage
 
         private void OnMenuButtonClick()
         {
-            this.shopView.Close();
+            this.shopView.Hide();
             MenuView menuView = new MenuView() { DataContext = new MenuViewModel(game, baseViewModel) };
             ((MenuViewModel)menuView.DataContext).View = menuView;
             menuView.ShowDialog();
@@ -75,6 +75,7 @@ namespace Hello_World.GamePage
 
         private void OnShopButtonClick()
         {
+            this.shopView.InitializeComponent();
             this.shopView.Show();
         }
 
