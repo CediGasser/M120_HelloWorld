@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Hello_World.ShopPage
+namespace Hello_World.Shop
 {
     /// <summary>
     /// Interaction logic for ShopView.xaml
