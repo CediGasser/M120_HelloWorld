@@ -17,7 +17,7 @@ namespace Hello_World.Core
 
         public string Name { get; }
 
-        public int Count { get; set; } = 0;
+        public int Count { get; set; }
 
         public void AddToCount()
         {

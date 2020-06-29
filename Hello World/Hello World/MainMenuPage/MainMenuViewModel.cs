@@ -11,10 +11,12 @@ namespace Hello_World.MainMenuPage
     class MainMenuViewModel : ViewModelBase
     {
         public RelayCommand OnNewGameCommand { get; set; }
+
         public RelayCommand OnLoadGameCommand { get; set; }
+
         public RelayCommand OnQuitCommand { get; set; }
 
-        public MainWindowViewModel baseViewModel;
+        private readonly MainWindowViewModel baseViewModel;
 
         public MainMenuViewModel(MainWindowViewModel baseViewModel)
         {
