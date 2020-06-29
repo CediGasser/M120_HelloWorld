@@ -6,12 +6,10 @@ namespace Hello_World.Core
 {
     public class Device
     {
-        private readonly int baseHelloWorldPerSecond;
-        
         public Device(string name, int baseHelloWorldPerSecond, int prize)
         {
             this.Name = name;
-            this.baseHelloWorldPerSecond = baseHelloWorldPerSecond;
+            this.BaseHelloWorldPerSecond = baseHelloWorldPerSecond;
             this.Prize = prize;
         }
 
@@ -20,7 +18,7 @@ namespace Hello_World.Core
             
         }
 
-        public string Name { get; }
+        public string Name { get; set; }
 
         public int Count { get; set; }
 
@@ -29,9 +27,9 @@ namespace Hello_World.Core
             this.Count++;
         }
 
-        public int HelloWorldPerSecond => this.baseHelloWorldPerSecond * Count;
+        public int HelloWorldPerSecond => this.BaseHelloWorldPerSecond * Count;
 
-        public int BaseHelloWorldPerSecond => baseHelloWorldPerSecond;
+        public int BaseHelloWorldPerSecond { get; set; }
 
         public int Prize { get; set; }
 
