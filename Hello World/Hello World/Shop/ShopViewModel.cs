@@ -16,15 +16,24 @@ namespace Hello_World.Shop
             this.game = game;
             OnBuyButtonClickCommand = new RelayCommand<IHelloWorldProducer>(helloWorldProducer=>OnBuyButtonClick(helloWorldProducer));
         }
-        
+
+        public int Karma
+        {
+            get => game.Karma;
+            set => game.Karma = value;
+        }
+
         public RelayCommand<IHelloWorldProducer> OnBuyButtonClickCommand { get; set; }
         
-
         public List<IHelloWorldProducer> HelloWorldProducers => game.HelloWorldProducers;
 
         private void OnBuyButtonClick(IHelloWorldProducer helloWorldProducer)
         {
-            helloWorldProducer.AddToCount();
+            if(this.Karma >= helloWorldProducer.Prize)
+            {
+                this.Karma -= helloWorldProducer.Prize;
+                helloWorldProducer.AddToCount();
+            }
         }
     }
 }
