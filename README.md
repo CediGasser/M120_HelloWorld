@@ -66,14 +66,14 @@ Die Tagesjournale können unter folgendem Link gefunden werden: [Tagesjournale](
 | Bedienkonzept zu Mockup | Cedric | Fertig |
 | Startmenü Views umsetzen | Vincent | Fertig |
 | Spiel-Views umsetzen | Vincent | Fertig |
-| UML für Model definieren | Vincent & Cedric | Ongoing |
-| Feature-Hello_World_ausgeben | Vincent | Ongoing |
+| UML für Model definieren | Vincent & Cedric | Fertig |
+| Feature-Hello_World_ausgeben | Vincent | Fertig |
 | Feature-Startmenü | Cedric | Ongoing |
-| Feature-Shop | Vincent | - |
-| Feature-Hamburgermenü | Vincent | - |
-| Feature-Daten_laden | Cedric | - |
-| UML wenn nötig anpassen & Model besprechen | Vincent & Cedric | - |
-| Testing | Vincent & Cedric | - |
+| Feature-Shop | Vincent | Fertig |
+| Feature-Hamburgermenü | Cedric | Fertig |
+| Feature-Daten_laden | Cedric | Fertig |
+| UML wenn nötig anpassen & Model besprechen | Vincent & Cedric | Fertig |
+| Testing | Vincent & Cedric | Fertig |
 
 ### Prototyp
 Um uns über MVVM und WPF zu informieren, und ein Grundverständnis einer solchen Applikation zu bekommen, haben wir einen [Prototyp](/Prototyp) angefertigt. Dieser soll einfach eine kleine WPF Applikation nach dem MVVM-Pattern darstellen.
@@ -105,7 +105,10 @@ Ein weiterer Baustein war der Timer. Um zu berechnen, wie vielle HelloWorlds wir
 
 Das Speichern und Laden vom JSON File ging erstaunlich leicht. Das einzige Problem war, dass es Keine Interfaces speichern und laden kann. Deshalb haben wir das Interface IHelloWorldProducer entfernt, und einfach die Klasse Devices benutzt. Da wir sowieso kein anderen HelloWorldProducer hatten war das kein Problem, ausser dass der Code nicht so leicht erweiterbar ist.
 - [Load and Save JSON File](https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to)
-
+###Testing
+Wir haben das Programm nur wärend dem Entwickeln getestet. Es hat ein paar Fehler oder eher Sicherheitslücken, welche aber nicht ohne übermässigen Aufwand zu beheben wären.
+- Karma ist ein int. Dass heisst wenn Karma eine gewisse Zahl überschritten hat, schreibt es nur noch müll.
+- Das Game wird von einem JSON File geladen. Es gibt aber keine Validierung was dort drinnen steht. Kann zu einem Programmabsturz führen.
 ### Konzept
 Mit dem Grundprinzip ausgearbeitet, wollten wir das Thema und genäuere Funktionen für unser Game festlegen:  
 - Man ist eine AI und möchte “Hello World” ausgeben. 
