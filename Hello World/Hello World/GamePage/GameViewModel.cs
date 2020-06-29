@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
@@ -35,15 +36,57 @@ namespace Hello_World.GamePage
 
         private void OnHelloWorldButtonClick()
         {
-            Karma += 1;
-            clicksPerSecond += 1;
-            this.TextBoxText += $"{Environment.NewLine}{TextToPrint}";
+            PrintHelloWorld();
+            UpdateKarma(1);
+            UpdateClicksPerSecond(1);
         }
 
         private void OnTimerEnd(object sender, EventArgs e)
         {
-            HelloWorldPerSecond = clicksPerSecond;
-            clicksPerSecond = 0;
+            int allHelloWorldPerSecond = CalculateAllAutomaticHelloWorldPerSecond();
+            RefreshHelloWorldPerSecond();
+            UpdateKarma(allHelloWorldPerSecond);
+            UpdateHelloWorldPerSecond(allHelloWorldPerSecond);
+        }
+
+        private void UpdateClicksPerSecond(int newClicks)
+        {
+            clicksPerSecond += newClicks;
+        }
+
+        private void RefreshHelloWorldPerSecond()
+        {
+            this.HelloWorldPerSecond = this.clicksPerSecond;
+            this.clicksPerSecond = 0;
+        }
+
+        private void UpdateKarma(int newHelloWorldCount)
+        {
+            this.Karma += newHelloWorldCount;
+        }
+
+        private void UpdateHelloWorldPerSecond(int newHelloWorldCount)
+        {
+            this.HelloWorldPerSecond += newHelloWorldCount;
+        }
+
+        private void PrintHelloWorld()
+        {
+            this.TextBoxText += $"{Environment.NewLine}{TextToPrint}";
+        }
+
+        private int CalculateAllAutomaticHelloWorldPerSecond()
+        {
+            int allAutomaticHelloWorldsPerSecond = 0;
+
+            if (game.HelloWorldProducers != null)
+            {
+                foreach (Device device in this.game.HelloWorldProducers)
+                {
+                    allAutomaticHelloWorldsPerSecond += device.HelloWorldPerSecond;
+                }
+            }
+            return allAutomaticHelloWorldsPerSecond;
         }
     }
 }
