@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hello_World.Core
 {
-    public class Device
+    public class Device : FodyNotifyPropertyChangedBase
     {
         public Device(string name, int baseHelloWorldPerSecond, int prize)
         {
