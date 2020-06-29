@@ -1,8 +1,7 @@
 # Hello World
 _Eine Projektarbeit mit MVVM und WPF_
 
-## Inhaltsverzeichnis
-[]()
+
 
 ## Einführung
 Mit diesem Projekt wollen wir das gelernte von Modul 120 (Benutzerschnittstellen implementieren) und Modul 226B (Objektorientiert implementieren) widergeben. Wir wollten ein “Clicker Game” erstellen.
@@ -214,6 +213,7 @@ Programme, Dienste und Nuget Packete die wir brauchten:
 - WPF Framework
 
 ### UML - Diagramm
+![uml][uml]
 ### Fody (PropertyChanged)
 Fody ist ein Nuggetpack welches sehr viele Erweiterungen für Visual Studio beinhaltet. 
 Wir brauchen nur Fody propertychanged. Dieses Nugget generiert den Code nach dem er Gebuildet wird. Das heisst, er verändert die Intermediate Language. Ein Beispiel wäre die set-methode: 
@@ -247,4 +247,4 @@ Dieser code wird wegen dem Fody in der Intermediate Language zum Equivalent von:
 
 [Prozessdiagramm]: /res/Prozessdiagramm.PNG
 
-
+[uml]: /res/uml.PNG
