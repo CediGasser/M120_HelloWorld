@@ -211,6 +211,7 @@ Programme, Dienste und Nuget Packete die wir brauchten:
 - MS Word
 - Windows 10
 - WPF Framework
+- Enterprise Architect
 
 ### UML - Diagramm
 ![uml][uml]
