@@ -5,6 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Hello_World.Core;
+using Hello_World.GamePage;
+using Hello_World.MainWindow;
 
 namespace Hello_World
 {
@@ -13,5 +16,11 @@ namespace Hello_World
     /// </summary>
     public partial class App : Application
     {
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+            MainWindowView mainWindow = new MainWindowView(){DataContext = new MainWindowViewModel()};
+            mainWindow.InitializeComponent();
+            mainWindow.Show();
+        }
     }
 }

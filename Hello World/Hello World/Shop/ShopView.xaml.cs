@@ -8,18 +8,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Hello_World.Infrastructure.Views;
 
-namespace Hello_World.MainMenuPage
+namespace Hello_World.Shop
 {
     /// <summary>
-    /// Interaction logic for MainMenuView.xaml
+    /// Interaction logic for ShopView.xaml
     /// </summary>
-    public partial class MainMenuView : Page, IDisplayablePageView
+    public partial class ShopView : Window
     {
-        public MainMenuView()
+        public ShopView()
         {
             InitializeComponent();
         }

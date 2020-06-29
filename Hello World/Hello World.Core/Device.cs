@@ -4,20 +4,34 @@ using System.Text;
 
 namespace Hello_World.Core
 {
-    class Device : IHelloWorldProducer
+    public class Device : FodyNotifyPropertyChangedBase
     {
-        public Device(float baseHWps, string name)
+        public Device(string name, int baseHelloWorldPerSecond, int prize)
         {
-            BaseHWps = baseHWps;
-            Name = name;
+            this.Name = name;
+            this.BaseHelloWorldPerSecond = baseHelloWorldPerSecond;
+            this.Prize = prize;
         }
 
-        public string Name { get; }
+        public Device()
+        {
+        }
+
+        public string Name { get; set; }
+
         public int Count { get; set; }
+
+        public void AddToCount()
+        {
+            this.Count++;
+        }
+
+        public int HelloWorldPerSecond => this.BaseHelloWorldPerSecond * Count;
+
+        public int BaseHelloWorldPerSecond { get; set; }
+
         public int Prize { get; set; }
-        public float HWps => BaseHWps * Count;
-        public float BaseHWps { get; }
-        public float UpgradeFactor { get; set; }
+
 
     }
 }

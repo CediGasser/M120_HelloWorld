@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        AllowsTransparency="True"
         Title="MenuView" Height="450" Width="450">
     <Window.Background>
         <SolidColorBrush Opacity="0.5" Color="white"/>
@@ -25,8 +24,8 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Style="{StaticResource MenuButton}" Grid.Row="0"  Content="Resume"></Button>
-        <Button Style="{StaticResource MenuButton}" Grid.Row="2"  Content="Save and Exit"></Button>
-        <Button Style="{StaticResource MenuButton}" Grid.Row="4"  Content="Quit"></Button>
+        <Button Style="{StaticResource MenuButton}" Grid.Row="0"  Content="Resume" Command="{Binding OnResumeCommand}"></Button>
+        <Button Style="{StaticResource MenuButton}" Grid.Row="2"  Content="Save" Command="{Binding OnSaveCommand}"></Button>
+        <Button Style="{StaticResource MenuButton}" Grid.Row="4"  Content="Exit" Command="{Binding OnExitCommand}"></Button>
     </Grid>
 </Window>

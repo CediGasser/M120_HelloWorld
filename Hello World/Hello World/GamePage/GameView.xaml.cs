@@ -10,13 +10,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Hello_World.Infrastructure.Views;
+using Hello_World.Menu;
 
 namespace Hello_World.GamePage
 {
     /// <summary>
     /// Interaction logic for GamePageView.xaml
     /// </summary>
-    public partial class GameView : Page
+    public partial class GameView : Page, IDisplayablePageView
     {
         public GameView()
         {
