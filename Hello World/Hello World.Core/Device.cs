@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hello_World.Core
 {
-    public class Device : IHelloWorldProducer
+    public class Device
     {
         private readonly int baseHelloWorldPerSecond;
         
@@ -13,6 +13,11 @@ namespace Hello_World.Core
             this.Name = name;
             this.baseHelloWorldPerSecond = baseHelloWorldPerSecond;
             this.Prize = prize;
+        }
+
+        public Device()
+        {
+            
         }
 
         public string Name { get; }

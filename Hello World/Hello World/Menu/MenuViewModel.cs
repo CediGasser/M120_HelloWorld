@@ -18,9 +18,9 @@ namespace Hello_World.Menu
 
         private Game game;
 
-        public MenuView view;
+        public MenuView View;
 
-        public MainWindowViewModel baseViewModel;
+        public readonly MainWindowViewModel BaseViewModel;
 
         public MenuViewModel(Game game, MainWindowViewModel baseViewModel)
         {
@@ -28,12 +28,12 @@ namespace Hello_World.Menu
             this.OnSaveCommand = new RelayCommand(OnSaveButtonClick);
             this.OnExitCommand = new RelayCommand(OnExitButtonClick);
             this.game = game;
-            this.baseViewModel = baseViewModel;
+            this.BaseViewModel = baseViewModel;
         }
 
         public void OnResumeButtonClick()
         {
-            view.Close();
+            View.Close();
         }
 
         public void OnSaveButtonClick()
@@ -45,7 +45,7 @@ namespace Hello_World.Menu
 
         public void OnExitButtonClick()
         {
-            baseViewModel.SelectedPageView = new MainMenuView(){DataContext = new MainMenuViewModel(baseViewModel)};
+            BaseViewModel.SelectedPageView = new MainMenuView(){DataContext = new MainMenuViewModel(BaseViewModel)};
             OnSaveButtonClick();
             OnResumeButtonClick();
         }

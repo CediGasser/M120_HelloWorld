@@ -6,14 +6,14 @@ namespace Hello_World.Core.Device_Factory
 {
     class DeviceFactory
     {
-        private List<IHelloWorldProducer> helloWorldProducers = new List<IHelloWorldProducer>();
+        private List<Device> helloWorldProducers = new List<Device>();
 
         public DeviceFactory()
         {
             CreateDevice();
         }
 
-        public List<IHelloWorldProducer> HelloWorldProducers
+        public List<Device> HelloWorldProducers
         {
             get => helloWorldProducers;
             set => helloWorldProducers = value;

@@ -7,23 +7,18 @@ namespace Hello_World.Core
 {
     public class Game : FodyNotifyPropertyChangedBase
     {
-        private List<IHelloWorldProducer> helloWorldProducers = new List<IHelloWorldProducer>();
-
         public Game()
         {
             DeviceFactory factory = new DeviceFactory();
-            helloWorldProducers = factory.HelloWorldProducers;
+            HelloWorldProducers = factory.HelloWorldProducers;
             Karma = 0;
         }
         
-        public List<IHelloWorldProducer> HelloWorldProducers
-        {
-            get => helloWorldProducers;
-        }
+        public List<Device> HelloWorldProducers { get; set; }
 
         public int Karma { get; set; }
 
-        public void AddHelloWorldProducer(IHelloWorldProducer helloWorldProducer)
+        public void AddHelloWorldProducer(Device helloWorldProducer)
         {
             this.HelloWorldProducers.Add(helloWorldProducer);
         }

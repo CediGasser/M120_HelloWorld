@@ -14,7 +14,7 @@ namespace Hello_World.Shop
         public ShopViewModel(Game game)
         {
             this.game = game;
-            OnBuyButtonClickCommand = new RelayCommand<IHelloWorldProducer>(helloWorldProducer=>OnBuyButtonClick(helloWorldProducer));
+            OnBuyButtonClickCommand = new RelayCommand<Device>(helloWorldProducer=>OnBuyButtonClick(helloWorldProducer));
         }
 
         public int Karma
@@ -23,11 +23,11 @@ namespace Hello_World.Shop
             set => game.Karma = value;
         }
 
-        public RelayCommand<IHelloWorldProducer> OnBuyButtonClickCommand { get; set; }
+        public RelayCommand<Device> OnBuyButtonClickCommand { get; set; }
         
-        public List<IHelloWorldProducer> HelloWorldProducers => game.HelloWorldProducers;
+        public List<Device> HelloWorldProducers => game.HelloWorldProducers;
 
-        private void OnBuyButtonClick(IHelloWorldProducer helloWorldProducer)
+        private void OnBuyButtonClick(Device helloWorldProducer)
         {
             if(this.Karma >= helloWorldProducer.Prize)
             {

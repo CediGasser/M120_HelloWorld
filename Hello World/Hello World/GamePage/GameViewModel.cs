@@ -25,8 +25,9 @@ namespace Hello_World.GamePage
             this.game = game;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
             OnMenuCommand = new RelayCommand(OnMenuButtonClick);
+            OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
-            oneSecondTimer.dispatcherTimer.Tick += OnTimerEnd;
+            oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
             this.baseViewModel = baseViewModel;
         }
 
@@ -110,7 +111,7 @@ namespace Hello_World.GamePage
         private void OnMenuButtonClick()
         {
             MenuView menuView = new MenuView() {DataContext = new MenuViewModel(game, baseViewModel)};
-            ((MenuViewModel) menuView.DataContext).view = menuView;
+            ((MenuViewModel) menuView.DataContext).View = menuView;
             menuView.ShowDialog();
         }
     }
