@@ -14,7 +14,7 @@ namespace Hello_World.LoadAndSaveGame
     {
         public void SaveGame(Game game)
         {
-            string jsonString = JsonSerializer.Serialize(game);
+            string jsonString = JsonSerializer.Serialize(game, new JsonSerializerOptions() { WriteIndented=true });
 
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {

@@ -16,7 +16,7 @@ namespace Hello_World.Core
         
         public List<Device> HelloWorldProducers { get; set; }
 
-        public int Karma { get; set; }
+        public long Karma { get; set; }
 
         public void AddHelloWorldProducer(Device helloWorldProducer)
         {

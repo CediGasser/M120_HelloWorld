@@ -17,7 +17,7 @@ namespace Hello_World.Shop
             OnBuyButtonClickCommand = new RelayCommand<Device>(helloWorldProducer=>OnBuyButtonClick(helloWorldProducer));
         }
 
-        public int Karma
+        public long Karma
         {
             get => game.Karma;
             set => game.Karma = value;

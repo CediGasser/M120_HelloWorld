@@ -41,7 +41,7 @@ namespace Hello_World.GamePage
         
         public RelayCommand OnMenuCommand { get; set; }
 
-        public int Karma
+        public long Karma
         {
             get => game.Karma;
             set => game.Karma = value;
