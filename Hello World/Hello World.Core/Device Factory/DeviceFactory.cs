@@ -33,9 +33,9 @@ namespace Hello_World.Core.Device_Factory
             HelloWorldProducers.Add(new Device("Höllenmaschine", 50000, 500000));
             HelloWorldProducers.Add(new Device("Kaufmanns C++ Experten PC", 200000, 2000000));
             HelloWorldProducers.Add(new Device("CIA Spionagecomputer", 800000, 8000000));
-            HelloWorldProducers.Add(new Device("E.D.I.T.H", 1300000, 9000));
-            HelloWorldProducers.Add(new Device("X AE A-XII", 2000000, 9000));
-            HelloWorldProducers.Add(new Device("NASA Super Computer", 6900000, 9000));
+            HelloWorldProducers.Add(new Device("E.D.I.T.H", 1300000, 13000000));
+            HelloWorldProducers.Add(new Device("X AE A-XII", 2000000, 20000000));
+            HelloWorldProducers.Add(new Device("NASA Super Computer", 6900000, 69000000));
         }
     }
 }
