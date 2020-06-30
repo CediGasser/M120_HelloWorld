@@ -108,6 +108,7 @@ Das Speichern und Laden vom JSON File ging erstaunlich leicht. Das einzige Probl
 Wir haben das Programm nur wärend dem Entwickeln getestet. Es hat ein paar Fehler oder eher Sicherheitslücken, welche aber nicht ohne übermässigen Aufwand zu beheben wären.
 - Karma ist ein int. Dass heisst wenn Karma eine gewisse Zahl überschritten hat, schreibt es nur noch müll.
 - Das Game wird von einem JSON File geladen. Es gibt aber keine Validierung was dort drinnen steht. Kann zu einem Programmabsturz führen.
+- Wenn man mit mehr als 10 klicks pro Sekudnde auf den Knopf drückt, ladet es das Karma nicht mehr richtig. Das liegt wahrscheinlich am Timer, das sein Event nie aufgerufen wird, weil das Programm anderes im Moment am machen ist
 ### Nicht umgesetzt
 Die ConsoleView haben wir nicht umgesetzt, weil wir zu wenig Zeit hatten, und weil es den Aufwand nicht Wert gewesen wäre. Sonst haben wir alle User Stories umgesetzt.
 
