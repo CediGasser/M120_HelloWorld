@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hello World", "Hello World\Hello World.csproj", "{54C8B21D-489C-4661-902E-3EE81266487A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hello World", "Hello World\Hello World.csproj", "{54C8B21D-489C-4661-902E-3EE81266487A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hello World.Core", "Hello World.Core\Hello World.Core.csproj", "{D2F67524-5D43-4F4C-BB6D-F8623DE9886A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hello World.Core", "Hello World.Core\Hello World.Core.csproj", "{D2F67524-5D43-4F4C-BB6D-F8623DE9886A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hello World.Core.Test", "Hello World.Core.Test\Hello World.Core.Test.csproj", "{864451C3-ECCD-404F-9BE4-D98F40802342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hello World.Spec", "Hello World.Spec\Hello World.Spec.csproj", "{CADDB31C-EFDA-43C1-A0B3-C4BEE3164F04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D2F67524-5D43-4F4C-BB6D-F8623DE9886A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2F67524-5D43-4F4C-BB6D-F8623DE9886A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2F67524-5D43-4F4C-BB6D-F8623DE9886A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864451C3-ECCD-404F-9BE4-D98F40802342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864451C3-ECCD-404F-9BE4-D98F40802342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864451C3-ECCD-404F-9BE4-D98F40802342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864451C3-ECCD-404F-9BE4-D98F40802342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CADDB31C-EFDA-43C1-A0B3-C4BEE3164F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADDB31C-EFDA-43C1-A0B3-C4BEE3164F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADDB31C-EFDA-43C1-A0B3-C4BEE3164F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADDB31C-EFDA-43C1-A0B3-C4BEE3164F04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

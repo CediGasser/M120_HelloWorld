@@ -6,11 +6,11 @@ namespace Hello_World.Core
 {
     public class Device : FodyNotifyPropertyChangedBase
     {
-        public Device(string name, int baseHelloWorldPerSecond, int prize)
+        public Device(string name, int baseHelloWorldPerSecond, int cost)
         {
             this.Name = name;
             this.BaseHelloWorldPerSecond = baseHelloWorldPerSecond;
-            this.Prize = prize;
+            this.Cost = cost;
         }
 
         public Device()
@@ -21,7 +21,7 @@ namespace Hello_World.Core
 
         public int Count { get; set; }
 
-        public void AddToCount()
+        public void IncreaseCountByOne()
         {
             this.Count++;
         }
@@ -30,8 +30,6 @@ namespace Hello_World.Core
 
         public int BaseHelloWorldPerSecond { get; }
 
-        public int Prize { get; set; }
-
-
+        public int Cost { get; set; }
     }
 }

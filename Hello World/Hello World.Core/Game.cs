@@ -9,11 +9,15 @@ namespace Hello_World.Core
 {
     public class Game : FodyNotifyPropertyChangedBase
     {
+        private readonly DatetimeNowProvider datetimeNowProvider;
         private DateTime lastUpdate;
         private int karmaToAdd;
 
-        public Game()
+        public Game(DatetimeNowProvider datetimeNowProvider)
         {
+            this.datetimeNowProvider = datetimeNowProvider;
+
+            this.lastUpdate = datetimeNowProvider.Now;
             this.HelloWorldProducers = new DevicesFactory().CreateDefaultDevices();
         }
         
@@ -23,14 +27,15 @@ namespace Hello_World.Core
 
         private void BuyHelloWorldProducer(Device helloWorldProducer)
         {
-            this.karmaToAdd = CalculateAutomaticProducedHelloWorldPerSecond();
             UpdateKarma();
-            helloWorldProducer.AddToCount();
+            helloWorldProducer.IncreaseCountByOne();
+            this.karmaToAdd = CalculateAutomaticProducedHelloWorldPerSecond();
+            this.Karma -= helloWorldProducer.Cost;
         }
 
         public void TryBuyHelloWorldProducer(Device helloWorldProducer)
         {
-            if (helloWorldProducer.Prize <= Karma)
+            if (helloWorldProducer.Cost <= Karma)
             {
                 BuyHelloWorldProducer(helloWorldProducer);
             }
@@ -42,10 +47,9 @@ namespace Hello_World.Core
 
         public void UpdateKarma()
         {
-            double secondsSinceLastUpdate = (DateTime.Now - lastUpdate).TotalSeconds;
-            double huii = this.Karma + karmaToAdd * secondsSinceLastUpdate;
-            this.Karma = huii;
-            this.lastUpdate = DateTime.Now;
+            double secondsSinceLastUpdate = (this.datetimeNowProvider.Now - this.lastUpdate).TotalSeconds;
+            this.Karma = this.Karma + this.karmaToAdd * secondsSinceLastUpdate;
+            this.lastUpdate = this.datetimeNowProvider.Now;
         }
 
         private int CalculateAutomaticProducedHelloWorldPerSecond()
