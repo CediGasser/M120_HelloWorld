@@ -17,7 +17,7 @@ namespace Hello_World.MainMenuPage
     /// <summary>
     /// Interaction logic for MainMenuView.xaml
     /// </summary>
-    public partial class MainMenuView : Page, IDisplayablePageView
+    public partial class MainMenuView : UserControl
     {
         public MainMenuView()
         {

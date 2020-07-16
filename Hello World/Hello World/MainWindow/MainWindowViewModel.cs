@@ -10,15 +10,15 @@ using Hello_World.MainMenuPage;
 
 namespace Hello_World.MainWindow
 {
-    class MainWindowViewModel : ViewModelBase, ICreaterViewModel
+    public class MainWindowViewModel : ViewModelBase, ICreaterViewModel
     {
         public MainWindowViewModel()
         {
-            this.SelectedPageView = new MainMenuView(){ DataContext = new MainMenuViewModel(this)};
+            this.SelectedPageViewModel = new MainMenuViewModel(this);
             this.Children = new List<Window>();
         }
 
-        public IDisplayablePageView SelectedPageView { get; set; }
+        public IDisplayablePageViewModel SelectedPageViewModel { get; set; }
 
         public IList<Window> Children { get; }
 

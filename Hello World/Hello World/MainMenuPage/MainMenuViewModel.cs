@@ -4,11 +4,12 @@ using Hello_World.GamePage;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.MainWindow;
 using Hello_World.Infrastructure.ViewModels;
+using Hello_World.Infrastructure.Views;
 using Hello_World.LoadAndSaveGame;
 
 namespace Hello_World.MainMenuPage
 {
-    class MainMenuViewModel : ViewModelBase
+    class MainMenuViewModel : ViewModelBase, IDisplayablePageViewModel
     {
         public RelayCommand OnNewGameCommand { get; set; }
 
@@ -28,8 +29,8 @@ namespace Hello_World.MainMenuPage
 
         public void OnNewGameButtonClick()
         {
-            Game game = new Game();
-            this.baseViewModel.SelectedPageView = new GameView() {DataContext = new GameViewModel(game, baseViewModel)};
+            Game game = new Game(new DatetimeNowProvider());
+            this.baseViewModel.SelectedPageViewModel = new GameViewModel(game, baseViewModel);
         }
 
         public void OnLoadGameButtonClick()
@@ -38,7 +39,7 @@ namespace Hello_World.MainMenuPage
             try
             {
                 Game game = jsonFileManager.LoadGame();
-                this.baseViewModel.SelectedPageView = new GameView() { DataContext = new GameViewModel(game, baseViewModel) };
+                this.baseViewModel.SelectedPageViewModel = new GameViewModel(game, baseViewModel);
             }
             catch (NoPathSelectedException)
             {

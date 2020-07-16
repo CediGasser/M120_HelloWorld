@@ -45,7 +45,7 @@ namespace Hello_World.Menu
 
         public void OnExitButtonClick()
         {
-            BaseViewModel.SelectedPageView = new MainMenuView(){DataContext = new MainMenuViewModel(BaseViewModel)};
+            BaseViewModel.SelectedPageViewModel = new MainMenuViewModel(BaseViewModel);
             OnResumeButtonClick();
         }
     }

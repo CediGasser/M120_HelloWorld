@@ -6,6 +6,7 @@ using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
 using Hello_World.Infrastructure.ViewModels;
+using Hello_World.Infrastructure.Views;
 using Hello_World.Shop;
 using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
@@ -14,7 +15,7 @@ using PropertyChanged;
 
 namespace Hello_World.GamePage
 {
-    internal class GameViewModel : ViewModelBase
+    internal class GameViewModel : ViewModelBase, IDisplayablePageViewModel
     {
         private readonly Game game;
         private ShopView shopView;

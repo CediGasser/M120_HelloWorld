@@ -3,12 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mainMenuPage="clr-namespace:Hello_World.MainMenuPage"
+        xmlns:gamePage="clr-namespace:Hello_World.GamePage"
         mc:Ignorable="d"
         Title="Hello World!" Height="450" Width="800">
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
             <Image Stretch="None" Source="/Resources/pictures/background.jpg" />
         </ScrollViewer>
-        <Frame x:Name="Frame" Content="{Binding SelectedPageView, Mode=TwoWay}" NavigationUIVisibility="Hidden"></Frame>
+        <ContentControl Content="{Binding SelectedPageViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type mainMenuPage:MainMenuViewModel}">
+                    <mainMenuPage:MainMenuView DataContext="{Binding}"></mainMenuPage:MainMenuView>
+                </DataTemplate>                
+                <DataTemplate DataType="{x:Type gamePage:GameViewModel}">
+                    <gamePage:GameView DataContext="{Binding}"></gamePage:GameView>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+        <!--<Frame x:Name="Frame" Content="{Binding SelectedPageView, Mode=TwoWay}" NavigationUIVisibility="Hidden"></Frame>-->
     </Grid>
 </Window>

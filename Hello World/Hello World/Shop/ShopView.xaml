@@ -12,7 +12,7 @@
                 <GridView>
                     <GridViewColumn Header="Name" Width="400" DisplayMemberBinding="{Binding Device.Name}"/>
                     <GridViewColumn Header="Count" Width="100" DisplayMemberBinding="{Binding Device.Count}"/>
-                    <GridViewColumn Header="Prize" Width="100" DisplayMemberBinding="{Binding Device.Prize}"/>
+                    <GridViewColumn Header="Cost" Width="100" DisplayMemberBinding="{Binding Device.Prize}"/>
                     <GridViewColumn Header="HWpS" Width="100" DisplayMemberBinding="{Binding Device.BaseHelloWorldPerSecond}"/>
                     <GridViewColumn Width="100" Header="Buy">
                         <GridViewColumn.CellTemplate>
