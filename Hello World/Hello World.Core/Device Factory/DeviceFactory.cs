@@ -4,27 +4,17 @@ using System.Collections.Generic;
 
 namespace Hello_World.Core.Device_Factory
 {
-    class DeviceFactory
+    class DevicesFactory
     {
-        private List<Device> helloWorldProducers = new List<Device>();
-
-        public DeviceFactory()
+        public List<Device> CreateDefaultDevices()
         {
-            CreateDevice();
-        }
-
-        public List<Device> HelloWorldProducers
-        {
-            get => helloWorldProducers;
-            set => helloWorldProducers = value;
-        }
-
-        public void CreateDevice()
-        {
-           HelloWorldProducers.Add(new Device("Nokia", 1, 10));
-           HelloWorldProducers.Add(new Device("BBZW Sursee Schüler PC", 5, 150));
-           HelloWorldProducers.Add(new Device("Samsung Fridge", 50, 1000));
-           HelloWorldProducers.Add(new Device("Roland Buchers Fachleiter Laptop", 600, 9000));
+            return  new List<Device>
+            {
+                new Device("Nokia", 1, 10),
+                new Device("BBZW Sursee Schüler PC", 5, 150),
+                new Device("Samsung Fridge", 50, 1000),
+                new Device("Roland Buchers Fachleiter Laptop", 600, 9000)
+            };
         }
     }
 }

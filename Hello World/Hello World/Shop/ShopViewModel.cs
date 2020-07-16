@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
@@ -14,26 +15,15 @@ namespace Hello_World.Shop
         public ShopViewModel(Game game)
         {
             this.game = game;
-            OnBuyButtonClickCommand = new RelayCommand<Device>(helloWorldProducer=>OnBuyButtonClick(helloWorldProducer));
+            HelloWorldDeviceProducers = game.HelloWorldProducers.Select(device => new DeviceViewModel(this.game, device)).ToList();
         }
 
-        public int Karma
+        public double Karma
         {
             get => game.Karma;
             set => game.Karma = value;
         }
-
-        public RelayCommand<Device> OnBuyButtonClickCommand { get; set; }
         
-        public List<Device> HelloWorldProducers => game.HelloWorldProducers;
-
-        private void OnBuyButtonClick(Device helloWorldProducer)
-        {
-            if(this.Karma >= helloWorldProducer.Prize)
-            {
-                this.Karma -= helloWorldProducer.Prize;
-                helloWorldProducer.AddToCount();
-            }
-        }
+        public List<DeviceViewModel> HelloWorldDeviceProducers { get; }
     }
 }

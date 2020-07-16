@@ -3,20 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shop="clr-namespace:Hello_World.Shop"
         mc:Ignorable="d"
         Title="ShopView" Height="450" Width="800">
     <Grid>
-        <ListView ItemsSource="{Binding HelloWorldProducers}"  BorderThickness="0" x:Name="HelloWorldProducersListView">
+        <ListView ItemsSource="{Binding HelloWorldDeviceProducers}"  BorderThickness="0" x:Name="HelloWorldProducersListView">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="400" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Count" Width="100" DisplayMemberBinding="{Binding Count}"/>
-                    <GridViewColumn Header="Prize" Width="100" DisplayMemberBinding="{Binding Prize}"/>
-                    <GridViewColumn Header="HWpS" Width="100" DisplayMemberBinding="{Binding BaseHelloWorldPerSecond}"/>
+                    <GridViewColumn Header="Name" Width="400" DisplayMemberBinding="{Binding Device.Name}"/>
+                    <GridViewColumn Header="Count" Width="100" DisplayMemberBinding="{Binding Device.Count}"/>
+                    <GridViewColumn Header="Prize" Width="100" DisplayMemberBinding="{Binding Device.Prize}"/>
+                    <GridViewColumn Header="HWpS" Width="100" DisplayMemberBinding="{Binding Device.BaseHelloWorldPerSecond}"/>
                     <GridViewColumn Width="100" Header="Buy">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Buy"  Command="{Binding ElementName=HelloWorldProducersListView, Path=DataContext.OnBuyButtonClickCommand}" CommandParameter="{Binding }"/>
+                                <Button Content="Buy"  Command="{Binding OnBuyButtonClickCommand}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

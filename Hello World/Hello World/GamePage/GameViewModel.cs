@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using Hello_World.Core;
@@ -9,6 +10,7 @@ using Hello_World.Shop;
 using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
 using Hello_World.Menu;
+using PropertyChanged;
 
 namespace Hello_World.GamePage
 {
@@ -22,9 +24,18 @@ namespace Hello_World.GamePage
         private int clicksPerSecond;
         private readonly MainWindowViewModel baseViewModel;
 
+        private void gamePropertyChange(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Karma")
+            {
+                Karma = game.Karma;
+            }
+        }
+
         public GameViewModel(Game game, MainWindowViewModel baseViewModel)
         {
             this.game = game;
+            this.game.PropertyChanged += gamePropertyChange;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
             OnMenuCommand = new RelayCommand(OnMenuButtonClick);
             OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
@@ -42,7 +53,7 @@ namespace Hello_World.GamePage
         
         public RelayCommand OnMenuCommand { get; set; }
 
-        public int Karma
+        public double Karma
         {
             get => game.Karma;
             set => game.Karma = value;
@@ -55,7 +66,7 @@ namespace Hello_World.GamePage
         {
             int allHelloWorldPerSecond = CalculateAllAutomaticHelloWorldPerSecond();
             RefreshHelloWorldPerSecond();
-            UpdateKarma(allHelloWorldPerSecond);
+            game.UpdateKarma();
             UpdateHelloWorldPerSecond(allHelloWorldPerSecond);
         }
 
@@ -76,16 +87,8 @@ namespace Hello_World.GamePage
 
         private void OnShopButtonClick()
         {
-            this.shopView.InitializeComponent();
-            try
-            {
-                this.shopView.Show();
-            }
-            catch (System.InvalidOperationException e)
-            {
-                this.shopView = new ShopView() { DataContext = new ShopViewModel(this.game) };
-                this.shopView.Show();
-            }
+            this.shopView = new ShopView() { DataContext = new ShopViewModel(this.game) };
+            this.shopView.Show();
         }
 
         //Methods

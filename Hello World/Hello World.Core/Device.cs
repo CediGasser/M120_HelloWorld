@@ -28,7 +28,7 @@ namespace Hello_World.Core
 
         public int HelloWorldPerSecond => this.BaseHelloWorldPerSecond * Count;
 
-        public int BaseHelloWorldPerSecond { get; set; }
+        public int BaseHelloWorldPerSecond { get; }
 
         public int Prize { get; set; }
 

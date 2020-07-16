@@ -1,26 +1,55 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using Hello_World.Core.Device_Factory;
 
 namespace Hello_World.Core
 {
     public class Game : FodyNotifyPropertyChangedBase
     {
+        private DateTime lastUpdate;
+        private int karmaToAdd;
+        private double karma;
+
         public Game()
         {
-            DeviceFactory factory = new DeviceFactory();
-            HelloWorldProducers = factory.HelloWorldProducers;
-            Karma = 0;
+            this.HelloWorldProducers = new DevicesFactory().CreateDefaultDevices();
         }
         
-        public List<Device> HelloWorldProducers { get; set; }
+        public List<Device> HelloWorldProducers { get; private set; }
+
+        private void BuyHelloWorldProducer(Device helloWorldProducer)
+        {
+            this.karmaToAdd = CalculateAutomaticProducedHelloWorldPerSecond();
+            UpdateKarma();
+            helloWorldProducer.AddToCount();
+        }
+
+        public void TryBuyHelloWorldProducer(Device helloWorldProducer)
+        {
+            if (helloWorldProducer.Prize <= Karma)
+            {
+                BuyHelloWorldProducer(helloWorldProducer);
+            }
+            else
+            {
+                throw new NotEnoughKarmaException();
+            }
+        }
 
         public int Karma { get; set; }
-
-        public void AddHelloWorldProducer(Device helloWorldProducer)
         {
-            this.HelloWorldProducers.Add(helloWorldProducer);
+            double secondsSinceLastUpdate = (DateTime.Now - lastUpdate).TotalSeconds;
+            double huii = this.Karma + karmaToAdd * secondsSinceLastUpdate;
+            this.Karma = huii;
+            this.lastUpdate = DateTime.Now;
+        }
+
+        private int CalculateAutomaticProducedHelloWorldPerSecond()
+        {
+            return HelloWorldProducers?.Select(device => device.HelloWorldPerSecond).Sum() ?? 0;
         }
     }
 }
