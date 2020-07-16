@@ -11,7 +11,6 @@ namespace Hello_World.Core
     {
         private DateTime lastUpdate;
         private int karmaToAdd;
-        private double karma;
 
         public Game()
         {
@@ -19,6 +18,8 @@ namespace Hello_World.Core
         }
         
         public List<Device> HelloWorldProducers { get; private set; }
+
+        public double Karma { get; set; }
 
         private void BuyHelloWorldProducer(Device helloWorldProducer)
         {
@@ -39,7 +40,7 @@ namespace Hello_World.Core
             }
         }
 
-        public int Karma { get; set; }
+        public void UpdateKarma()
         {
             double secondsSinceLastUpdate = (DateTime.Now - lastUpdate).TotalSeconds;
             double huii = this.Karma + karmaToAdd * secondsSinceLastUpdate;

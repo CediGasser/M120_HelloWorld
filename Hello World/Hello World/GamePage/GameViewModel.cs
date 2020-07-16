@@ -24,18 +24,9 @@ namespace Hello_World.GamePage
         private int clicksPerSecond;
         private readonly MainWindowViewModel baseViewModel;
 
-        private void gamePropertyChange(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == "Karma")
-            {
-                Karma = game.Karma;
-            }
-        }
-
         public GameViewModel(Game game, MainWindowViewModel baseViewModel)
         {
             this.game = game;
-            this.game.PropertyChanged += gamePropertyChange;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
             OnMenuCommand = new RelayCommand(OnMenuButtonClick);
             OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
