@@ -21,5 +21,20 @@ namespace Hello_World.Menu
         {
             InitializeComponent();
         }
+
+        private void MenuView_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.OldValue != null)
+            {
+                ((MenuViewModel)e.OldValue).CloseRequested -= this.OnCloseRequested;
+            }
+
+            ((MenuViewModel)e.NewValue).CloseRequested += this.OnCloseRequested;
+        }
+
+        private void OnCloseRequested(object? sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:shop="clr-namespace:Hello_World.Shop"
         mc:Ignorable="d"
-        Title="ShopView" Height="450" Width="800">
+        Title="ShopView" Height="450" Width="800" DataContextChanged="ShopView_OnDataContextChanged" Closing="ShopView_OnClosing">
     <Grid>
         <ListView ItemsSource="{Binding HelloWorldDeviceProducers}"  BorderThickness="0" x:Name="HelloWorldProducersListView">
             <ListView.View>

@@ -7,7 +7,7 @@ using Hello_World.Infrastructure.Commands;
 
 namespace Hello_World.Shop
 {
-    class DeviceViewModel
+    public class DeviceViewModel
     {
         private Game game;
 

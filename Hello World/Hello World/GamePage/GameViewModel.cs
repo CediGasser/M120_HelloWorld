@@ -15,17 +15,17 @@ using PropertyChanged;
 
 namespace Hello_World.GamePage
 {
-    internal class GameViewModel : ViewModelBase, IDisplayablePageViewModel
+    public class GameViewModel : ViewModelBase, IDisplayablePageViewModel
     {
         private readonly Game game;
-        private ShopView shopView;
 
         private const string TextToPrint = "Hello World!";
 
         private int clicksPerSecond;
-        private readonly MainWindowViewModel baseViewModel;
 
-        public GameViewModel(Game game, MainWindowViewModel baseViewModel)
+        private readonly MainWindowViewModel mainWindowViewModel;
+
+        public GameViewModel(Game game, MainWindowViewModel mainWindowViewModel)
         {
             this.game = game;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
@@ -33,8 +33,7 @@ namespace Hello_World.GamePage
             OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
             oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
-            this.baseViewModel = baseViewModel;
-            this.shopView = new ShopView() {DataContext = new ShopViewModel(this.game)};
+            this.mainWindowViewModel = mainWindowViewModel;
         }
 
         public int HelloWorldPerSecond { get; set; }
@@ -71,16 +70,32 @@ namespace Hello_World.GamePage
 
         private void OnMenuButtonClick()
         {
-            this.shopView.Close();
-            MenuView menuView = new MenuView() { DataContext = new MenuViewModel(game, baseViewModel) };
-            ((MenuViewModel)menuView.DataContext).View = menuView;
+            MenuViewModel menuViewmodel = new MenuViewModel(game, this.mainWindowViewModel);
+            MenuView menuView = new MenuView() {DataContext = menuViewmodel};
             menuView.ShowDialog();
         }
 
         private void OnShopButtonClick()
         {
-            this.shopView = new ShopView() { DataContext = new ShopViewModel(this.game) };
-            this.shopView.Show();
+            ShopViewModel shopViewModel = this.mainWindowViewModel.ShopViewModel;
+
+            if (shopViewModel == null || shopViewModel.IsWindowClosed)
+            {
+                if (shopViewModel == null)
+                {
+                    this.mainWindowViewModel.ShopViewModel = new ShopViewModel(this.game);
+                    shopViewModel = this.mainWindowViewModel.ShopViewModel;
+                }
+                
+                shopViewModel.IsWindowClosed = false;
+                
+                ShopView shopView = new ShopView() {DataContext = shopViewModel};
+                shopView.Show();
+            }
+            else
+            {
+                shopViewModel.RequestBringToFront();
+            }
         }
 
         //Methods

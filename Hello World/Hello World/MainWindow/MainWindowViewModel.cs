@@ -7,6 +7,7 @@ using Hello_World.GamePage;
 using Hello_World.Infrastructure.ViewModels;
 using Hello_World.Infrastructure.Views;
 using Hello_World.MainMenuPage;
+using Hello_World.Shop;
 
 namespace Hello_World.MainWindow
 {
@@ -15,19 +16,10 @@ namespace Hello_World.MainWindow
         public MainWindowViewModel()
         {
             this.SelectedPageViewModel = new MainMenuViewModel(this);
-            this.Children = new List<Window>();
         }
 
         public IDisplayablePageViewModel SelectedPageViewModel { get; set; }
-
-        public IList<Window> Children { get; }
-
-        private void CloseChildren()
-        {
-            foreach (var child in Children)
-            {
-                child.Close();
-            }
-        }
+        
+        public ShopViewModel ShopViewModel { get; set; }
     }
 }

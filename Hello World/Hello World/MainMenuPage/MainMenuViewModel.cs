@@ -9,7 +9,7 @@ using Hello_World.LoadAndSaveGame;
 
 namespace Hello_World.MainMenuPage
 {
-    class MainMenuViewModel : ViewModelBase, IDisplayablePageViewModel
+    public class MainMenuViewModel : ViewModelBase, IDisplayablePageViewModel
     {
         public RelayCommand OnNewGameCommand { get; set; }
 
@@ -17,20 +17,20 @@ namespace Hello_World.MainMenuPage
 
         public RelayCommand OnQuitCommand { get; set; }
 
-        private readonly MainWindowViewModel baseViewModel;
+        private readonly MainWindowViewModel mainWindowViewModel;
 
-        public MainMenuViewModel(MainWindowViewModel baseViewModel)
+        public MainMenuViewModel(MainWindowViewModel mainWindowViewModel)
         {
             this.OnNewGameCommand = new RelayCommand(OnNewGameButtonClick);
             this.OnLoadGameCommand = new RelayCommand(OnLoadGameButtonClick);
             this.OnQuitCommand = new RelayCommand(OnQuitButtonClick);
-            this.baseViewModel = baseViewModel;
+            this.mainWindowViewModel = mainWindowViewModel;
         }
 
         public void OnNewGameButtonClick()
         {
             Game game = new Game(new DatetimeNowProvider());
-            this.baseViewModel.SelectedPageViewModel = new GameViewModel(game, baseViewModel);
+            this.mainWindowViewModel.SelectedPageViewModel = new GameViewModel(game, this.mainWindowViewModel);
         }
 
         public void OnLoadGameButtonClick()
@@ -39,7 +39,7 @@ namespace Hello_World.MainMenuPage
             try
             {
                 Game game = jsonFileManager.LoadGame();
-                this.baseViewModel.SelectedPageViewModel = new GameViewModel(game, baseViewModel);
+                this.mainWindowViewModel.SelectedPageViewModel = new GameViewModel(game, this.mainWindowViewModel);
             }
             catch (NoPathSelectedException)
             {
