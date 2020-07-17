@@ -10,18 +10,22 @@ using Microsoft.Win32;
 
 namespace Hello_World.LoadAndSaveGame
 {
-    class JsonFileManager
+    public class JsonFileManager
     {
+        private readonly SaveFileDialogFactory saveFileDialogFactory;
+
+        public JsonFileManager(SaveFileDialogFactory saveFileDialogFactory)
+        {
+            this.saveFileDialogFactory = saveFileDialogFactory;
+        }
+
         public void SaveGame(Game game)
         {
             string jsonString = JsonSerializer.Serialize(game);
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog
-            {
-                Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-            };
-
+            ISaveFileDialog saveFileDialog = this.saveFileDialogFactory.Create(
+                "JSON files (*.json)|*.json|All files (*.*)|*.*",
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
             if (saveFileDialog.ShowDialog() == true)
             {
