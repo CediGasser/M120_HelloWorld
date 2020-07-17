@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Hello_World.Core;
 using Hello_World.GamePage;
+using Hello_World.LoadAndSaveGame;
 using Hello_World.MainWindow;
 
 namespace Hello_World
@@ -18,7 +19,7 @@ namespace Hello_World
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            MainWindowView mainWindow = new MainWindowView(){DataContext = new MainWindowViewModel()};
+            MainWindowView mainWindow = new MainWindowView(){DataContext = new MainWindowViewModel(new FileDialogFactory())};
             mainWindow.InitializeComponent();
             mainWindow.Show();
         }

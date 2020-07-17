@@ -20,7 +20,12 @@ namespace Hello_World.Core
             this.lastUpdate = datetimeNowProvider.Now;
             this.HelloWorldProducers = new DevicesFactory().CreateDefaultDevices();
         }
-        
+
+        public Game()
+        {
+
+        }
+
         public List<Device> HelloWorldProducers { get; private set; }
 
         public double Karma { get; set; }

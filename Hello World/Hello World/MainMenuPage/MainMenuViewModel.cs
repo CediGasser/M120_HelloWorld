@@ -35,7 +35,7 @@ namespace Hello_World.MainMenuPage
 
         public void OnLoadGameButtonClick()
         {
-            JsonFileManager jsonFileManager = new JsonFileManager();
+            JsonFileManager jsonFileManager = new JsonFileManager(mainWindowViewModel.FileDialogFactory);
             try
             {
                 Game game = jsonFileManager.LoadGame();

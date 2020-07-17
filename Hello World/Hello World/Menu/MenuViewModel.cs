@@ -38,7 +38,7 @@ namespace Hello_World.Menu
 
         public void OnSaveButtonClick()
         {
-            JsonFileManager jsonFileManager = new JsonFileManager();
+            JsonFileManager jsonFileManager = new JsonFileManager(this.MainWindowViewModel.FileDialogFactory);
             jsonFileManager.SaveGame(game);
             this.OnCloseRequested();
         }

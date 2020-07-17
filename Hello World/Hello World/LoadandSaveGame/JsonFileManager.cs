@@ -12,18 +12,18 @@ namespace Hello_World.LoadAndSaveGame
 {
     public class JsonFileManager
     {
-        private readonly SaveFileDialogFactory saveFileDialogFactory;
-
-        public JsonFileManager(SaveFileDialogFactory saveFileDialogFactory)
+        private readonly IFileDialogFactory fileDialogFactory;
+        
+        public JsonFileManager(IFileDialogFactory fileDialogFactory)
         {
-            this.saveFileDialogFactory = saveFileDialogFactory;
+            this.fileDialogFactory = fileDialogFactory;
         }
 
         public void SaveGame(Game game)
         {
             string jsonString = JsonSerializer.Serialize(game);
 
-            ISaveFileDialog saveFileDialog = this.saveFileDialogFactory.Create(
+            IFileDialog saveFileDialog = this.fileDialogFactory.CreateSaveFileDialog(
                 "JSON files (*.json)|*.json|All files (*.*)|*.*",
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
@@ -38,11 +38,14 @@ namespace Hello_World.LoadAndSaveGame
             Game game;
             string jsonString = "";
 
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-            };
+            //OpenFileDialog openFileDialog = new OpenFileDialog
+            //{
+            //    Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
+            //    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            //};
+            IFileDialog openFileDialog = this.fileDialogFactory.CreateOpenFileDialog(
+                "JSON files (*.json)|*.json|All files (*.*)|*.*",
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
 
             if (openFileDialog.ShowDialog() == true)
@@ -61,5 +64,7 @@ namespace Hello_World.LoadAndSaveGame
 
             return game;
         }
+
     }
+
 }
