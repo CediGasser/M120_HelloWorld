@@ -36,9 +36,10 @@ namespace Hello_World.Spec
             "Given I have started the game"
                 .x(() => mainWindowViewModel = new MainWindowViewModel(specFileDialogFactory));
 
-            "And I click on 'Load Game' and select the file 'TestData\\mySavegame.json' to load"
+            "And I click on 'Load Game' and select the file '..\\..\\..\\TestData\\mySavegame.json' to load"
                 .x(() =>
                 {
+                    specFileDialogFactory.FileNameToLoad = "..\\..\\..\\TestData\\mySavegame.json";
                     //specOpenFileDialogFactory.FileNameToLoad = ".\\TestData\\mySavegame.json";
                     ((MainMenuViewModel) mainWindowViewModel.SelectedPageViewModel).OnLoadGameCommand.Execute();
                 });
@@ -49,15 +50,12 @@ namespace Hello_World.Spec
             "And the Karma should be 450"
                 .x(() => ((GameViewModel) mainWindowViewModel.SelectedPageViewModel).Karma.Should().Be(450));
         }
-
+        
         private class SpecFileDialogFactory : IFileDialogFactory
         {
             public string FileNameToSave { get; set; }
-
-            public IFileDialog Create(string filter, string initialDirectory)
-            {
-                return new SpecFileDialog() {FileName = this.FileNameToSave};
-            }
+            
+            public string FileNameToLoad { get; set; }
 
             private class SpecFileDialog : IFileDialog
             {
@@ -68,12 +66,12 @@ namespace Hello_World.Spec
 
             public IFileDialog CreateSaveFileDialog(string filter, string initialDirectory)
             {
-                throw new NotImplementedException();
+                return new SpecFileDialog() { FileName = this.FileNameToSave };
             }
 
             public IFileDialog CreateOpenFileDialog(string filter, string initialDirectory)
             {
-                throw new NotImplementedException();
+                return new SpecFileDialog() {FileName = this.FileNameToLoad};
             }
         }
     }

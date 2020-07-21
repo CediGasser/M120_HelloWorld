@@ -6,4 +6,9 @@
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=20192fec_002D8064_002D4a8d_002D87f7_002D36ba8e65af7c/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="True" ContinuousTestingMode="3" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a468fa95_002D6159_002D4c39_002D9434_002Dd39fb8f4f84f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="OnLoadGame_TheGameViewModelIsShownAndTheGameWasLoadedCorrectly" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::CADDB31C-EFDA-43C1-A0B3-C4BEE3164F04::.NETCoreApp,Version=v3.1::Hello_World.Spec.MainMenuSpec.OnLoadGame_TheGameViewModelIsShownAndTheGameWasLoadedCorrectly&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
