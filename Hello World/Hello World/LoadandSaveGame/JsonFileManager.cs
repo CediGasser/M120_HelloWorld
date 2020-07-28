@@ -27,7 +27,7 @@ namespace Hello_World.LoadAndSaveGame
                 "JSON files (*.json)|*.json|All files (*.*)|*.*",
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
-            if (saveFileDialog.ShowDialog() == true)
+            if (saveFileDialog.ShowDialog())
             {
                 File.WriteAllText(saveFileDialog.FileName, jsonString);
             }
@@ -48,7 +48,7 @@ namespace Hello_World.LoadAndSaveGame
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
 
-            if (openFileDialog.ShowDialog() == true)
+            if (openFileDialog.ShowDialog())
             {
                 jsonString = File.ReadAllText(openFileDialog.FileName);
             }

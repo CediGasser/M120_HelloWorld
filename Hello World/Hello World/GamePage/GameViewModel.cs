@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Windows;
+using System.Windows.Documents;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
@@ -12,6 +16,7 @@ using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
 using Hello_World.Menu;
 using PropertyChanged;
+using System.Collections.ObjectModel;
 
 namespace Hello_World.GamePage
 {
@@ -24,8 +29,9 @@ namespace Hello_World.GamePage
         private int clicksPerSecond;
 
         private readonly MainWindowViewModel mainWindowViewModel;
+        private readonly WindowDisplayer windowDisplayer;
 
-        public GameViewModel(Game game, MainWindowViewModel mainWindowViewModel)
+        public GameViewModel(Game game, MainWindowViewModel mainWindowViewModel, WindowDisplayer windowDisplayer)
         {
             this.game = game;
             OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
@@ -34,6 +40,7 @@ namespace Hello_World.GamePage
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
             oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
             this.mainWindowViewModel = mainWindowViewModel;
+            this.windowDisplayer = windowDisplayer;
         }
 
         public int HelloWorldPerSecond { get; set; }
@@ -46,8 +53,8 @@ namespace Hello_World.GamePage
 
         public double Karma
         {
-            get => game.Karma;
-            set => game.Karma = value;
+            get => this.game.Karma;
+            private set => this.game.Karma = value;
         }
 
         public string TextBoxText { get; set; } = TextToPrint;
@@ -70,7 +77,7 @@ namespace Hello_World.GamePage
 
         private void OnMenuButtonClick()
         {
-            MenuViewModel menuViewmodel = new MenuViewModel(game, this.mainWindowViewModel);
+            MenuViewModel menuViewmodel = new MenuViewModel(this.game, this.mainWindowViewModel);
             MenuView menuView = new MenuView() {DataContext = menuViewmodel};
             menuView.ShowDialog();
         }
@@ -88,9 +95,8 @@ namespace Hello_World.GamePage
                 }
                 
                 shopViewModel.IsWindowClosed = false;
-                
-                ShopView shopView = new ShopView() {DataContext = shopViewModel};
-                shopView.Show();
+
+                this.windowDisplayer.ShowWindow(() => new ShopView(), shopViewModel);
             }
             else
             {
@@ -101,7 +107,7 @@ namespace Hello_World.GamePage
         //Methods
         private void UpdateClicksPerSecond(int newClicks)
         {
-            clicksPerSecond += newClicks;
+            this.clicksPerSecond += newClicks;
         }
 
         private void RefreshHelloWorldPerSecond()
@@ -127,16 +133,21 @@ namespace Hello_World.GamePage
 
         private int CalculateAllAutomaticHelloWorldPerSecond()
         {
-            int allAutomaticHelloWorldsPerSecond = 0;
+            var allAutomaticHelloWorldsPerSecond = 0;
 
-            if (game.HelloWorldProducers != null)
-            {
-                foreach (Device device in this.game.HelloWorldProducers)
-                {
-                    allAutomaticHelloWorldsPerSecond += device.HelloWorldPerSecond;
-                }
-            }
-            return allAutomaticHelloWorldsPerSecond;
+            if (this.game.HelloWorldProducers == null) return allAutomaticHelloWorldsPerSecond;
+            return this.game.HelloWorldProducers.Sum(device => device.HelloWorldPerSecond);
+        }
+    }
+
+    public class WindowDisplayer
+    {
+        public void ShowWindow<T>(Func<T> windowCreationFunction, IViewModel dataContext) where T : Window
+        {
+            T window = windowCreationFunction.Invoke();
+
+            window.DataContext = dataContext;
+            window.Show();
         }
     }
 }

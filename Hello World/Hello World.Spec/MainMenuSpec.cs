@@ -1,4 +1,5 @@
 using System;
+using System.Windows;
 using FluentAssertions;
 using Hello_World.GamePage;
 using Hello_World.LoadAndSaveGame;
@@ -50,7 +51,7 @@ namespace Hello_World.Spec
             "And the Karma should be 450"
                 .x(() => ((GameViewModel) mainWindowViewModel.SelectedPageViewModel).Karma.Should().Be(450));
         }
-        
+
         private class SpecFileDialogFactory : IFileDialogFactory
         {
             public string FileNameToSave { get; set; }
