@@ -33,7 +33,7 @@ namespace Hello_World.MainMenuPage
         public void OnNewGameButtonClick()
         {
             Game game = new Game(new DatetimeNowProvider());
-            this.mainWindowViewModel.SelectedPageViewModel = new GameViewModel(game, this.mainWindowViewModel,windowDisplayer);
+            this.mainWindowViewModel.SelectedPageViewModel = new GameViewModel(game, this.mainWindowViewModel, this.windowDisplayer);
         }
 
         public void OnLoadGameButtonClick()
@@ -42,7 +42,7 @@ namespace Hello_World.MainMenuPage
             try
             {
                 Game game = jsonFileManager.LoadGame();
-                this.mainWindowViewModel.SelectedPageViewModel = new GameViewModel(game, this.mainWindowViewModel, windowDisplayer);
+                this.mainWindowViewModel.SelectedPageViewModel = new GameViewModel(game, this.mainWindowViewModel, this.windowDisplayer);
             }
             catch (NoPathSelectedException)
             {

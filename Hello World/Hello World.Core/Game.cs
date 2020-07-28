@@ -46,10 +46,10 @@ namespace Hello_World.Core
             }
             else
             {
-                throw new NotEnoughKarmaException();
+                throw new NotImplementedException();
             }
         }
-
+        
         public void UpdateKarma()
         {
             double secondsSinceLastUpdate = (this.datetimeNowProvider.Now - this.lastUpdate).TotalSeconds;

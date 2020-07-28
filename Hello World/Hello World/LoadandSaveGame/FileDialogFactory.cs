@@ -1,12 +1,11 @@
-﻿using Microsoft.Win32;
-
-namespace Hello_World.LoadAndSaveGame
+﻿namespace Hello_World.LoadAndSaveGame
 {
+    using Microsoft.Win32;
+
     public interface IFileDialog
     {
-        public bool ShowDialog();
-
         public string FileName { get; }
+        public bool ShowDialog();
     }
 
     public interface IFileDialogFactory
@@ -23,37 +22,43 @@ namespace Hello_World.LoadAndSaveGame
             return new SaveFileDialogWrapper(filter, initialDirectory);
         }
 
-        private class SaveFileDialogWrapper : IFileDialog
-        {
-            private readonly SaveFileDialog saveFileDialog;
-            
-            public bool ShowDialog() => this.saveFileDialog.ShowDialog() ?? false;
-
-            public string FileName => this.saveFileDialog.FileName;
-
-            public SaveFileDialogWrapper(string filter, string initialDirectory)
-            {
-                this.saveFileDialog = new SaveFileDialog() {Filter = filter, InitialDirectory = initialDirectory};
-            }
-        }
-
         public IFileDialog CreateOpenFileDialog(string filter, string initialDirectory)
         {
             return new OpenFileDialogWrapper(filter, initialDirectory);
+        }
+
+        private class SaveFileDialogWrapper : IFileDialog
+        {
+            private readonly SaveFileDialog saveFileDialog;
+
+            public SaveFileDialogWrapper(string filter, string initialDirectory)
+            {
+                this.saveFileDialog = new SaveFileDialog {Filter = filter, InitialDirectory = initialDirectory};
+            }
+
+            public bool ShowDialog()
+            {
+                return this.saveFileDialog.ShowDialog() ?? false;
+            }
+
+            public string FileName => this.saveFileDialog.FileName;
         }
 
         private class OpenFileDialogWrapper : IFileDialog
         {
             private readonly OpenFileDialog openFileDialog;
 
-            public bool ShowDialog() => this.openFileDialog.ShowDialog() ?? false;
-
-            public string FileName => this.openFileDialog.FileName;
-
             public OpenFileDialogWrapper(string filter, string initialDirectory)
             {
-                this.openFileDialog = new OpenFileDialog() { Filter = filter, InitialDirectory = initialDirectory };
+                this.openFileDialog = new OpenFileDialog {Filter = filter, InitialDirectory = initialDirectory};
             }
+
+            public bool ShowDialog()
+            {
+                return this.openFileDialog.ShowDialog() ?? false;
+            }
+
+            public string FileName => this.openFileDialog.FileName;
         }
     }
 }

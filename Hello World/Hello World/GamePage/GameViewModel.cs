@@ -29,6 +29,7 @@ namespace Hello_World.GamePage
         private int clicksPerSecond;
 
         private readonly MainWindowViewModel mainWindowViewModel;
+
         private readonly WindowDisplayer windowDisplayer;
 
         public GameViewModel(Game game, MainWindowViewModel mainWindowViewModel, WindowDisplayer windowDisplayer)
