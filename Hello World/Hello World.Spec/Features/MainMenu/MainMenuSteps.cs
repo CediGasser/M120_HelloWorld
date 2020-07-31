@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Hello_World.GamePage;
+using Hello_World.Infrastructure;
 using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
 using Xbehave;
@@ -22,7 +23,7 @@ namespace Hello_World.Spec.Features.MainMenu
             this.CreateName().ToString().x(() =>
             {
                 SpecFileDialogFactory specFileDialogFactory = new SpecFileDialogFactory();
-                this.scenarioStorage.Store(new MainWindowViewModel(specFileDialogFactory));
+                this.scenarioStorage.Store(new MainWindowViewModel(specFileDialogFactory,new GameViewModelFactory()));
             });
         }
     }    
@@ -33,7 +34,7 @@ namespace Hello_World.Spec.Features.MainMenu
 
         private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
 
-        private MainMenuViewModel MainMenuViewModel => ((MainMenuViewModel)this.MainWindowViewModel.SelectedPageViewModel);
+        private MainMenuViewModel MainMenuViewModel => ((MainMenuViewModel)this.MainWindowViewModel.SelectedViewModel);
 
         private SpecFileDialogFactory SpecFileDialogFactory => (SpecFileDialogFactory)this.MainWindowViewModel.FileDialogFactory;
 
@@ -66,7 +67,7 @@ namespace Hello_World.Spec.Features.MainMenu
 
         private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
 
-        private GameViewModel GameViewModel => ((GameViewModel)this.MainWindowViewModel.SelectedPageViewModel);
+        private GameViewModel GameViewModel => ((GameViewModel)this.MainWindowViewModel.SelectedViewModel);
         
         public MainMenuThen(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
         {
@@ -77,7 +78,7 @@ namespace Hello_World.Spec.Features.MainMenu
         {
             this.CreateName().ToString().x(() =>
             {
-                this.MainWindowViewModel.SelectedPageViewModel.Should().BeOfType<GameViewModel>();
+                this.MainWindowViewModel.SelectedViewModel.Should().BeOfType<GameViewModel>();
             });
         }
 

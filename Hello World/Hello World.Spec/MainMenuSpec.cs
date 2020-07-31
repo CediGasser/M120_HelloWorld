@@ -2,6 +2,7 @@ using System;
 using System.Windows;
 using FluentAssertions;
 using Hello_World.GamePage;
+using Hello_World.Infrastructure;
 using Hello_World.LoadAndSaveGame;
 using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
@@ -19,13 +20,13 @@ namespace Hello_World.Spec
             SpecFileDialogFactory specFileDialogFactory = new SpecFileDialogFactory();
 
             "Given I have started the game"
-                .x(() => mainWindowViewModel = new MainWindowViewModel(specFileDialogFactory));
+                .x(() => mainWindowViewModel = new MainWindowViewModel(specFileDialogFactory, new GameViewModelFactory()));
 
             "And I click on 'New Game'"
-                .x(() => ((MainMenuViewModel) mainWindowViewModel.SelectedPageViewModel).OnNewGameCommand.Execute());
+                .x(() => ((MainMenuViewModel) mainWindowViewModel.SelectedViewModel).OnNewGameCommand.Execute());
 
             "Then the Game screen should be displayed"
-                .x(() => mainWindowViewModel.SelectedPageViewModel.Should().BeOfType<GameViewModel>());
+                .x(() => mainWindowViewModel.SelectedViewModel.Should().BeOfType<GameViewModel>());
         }
 
         [Scenario]
@@ -35,21 +36,21 @@ namespace Hello_World.Spec
             SpecFileDialogFactory specFileDialogFactory = new SpecFileDialogFactory();
 
             "Given I have started the game"
-                .x(() => mainWindowViewModel = new MainWindowViewModel(specFileDialogFactory));
+                .x(() => mainWindowViewModel = new MainWindowViewModel(specFileDialogFactory, new GameViewModelFactory()));
 
             "And I click on 'Load Game' and select the file '..\\..\\..\\TestData\\mySavegame.json' to load"
                 .x(() =>
                 {
                     specFileDialogFactory.FileNameToLoad = "..\\..\\..\\TestData\\mySavegame.json";
                     //specOpenFileDialogFactory.FileNameToLoad = ".\\TestData\\mySavegame.json";
-                    ((MainMenuViewModel) mainWindowViewModel.SelectedPageViewModel).OnLoadGameCommand.Execute();
+                    ((MainMenuViewModel) mainWindowViewModel.SelectedViewModel).OnLoadGameCommand.Execute();
                 });
 
             "Then the Game screen should be displayed"
-                .x(() => mainWindowViewModel.SelectedPageViewModel.Should().BeOfType<GameViewModel>());
+                .x(() => mainWindowViewModel.SelectedViewModel.Should().BeOfType<GameViewModel>());
 
             "And the Karma should be 450"
-                .x(() => ((GameViewModel) mainWindowViewModel.SelectedPageViewModel).Karma.Should().Be(450));
+                .x(() => ((GameViewModel) mainWindowViewModel.SelectedViewModel).Karma.Should().Be(450));
         }
 
         private class SpecFileDialogFactory : IFileDialogFactory
