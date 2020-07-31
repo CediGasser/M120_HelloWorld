@@ -33,8 +33,4 @@
     </Resource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Infrastructure\dependency injectors\" />
-  </ItemGroup>
-
 </Project>

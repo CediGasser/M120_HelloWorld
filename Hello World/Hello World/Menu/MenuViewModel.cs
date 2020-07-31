@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using Hello_World.Core;
 using Hello_World.GamePage;
+using Hello_World.Infrastructure;
 using Hello_World.Infrastructure.Commands;
+using Hello_World.Infrastructure.ViewModels;
 using Hello_World.LoadAndSaveGame;
 using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
 
 namespace Hello_World.Menu
 {
-    class MenuViewModel
+    public class MenuViewModel : ViewModelBase, IClosable
     {
         public RelayCommand OnResumeCommand { get; set; }
         public RelayCommand OnSaveCommand { get; set; }
@@ -45,14 +47,18 @@ namespace Hello_World.Menu
 
         public void OnExitButtonClick()
         {
-            this.MainWindowViewModel.SelectedPageViewModel = new MainMenuViewModel(this.MainWindowViewModel);
-            this.MainWindowViewModel.ShopViewModel.RequestClose();
-            this.OnCloseRequested();
+            this.MainWindowViewModel.ChangeSelectedViewModelToMainMenu();
+            this.MainWindowViewModel.CloseAllChildren();
         }
 
         protected virtual void OnCloseRequested()
         {
             this.CloseRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void RequestClose()
+        {
+            OnCloseRequested();
         }
     }
 }

@@ -17,10 +17,11 @@ using Hello_World.MainWindow;
 using Hello_World.Menu;
 using PropertyChanged;
 using System.Collections.ObjectModel;
+using Hello_World.Infrastructure;
 
 namespace Hello_World.GamePage
 {
-    public class GameViewModel : ViewModelBase, IDisplayablePageViewModel
+    public class GameViewModel : ViewModelBase, IDisplayableViewModel
     {
         private readonly Game game;
 
@@ -78,9 +79,8 @@ namespace Hello_World.GamePage
 
         private void OnMenuButtonClick()
         {
-            MenuViewModel menuViewmodel = new MenuViewModel(this.game, this.mainWindowViewModel);
-            MenuView menuView = new MenuView() {DataContext = menuViewmodel};
-            menuView.ShowDialog();
+            this.mainWindowViewModel.MenuViewModel = new MenuViewModel(this.game, this.mainWindowViewModel);
+            this.windowDisplayer.ShowDialogWindow(() => new MenuView(), this.mainWindowViewModel.MenuViewModel);
         }
 
         private void OnShopButtonClick()
@@ -149,6 +149,15 @@ namespace Hello_World.GamePage
 
             window.DataContext = dataContext;
             window.Show();
+        }
+
+      
+        public void ShowDialogWindow<T>(Func<T> windowCreationFunction, IViewModel dataContext) where T : Window
+        {
+            T window = windowCreationFunction.Invoke();
+
+            window.DataContext = dataContext;
+            window.ShowDialog();
         }
     }
 }

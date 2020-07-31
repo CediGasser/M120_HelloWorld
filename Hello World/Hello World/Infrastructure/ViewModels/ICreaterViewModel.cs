@@ -7,6 +7,6 @@ namespace Hello_World.Infrastructure.ViewModels
 {
     interface ICreaterViewModel
     {
-        public IDisplayablePageViewModel SelectedPageViewModel { get; set; }
+        public IDisplayableViewModel SelectedViewModel { get; set; }
     }
 }

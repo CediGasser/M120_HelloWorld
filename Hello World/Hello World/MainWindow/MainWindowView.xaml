@@ -11,7 +11,7 @@
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
             <Image Stretch="None" Source="/Resources/pictures/background.jpg" />
         </ScrollViewer>
-        <ContentControl Content="{Binding SelectedPageViewModel}">
+        <ContentControl Content="{Binding SelectedViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type mainMenuPage:MainMenuViewModel}">
                     <mainMenuPage:MainMenuView DataContext="{Binding}"></mainMenuPage:MainMenuView>
