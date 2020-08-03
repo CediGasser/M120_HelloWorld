@@ -9,28 +9,29 @@ namespace Hello_World.Shop
 {
     public class DeviceViewModel
     {
-        private Game game;
+        private readonly Game game;
 
         public DeviceViewModel(Game parentGame, Device device)
         {
             this.Device = device;
             this.game = parentGame;
-            OnBuyButtonClickCommand = new RelayCommand(OnBuyButtonClick);
+            this.OnBuyButtonClickCommand = new RelayCommand(OnBuyButtonClick);
 
         }
 
         public Device Device { get;}
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public RelayCommand OnBuyButtonClickCommand { get; set; }
 
         private void OnBuyButtonClick()
         {
-            BuyDevice();
+            this.BuyDevice();
         }
 
         private void BuyDevice()
         {
-              game.TryBuyHelloWorldProducer(Device);
+            this.game.TryBuyHelloWorldProducer(this.Device);
         }
     }
 }

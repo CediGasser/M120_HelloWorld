@@ -9,14 +9,12 @@ using Hello_World.Infrastructure.ViewModels;
 
 namespace Hello_World.Shop
 {
-    public class ShopViewModel : ViewModelBase, IClosable
+    public sealed class ShopViewModel : ViewModelBase, IClosable
     {
-        private Game game;
 
         public ShopViewModel(Game game)
         {
-            this.game = game;
-            this.HelloWorldDeviceProducers = game.HelloWorldProducers.Select(device => new DeviceViewModel(this.game, device)).ToList();
+            this.HelloWorldDeviceProducers = game.HelloWorldProducers.Select(device => new DeviceViewModel(game, device)).ToList();
         }
 
         public List<DeviceViewModel> HelloWorldDeviceProducers { get; }
@@ -28,7 +26,7 @@ namespace Hello_World.Shop
         public event EventHandler CloseRequested;
 
 
-        protected virtual void OnCloseRequested()
+        private void OnCloseRequested()
         {
             this.CloseRequested?.Invoke(this, EventArgs.Empty);
         }
@@ -38,13 +36,13 @@ namespace Hello_World.Shop
             this.OnBringToFrontRequested();
         }
 
-        protected virtual void OnBringToFrontRequested()
+        private void OnBringToFrontRequested()
         {
             this.BringToFrontRequested?.Invoke(this, EventArgs.Empty);
         }
         public void RequestClose()
         {
-            OnCloseRequested();
+            this.OnCloseRequested();
         }
     }
 }
