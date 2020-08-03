@@ -11,10 +11,11 @@ namespace Hello_World.MainWindow
 {
     public class MainWindowViewModel : ViewModelBase, ICreaterViewModel
     {
-        public MainWindowViewModel(IFileDialogFactory fileDialogFactory, GameViewModelFactory gameViewModelFactory)
+        public MainWindowViewModel(IFileDialogFactory fileDialogFactory, GameViewModelFactory gameViewModelFactory, JsonFileManager jsonFileManager)
         {
             this.FileDialogFactory = fileDialogFactory;
             this.gameViewModelFactory = gameViewModelFactory;
+            this.jsonFileManager = jsonFileManager;
             this.ChangeSelectedViewModelToMainMenu();
         }
 
@@ -23,6 +24,7 @@ namespace Hello_World.MainWindow
         private ShopViewModel shopViewModel;
 
         private MenuViewModel menuViewModel;
+        private readonly JsonFileManager jsonFileManager;
 
         private List<IClosable>ClosableChildren { get; set; } = new List<IClosable>();
 
@@ -65,7 +67,7 @@ namespace Hello_World.MainWindow
 
         public void ChangeSelectedViewModelToLoadedGame()
         {
-            this.SelectedViewModel = this.gameViewModelFactory.CreateGameViewModelWithLoadedGame(this);
+            this.SelectedViewModel = this.gameViewModelFactory.CreateGameViewModelWithLoadedGame(this, this.jsonFileManager);
         }   
         
         public void ChangeSelectedViewModelToMainMenu()

@@ -32,17 +32,17 @@ namespace Hello_World.Core
 
         private void BuyHelloWorldProducer(Device helloWorldProducer)
         {
-            UpdateKarma();
+            this.UpdateKarma();
             helloWorldProducer.IncreaseCountByOne();
-            this.karmaToAdd = CalculateAutomaticProducedHelloWorldPerSecond();
+            this.karmaToAdd = this.CalculateAutomaticProducedHelloWorldPerSecond();
             this.Karma -= helloWorldProducer.Cost;
         }
 
         public void TryBuyHelloWorldProducer(Device helloWorldProducer)
         {
-            if (helloWorldProducer.Cost <= Karma)
+            if (helloWorldProducer.Cost <= this.Karma)
             {
-                BuyHelloWorldProducer(helloWorldProducer);
+                this.BuyHelloWorldProducer(helloWorldProducer);
             }
             else
             {
@@ -53,13 +53,13 @@ namespace Hello_World.Core
         public void UpdateKarma()
         {
             double secondsSinceLastUpdate = (this.datetimeNowProvider.Now - this.lastUpdate).TotalSeconds;
-            this.Karma = this.Karma + this.karmaToAdd * secondsSinceLastUpdate;
+            this.Karma += this.karmaToAdd * secondsSinceLastUpdate;
             this.lastUpdate = this.datetimeNowProvider.Now;
         }
 
         private int CalculateAutomaticProducedHelloWorldPerSecond()
         {
-            return HelloWorldProducers?.Select(device => device.HelloWorldPerSecond).Sum() ?? 0;
+            return this.HelloWorldProducers?.Select(device => device.HelloWorldPerSecond).Sum() ?? 0;
         }
     }
 }

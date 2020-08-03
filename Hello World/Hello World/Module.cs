@@ -16,6 +16,7 @@ namespace Hello_World
             this.Bind<Game>().ToSelf().InSingletonScope();
             this.Bind<WindowDisplayer>().ToSelf().InSingletonScope();
             this.Bind<GameViewModelFactory>().ToSelf();
+            this.Bind<JsonFileManager>().ToSelf();
         }
     }
 }
