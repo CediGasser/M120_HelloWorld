@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Hello_World.GamePage;
 using Hello_World.Infrastructure;
+using Hello_World.LoadAndSaveGame;
 using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
 using Xbehave;
@@ -23,7 +24,7 @@ namespace Hello_World.Spec.Features.MainMenu
             this.CreateName().ToString().x(() =>
             {
                 SpecFileDialogFactory specFileDialogFactory = new SpecFileDialogFactory();
-                this.scenarioStorage.Store(new MainWindowViewModel(specFileDialogFactory,new GameViewModelFactory()));
+                this.scenarioStorage.Store(new MainWindowViewModel(specFileDialogFactory,new GameViewModelFactory(), new JsonFileManager(specFileDialogFactory)));
             });
         }
     }    
@@ -45,7 +46,7 @@ namespace Hello_World.Spec.Features.MainMenu
 
         public void IClickOnNewGame()
         {
-            this.CreateName().ToString().x(() =>
+            this.CreateName().WithoutParams().x(() =>
             {
                 this.MainMenuViewModel.OnNewGameCommand.Execute();
             });
@@ -59,7 +60,7 @@ namespace Hello_World.Spec.Features.MainMenu
                 this.MainMenuViewModel.OnLoadGameCommand.Execute();
             });
         }
-    }    
+ }    
     
     public class MainMenuThen : ThenBase
     {
@@ -76,7 +77,7 @@ namespace Hello_World.Spec.Features.MainMenu
 
         public void TheGameScreenShouldBeDisplayed()
         {
-            this.CreateName().ToString().x(() =>
+            this.CreateName().WithoutParams().x(() =>
             {
                 this.MainWindowViewModel.SelectedViewModel.Should().BeOfType<GameViewModel>();
             });

@@ -1,10 +1,9 @@
 using Hello_World.MainWindow;
-using Hello_World.Spec.Features.MainMenu;
 using Xbehave;
 using xFlowPackage;
 using xFlowPackage.Context;
 
-namespace Hello_World.Spec
+namespace Hello_World.Spec.Features.MainMenu
 {
     // ReSharper disable ArrangeThisQualifier -- '_' should not be qualified with this for improved readability
     public class MainMenuFeature
@@ -13,7 +12,7 @@ namespace Hello_World.Spec
 
         public MainMenuFeature()
         {
-            _ =
+            this._ =
                 ScenarioContextBuilder
                     .Build<MainMenuGiven, MainMenuWhen, MainMenuThen>()
                     .AlwaysUsingCommon<MainWindowViewModel>();
@@ -22,18 +21,18 @@ namespace Hello_World.Spec
         [Scenario]
         public void OnNewGame_TheGameViewModelIsShown()
         {
-            _.Given.IHaveStartedTheGame();
-            _.When.IClickOnNewGame();
-            _.Then.TheGameScreenShouldBeDisplayed();
+            this._.Given.IHaveStartedTheGame();
+            this._.When.IClickOnNewGame();
+            this._.Then.TheGameScreenShouldBeDisplayed();
         }
 
         [Scenario]
         public void OnLoadGame_TheGameViewModelIsShownAndTheGameWasLoadedCorrectly()
         {
-            _.Given.IHaveStartedTheGame();
-            _.When.IClickOnLoadGameAndSelectTheFileP1ToLoad("..\\..\\..\\TestData\\mySavegame.json");
-            _.Then.TheGameScreenShouldBeDisplayed();
-            _.Then.TheKarmaShouldBe(450);
+            this._.Given.IHaveStartedTheGame();
+            this._.When.IClickOnLoadGameAndSelectTheFileP1ToLoad(@"..\..\..\TestData\mySavegame.json");
+            this._.Then.TheGameScreenShouldBeDisplayed();
+            this._.Then.TheKarmaShouldBe(450);
         }
     }
 }
