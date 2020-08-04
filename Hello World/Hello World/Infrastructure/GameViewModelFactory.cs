@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using Hello_World.Core;
+﻿using Hello_World.Core;
 using Hello_World.GamePage;
 using Hello_World.LoadAndSaveGame;
 using Hello_World.MainWindow;
@@ -11,11 +7,12 @@ namespace Hello_World.Infrastructure
 {
     public class GameViewModelFactory
     {
-        private readonly JsonFileManager jsonFileManager;
-        private readonly IErrorMessageDisplayer errorMessageDisplayer;
         private readonly DatetimeNowProvider datetimeNowProvider;
+        private readonly IErrorMessageDisplayer errorMessageDisplayer;
+        private readonly JsonFileManager jsonFileManager;
 
-        public GameViewModelFactory(JsonFileManager jsonFileManager, IErrorMessageDisplayer errorMessageDisplayer, DatetimeNowProvider datetimeNowProvider)
+        public GameViewModelFactory(JsonFileManager jsonFileManager, IErrorMessageDisplayer errorMessageDisplayer,
+            DatetimeNowProvider datetimeNowProvider)
         {
             this.jsonFileManager = jsonFileManager;
             this.errorMessageDisplayer = errorMessageDisplayer;

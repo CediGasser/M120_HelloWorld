@@ -3,6 +3,5 @@
     public interface IClosable
     {
         public void RequestClose();
-
     }
 }

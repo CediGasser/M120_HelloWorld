@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Windows.Threading;
 
 namespace Hello_World.Infrastructure.Timer
 {
-    class OneSecondTimer
+    internal class OneSecondTimer
     {
-        public readonly System.Windows.Threading.DispatcherTimer DispatcherTimer;
+        public readonly DispatcherTimer DispatcherTimer;
 
         public OneSecondTimer()
         {
-            DispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            DispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            DispatcherTimer.Start();
+            this.DispatcherTimer = new DispatcherTimer();
+            this.DispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            this.DispatcherTimer.Start();
         }
     }
 }
