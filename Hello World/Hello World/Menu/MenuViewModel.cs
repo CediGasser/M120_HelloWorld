@@ -1,37 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Hello_World.Core;
-using Hello_World.GamePage;
 using Hello_World.Infrastructure;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.ViewModels;
 using Hello_World.LoadAndSaveGame;
-using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
 
 namespace Hello_World.Menu
 {
     public class MenuViewModel : ViewModelBase, IClosable
     {
-        public RelayCommand OnResumeCommand { get; set; }
-        public RelayCommand OnSaveCommand { get; set; }
-        public RelayCommand OnExitCommand { get; set; }
-
         private readonly Game game;
 
         public readonly MainWindowViewModel MainWindowViewModel;
 
-        public event EventHandler CloseRequested;
-
         public MenuViewModel(Game game, MainWindowViewModel mainWindowViewModel)
         {
-            this.OnResumeCommand = new RelayCommand(OnResumeButtonClick);
-            this.OnSaveCommand = new RelayCommand(OnSaveButtonClick);
-            this.OnExitCommand = new RelayCommand(OnExitButtonClick);
+            this.OnResumeCommand = new RelayCommand(this.OnResumeButtonClick);
+            this.OnSaveCommand = new RelayCommand(this.OnSaveButtonClick);
+            this.OnExitCommand = new RelayCommand(this.OnExitButtonClick);
             this.game = game;
             this.MainWindowViewModel = mainWindowViewModel;
         }
+
+        public RelayCommand OnResumeCommand { get; set; }
+        public RelayCommand OnSaveCommand { get; set; }
+        public RelayCommand OnExitCommand { get; set; }
+
+        public void RequestClose()
+        {
+            this.OnCloseRequested();
+        }
+
+        public event EventHandler CloseRequested;
 
         public void OnResumeButtonClick()
         {
@@ -41,7 +42,7 @@ namespace Hello_World.Menu
         public void OnSaveButtonClick()
         {
             JsonFileManager jsonFileManager = new JsonFileManager(this.MainWindowViewModel.FileDialogFactory);
-            jsonFileManager.SaveGame(game);
+            jsonFileManager.SaveGame(this.game);
             this.OnCloseRequested();
         }
 
@@ -54,11 +55,6 @@ namespace Hello_World.Menu
         protected virtual void OnCloseRequested()
         {
             this.CloseRequested?.Invoke(this, EventArgs.Empty);
-        }
-
-        public void RequestClose()
-        {
-            OnCloseRequested();
         }
     }
 }

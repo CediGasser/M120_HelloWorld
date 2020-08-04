@@ -12,9 +12,9 @@ namespace Hello_World
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
             StandardKernel kernel = new StandardKernel(new Module());
-            
+
             MainWindowViewModel mainWindowViewModel = kernel.Get<MainWindowViewModel>();
-            MainWindowView mainWindow = new MainWindowView { DataContext = mainWindowViewModel };
+            MainWindowView mainWindow = new MainWindowView {DataContext = mainWindowViewModel};
             mainWindow.InitializeComponent();
             mainWindow.Show();
         }

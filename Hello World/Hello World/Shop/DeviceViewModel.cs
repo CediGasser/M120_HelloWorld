@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
-using Hello_World.Core;
+﻿using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 
 namespace Hello_World.Shop
@@ -15,11 +11,10 @@ namespace Hello_World.Shop
         {
             this.Device = device;
             this.game = parentGame;
-            this.OnBuyButtonClickCommand = new RelayCommand(OnBuyButtonClick);
-
+            this.OnBuyButtonClickCommand = new RelayCommand(this.OnBuyButtonClick);
         }
 
-        public Device Device { get;}
+        public Device Device { get; }
 
         // ReSharper disable once MemberCanBePrivate.Global
         public RelayCommand OnBuyButtonClickCommand { get; set; }

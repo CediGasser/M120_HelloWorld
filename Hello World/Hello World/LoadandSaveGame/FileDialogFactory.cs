@@ -1,7 +1,7 @@
-﻿namespace Hello_World.LoadAndSaveGame
-{
-    using Microsoft.Win32;
+﻿using Microsoft.Win32;
 
+namespace Hello_World.LoadAndSaveGame
+{
     public interface IFileDialog
     {
         public string FileName { get; }

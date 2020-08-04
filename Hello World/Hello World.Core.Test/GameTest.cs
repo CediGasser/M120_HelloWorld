@@ -7,21 +7,21 @@ namespace Hello_World.Core.Test
 {
     public class GameTest
     {
-        class FakeDatetimeNowProvider : DatetimeNowProvider
+        private class FakeDatetimeNowProvider : DatetimeNowProvider
         {
             public FakeDatetimeNowProvider(DateTime fakeNow)
             {
                 this.FakeNow = fakeNow;
             }
 
+            private DateTime FakeNow { get; set; }
+
+            public override DateTime Now => this.FakeNow;
+
             public void IncrementSeconds(int seconds)
             {
-                this.FakeNow = this.FakeNow + TimeSpan.FromSeconds(seconds);
+                this.FakeNow += TimeSpan.FromSeconds(seconds);
             }
-
-            public DateTime FakeNow { get; set; }
-        
-            public override DateTime Now => FakeNow;
         }
 
         [Fact]
@@ -29,7 +29,7 @@ namespace Hello_World.Core.Test
         {
             FakeDatetimeNowProvider nowProvider = new FakeDatetimeNowProvider(new DateTime(2020, 02, 02));
 
-            IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o=>o.Strict());
+            IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o => o.Strict());
             Game game = new Game(nowProvider, fakeErrorMessageDisplayer);
 
             Device deviceCosting500 = new Device("name", 10, 500);
@@ -44,27 +44,10 @@ namespace Hello_World.Core.Test
         }
 
         [Fact]
-        public void UpdateKarma_WhenOneSecondPassed_ThenKarmaIsCorrectlyUpdated()
+        public void
+            TryBuyHelloWorldProducer_WhenNotEnoughKarma_ThenHelloWorldProducerIsNotBoughtAndKarmaIsNotSpentAndExceptionIsThrown()
         {
-            var nowProvider = new FakeDatetimeNowProvider(new DateTime(2020, 02, 02)); 
-            IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o => o.Strict());
-            Game game = new Game(nowProvider, fakeErrorMessageDisplayer);
-
-            Device deviceProducing100KarmaPerSecond = new Device("name", 100, 0);
-            game.HelloWorldProducers.Add(deviceProducing100KarmaPerSecond);
-            game.Karma = 100;
-            game.TryBuyHelloWorldProducer(deviceProducing100KarmaPerSecond);
-
-            nowProvider.IncrementSeconds(1);
-            game.UpdateKarma();
-
-            game.Karma.Should().Be(200);
-        }
-
-        [Fact]
-        public void TryBuyHelloWorldProducer_WhenNotEnoughKarma_ThenHelloWorldProducerIsNotBoughtAndKarmaIsNotSpentAndExceptionIsThrown()
-        {
-            var nowProvider = new FakeDatetimeNowProvider(new DateTime(2020, 02, 02));
+            FakeDatetimeNowProvider nowProvider = new FakeDatetimeNowProvider(new DateTime(2020, 02, 02));
             IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o => o.Strict());
             A.CallTo(() => fakeErrorMessageDisplayer.Show(A<string>._, A<string>._)).DoesNothing();
 
@@ -79,7 +62,25 @@ namespace Hello_World.Core.Test
 
             A.CallTo(() => fakeErrorMessageDisplayer
                     .Show("Not enough Karma!", "You're poor haha!"))
-                    .MustHaveHappened(1, Times.Exactly);
+                .MustHaveHappened(1, Times.Exactly);
+        }
+
+        [Fact]
+        public void UpdateKarma_WhenOneSecondPassed_ThenKarmaIsCorrectlyUpdated()
+        {
+            FakeDatetimeNowProvider nowProvider = new FakeDatetimeNowProvider(new DateTime(2020, 02, 02));
+            IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o => o.Strict());
+            Game game = new Game(nowProvider, fakeErrorMessageDisplayer);
+
+            Device deviceProducing100KarmaPerSecond = new Device("name", 100, 0);
+            game.HelloWorldProducers.Add(deviceProducing100KarmaPerSecond);
+            game.Karma = 100;
+            game.TryBuyHelloWorldProducer(deviceProducing100KarmaPerSecond);
+
+            nowProvider.IncrementSeconds(1);
+            game.UpdateKarma();
+
+            game.Karma.Should().Be(200);
         }
     }
 }

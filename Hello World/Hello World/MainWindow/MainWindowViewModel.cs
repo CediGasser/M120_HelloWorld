@@ -68,8 +68,7 @@ namespace Hello_World.MainWindow
 
         public void ChangeSelectedViewModelToLoadedGame()
         {
-            this.SelectedViewModel =
-                this.gameViewModelFactory.CreateGameViewModelWithLoadedGame(this);
+            this.SelectedViewModel = this.gameViewModelFactory.CreateGameViewModelWithLoadedGame(this);
         }
 
         public void ChangeSelectedViewModelToMainMenu()
