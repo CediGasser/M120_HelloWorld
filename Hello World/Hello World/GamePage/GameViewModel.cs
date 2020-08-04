@@ -1,46 +1,35 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Windows;
-using System.Windows.Documents;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
 using Hello_World.Infrastructure.ViewModels;
 using Hello_World.Infrastructure.Views;
-using Hello_World.Shop;
-using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
 using Hello_World.Menu;
-using PropertyChanged;
-using System.Collections.ObjectModel;
-using Hello_World.Infrastructure;
+using Hello_World.Shop;
 
 namespace Hello_World.GamePage
 {
     public class GameViewModel : ViewModelBase, IDisplayableViewModel
     {
-        private readonly Game game;
-
         private const string TextToPrint = "Hello World!";
-
-        private int clicksPerSecond;
+        private readonly Game game;
 
         private readonly MainWindowViewModel mainWindowViewModel;
 
         private readonly IWindowDisplayer windowDisplayer;
 
+        private int clicksPerSecond;
+
         public GameViewModel(Game game, MainWindowViewModel mainWindowViewModel, IWindowDisplayer windowDisplayer)
         {
             this.game = game;
-            this.OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
-            this.OnMenuCommand = new RelayCommand(OnMenuButtonClick);
-            this.OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
+            this.OnHelloWorldButtonClickCommand = new RelayCommand(this.OnHelloWorldButtonClick);
+            this.OnMenuCommand = new RelayCommand(this.OnMenuButtonClick);
+            this.OnShopButtonClickCommand = new RelayCommand(this.OnShopButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
-            oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
+            oneSecondTimer.DispatcherTimer.Tick += this.OnTimerEnd;
             this.mainWindowViewModel = mainWindowViewModel;
             this.windowDisplayer = windowDisplayer;
         }
@@ -50,7 +39,7 @@ namespace Hello_World.GamePage
         public RelayCommand OnHelloWorldButtonClickCommand { get; set; }
 
         public RelayCommand OnShopButtonClickCommand { get; set; }
-        
+
         public RelayCommand OnMenuCommand { get; set; }
 
         public double Karma
@@ -64,9 +53,9 @@ namespace Hello_World.GamePage
         //MVVM Event Handlers
         private void OnTimerEnd(object sender, EventArgs e)
         {
-            int allHelloWorldPerSecond = CalculateAllAutomaticHelloWorldPerSecond();
+            int allHelloWorldPerSecond = this.CalculateAllAutomaticHelloWorldPerSecond();
             this.RefreshHelloWorldPerSecond();
-            game.UpdateKarma();
+            this.game.UpdateKarma();
             this.UpdateHelloWorldPerSecond(allHelloWorldPerSecond);
         }
 
@@ -94,7 +83,7 @@ namespace Hello_World.GamePage
                     this.mainWindowViewModel.ShopViewModel = new ShopViewModel(this.game);
                     shopViewModel = this.mainWindowViewModel.ShopViewModel;
                 }
-                
+
                 shopViewModel.IsWindowClosed = false;
 
                 this.windowDisplayer.ShowWindow(() => new ShopView(), shopViewModel);
@@ -134,34 +123,10 @@ namespace Hello_World.GamePage
 
         private int CalculateAllAutomaticHelloWorldPerSecond()
         {
-            var allAutomaticHelloWorldsPerSecond = 0;
+            int allAutomaticHelloWorldsPerSecond = 0;
 
-            return this.game.HelloWorldProducers?.Sum(device => device.HelloWorldPerSecond) ?? allAutomaticHelloWorldsPerSecond;
+            return this.game.HelloWorldProducers?.Sum(device => device.HelloWorldPerSecond) ??
+                   allAutomaticHelloWorldsPerSecond;
         }
-    }
-
-    public class WindowDisplayer : IWindowDisplayer
-    {
-        public void ShowWindow<T>(Func<T> windowCreationFunction, IViewModel dataContext) where T : Window
-        {
-            T window = windowCreationFunction.Invoke();
-            window.DataContext = dataContext;
-            window.Show();
-        }
-
-      
-        public void ShowDialogWindow<T>(Func<T> windowCreationFunction, IViewModel dataContext) where T : Window
-        {
-            T window = windowCreationFunction.Invoke();
-
-            window.DataContext = dataContext;
-            window.ShowDialog();
-        }
-    }
-
-    public interface IWindowDisplayer
-    {
-        public void ShowWindow<T>(Func<T> windowCreationFunction, IViewModel dataContext) where T : Window { }
-        public void ShowDialogWindow<T>(Func<T> windowCreationFunction, IViewModel dataContext) where T : Window { }
     }
 }

@@ -1,6 +1,6 @@
 using Hello_World.LoadAndSaveGame;
 
-namespace Hello_World.Spec
+namespace Hello_World.Spec.Features.MainMenu
 {
     internal class SpecFileDialogFactory : IFileDialogFactory
     {

@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:mainWindow="clr-namespace:Hello_World.MainWindow"
         xmlns:shop="clr-namespace:Hello_World.Shop"
         mc:Ignorable="d"
         Title="ShopView" Height="450" Width="800" DataContextChanged="ShopView_OnDataContextChanged" Closing="ShopView_OnClosing"

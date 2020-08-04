@@ -12,16 +12,14 @@ namespace Hello_World.Infrastructure
     public class GameViewModelFactory
     {
 
-        public GameViewModel CreateGameViewModelWithLoadedGame(MainWindowViewModel mainWindowViewModel)
+        public GameViewModel CreateGameViewModelWithLoadedGame(MainWindowViewModel mainWindowViewModel, JsonFileManager jsonFileManager)
         {
-            JsonFileManager jsonFileManager = new JsonFileManager(mainWindowViewModel.FileDialogFactory);
             Game loadedGame = jsonFileManager.LoadGame();
             return new GameViewModel(loadedGame, mainWindowViewModel, new WindowDisplayer());
         }
 
         public GameViewModel CreateGameViewModel(MainWindowViewModel mainWindowViewModel)
         {
-
             Game game = new Game(new DatetimeNowProvider());
             return new GameViewModel(game, mainWindowViewModel, new WindowDisplayer());
         }

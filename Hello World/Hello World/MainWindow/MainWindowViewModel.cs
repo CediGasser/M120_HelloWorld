@@ -11,7 +11,15 @@ namespace Hello_World.MainWindow
 {
     public class MainWindowViewModel : ViewModelBase, ICreaterViewModel
     {
-        public MainWindowViewModel(IFileDialogFactory fileDialogFactory, GameViewModelFactory gameViewModelFactory, JsonFileManager jsonFileManager)
+        private readonly GameViewModelFactory gameViewModelFactory;
+        private readonly JsonFileManager jsonFileManager;
+
+        private MenuViewModel menuViewModel;
+
+        private ShopViewModel shopViewModel;
+
+        public MainWindowViewModel(IFileDialogFactory fileDialogFactory, GameViewModelFactory gameViewModelFactory,
+            JsonFileManager jsonFileManager)
         {
             this.FileDialogFactory = fileDialogFactory;
             this.gameViewModelFactory = gameViewModelFactory;
@@ -19,25 +27,26 @@ namespace Hello_World.MainWindow
             this.ChangeSelectedViewModelToMainMenu();
         }
 
-        private readonly GameViewModelFactory gameViewModelFactory;
-
-        private ShopViewModel shopViewModel;
-
-        private MenuViewModel menuViewModel;
-        private readonly JsonFileManager jsonFileManager;
-
-        private List<IClosable>ClosableChildren { get; set; } = new List<IClosable>();
+        private List<IClosable> ClosableChildren { get; } = new List<IClosable>();
 
         public ShopViewModel ShopViewModel
         {
             get => this.shopViewModel;
-            set { this.shopViewModel = value; AddToClosableChildren(value); }
+            set
+            {
+                this.shopViewModel = value;
+                this.AddToClosableChildren(value);
+            }
         }
 
         public MenuViewModel MenuViewModel
         {
             get => this.menuViewModel;
-            set { this.menuViewModel = value; AddToClosableChildren(value); }
+            set
+            {
+                this.menuViewModel = value;
+                this.AddToClosableChildren(value);
+            }
         }
 
 
@@ -47,19 +56,14 @@ namespace Hello_World.MainWindow
 
         private void AddToClosableChildren(IClosable child)
         {
-            if (!this.ClosableChildren.Contains(child))
-            {
-                this.ClosableChildren.Add(child);
-            }
+            if (!this.ClosableChildren.Contains(child)) this.ClosableChildren.Add(child);
         }
 
         public void CloseAllChildren()
         {
-            foreach (IClosable child in ClosableChildren)
-            {
-                child.RequestClose();
-            }
+            foreach (IClosable child in this.ClosableChildren) child.RequestClose();
         }
+
         public void ChangeSelectedViewModelToNewGame()
         {
             this.SelectedViewModel = this.gameViewModelFactory.CreateGameViewModel(this);
@@ -67,13 +71,13 @@ namespace Hello_World.MainWindow
 
         public void ChangeSelectedViewModelToLoadedGame()
         {
-            this.SelectedViewModel = this.gameViewModelFactory.CreateGameViewModelWithLoadedGame(this, this.jsonFileManager);
-        }   
-        
+            this.SelectedViewModel =
+                this.gameViewModelFactory.CreateGameViewModelWithLoadedGame(this, this.jsonFileManager);
+        }
+
         public void ChangeSelectedViewModelToMainMenu()
         {
             this.SelectedViewModel = new MainMenuViewModel(this);
         }
-
     }
 }
