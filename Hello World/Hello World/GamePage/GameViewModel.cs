@@ -31,14 +31,14 @@ namespace Hello_World.GamePage
 
         private readonly MainWindowViewModel mainWindowViewModel;
 
-        private readonly WindowDisplayer windowDisplayer;
+        private readonly IWindowDisplayer windowDisplayer;
 
-        public GameViewModel(Game game, MainWindowViewModel mainWindowViewModel, WindowDisplayer windowDisplayer)
+        public GameViewModel(Game game, MainWindowViewModel mainWindowViewModel, IWindowDisplayer windowDisplayer)
         {
             this.game = game;
-            OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
-            OnMenuCommand = new RelayCommand(OnMenuButtonClick);
-            OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
+            this.OnHelloWorldButtonClickCommand = new RelayCommand(OnHelloWorldButtonClick);
+            this.OnMenuCommand = new RelayCommand(OnMenuButtonClick);
+            this.OnShopButtonClickCommand = new RelayCommand(OnShopButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
             oneSecondTimer.DispatcherTimer.Tick += OnTimerEnd;
             this.mainWindowViewModel = mainWindowViewModel;
@@ -65,16 +65,16 @@ namespace Hello_World.GamePage
         private void OnTimerEnd(object sender, EventArgs e)
         {
             int allHelloWorldPerSecond = CalculateAllAutomaticHelloWorldPerSecond();
-            RefreshHelloWorldPerSecond();
+            this.RefreshHelloWorldPerSecond();
             game.UpdateKarma();
-            UpdateHelloWorldPerSecond(allHelloWorldPerSecond);
+            this.UpdateHelloWorldPerSecond(allHelloWorldPerSecond);
         }
 
         private void OnHelloWorldButtonClick()
         {
-            PrintHelloWorld();
-            UpdateKarma(1);
-            UpdateClicksPerSecond(1);
+            this.PrintHelloWorld();
+            this.UpdateKarma(1);
+            this.UpdateClicksPerSecond(1);
         }
 
         private void OnMenuButtonClick()
@@ -136,17 +136,15 @@ namespace Hello_World.GamePage
         {
             var allAutomaticHelloWorldsPerSecond = 0;
 
-            if (this.game.HelloWorldProducers == null) return allAutomaticHelloWorldsPerSecond;
-            return this.game.HelloWorldProducers.Sum(device => device.HelloWorldPerSecond);
+            return this.game.HelloWorldProducers?.Sum(device => device.HelloWorldPerSecond) ?? allAutomaticHelloWorldsPerSecond;
         }
     }
 
-    public class WindowDisplayer
+    public class WindowDisplayer : IWindowDisplayer
     {
         public void ShowWindow<T>(Func<T> windowCreationFunction, IViewModel dataContext) where T : Window
         {
             T window = windowCreationFunction.Invoke();
-
             window.DataContext = dataContext;
             window.Show();
         }
@@ -159,5 +157,11 @@ namespace Hello_World.GamePage
             window.DataContext = dataContext;
             window.ShowDialog();
         }
+    }
+
+    public interface IWindowDisplayer
+    {
+        public void ShowWindow<T>(Func<T> windowCreationFunction, IViewModel dataContext) where T : Window { }
+        public void ShowDialogWindow<T>(Func<T> windowCreationFunction, IViewModel dataContext) where T : Window { }
     }
 }
