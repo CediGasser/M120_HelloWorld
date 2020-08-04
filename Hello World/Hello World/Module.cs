@@ -15,8 +15,10 @@ namespace Hello_World
             this.Bind<MainWindowViewModel>().ToSelf().InSingletonScope();
             this.Bind<Game>().ToSelf().InSingletonScope();
             this.Bind<WindowDisplayer>().ToSelf().InSingletonScope();
-            this.Bind<GameViewModelFactory>().ToSelf();
-            this.Bind<JsonFileManager>().ToSelf();
+            this.Bind<GameViewModelFactory>().ToSelf().InSingletonScope();
+            this.Bind<JsonFileManager>().ToSelf().InSingletonScope();
+            this.Bind<IErrorMessageDisplayer>().To<ErrorMessageDisplayer>().InSingletonScope();
+            this.Bind<DatetimeNowProvider>().ToSelf().InSingletonScope();
         }
     }
 }

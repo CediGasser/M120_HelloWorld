@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using FakeItEasy;
+using FluentAssertions;
+using Hello_World.Core;
 using Hello_World.GamePage;
 using Hello_World.Infrastructure;
 using Hello_World.LoadAndSaveGame;
@@ -23,8 +25,9 @@ namespace Hello_World.Spec.Features.MainMenu
         {
             this.CreateName().ToString().x(() =>
             {
+                IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o => o.Strict());
                 SpecFileDialogFactory specFileDialogFactory = new SpecFileDialogFactory();
-                this.scenarioStorage.Store(new MainWindowViewModel(specFileDialogFactory,new GameViewModelFactory(), new JsonFileManager(specFileDialogFactory)));
+                this.scenarioStorage.Store(new MainWindowViewModel(specFileDialogFactory,new GameViewModelFactory(new JsonFileManager(specFileDialogFactory), fakeErrorMessageDisplayer,new DatetimeNowProvider())));
             });
         }
     }    

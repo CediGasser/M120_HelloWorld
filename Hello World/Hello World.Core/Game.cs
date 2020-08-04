@@ -10,12 +10,14 @@ namespace Hello_World.Core
     public class Game : FodyNotifyPropertyChangedBase
     {
         private readonly DatetimeNowProvider datetimeNowProvider;
+        private readonly IErrorMessageDisplayer errorMessageDisplayer;
         private DateTime lastUpdate;
         private int karmaToAdd;
 
-        public Game(DatetimeNowProvider datetimeNowProvider)
+        public Game(DatetimeNowProvider datetimeNowProvider, IErrorMessageDisplayer errorMessageDisplayer)
         {
             this.datetimeNowProvider = datetimeNowProvider;
+            this.errorMessageDisplayer = errorMessageDisplayer;
 
             this.lastUpdate = datetimeNowProvider.Now;
             this.HelloWorldProducers = new DevicesFactory().CreateDefaultDevices();
@@ -46,7 +48,7 @@ namespace Hello_World.Core
             }
             else
             {
-                throw new NotImplementedException();
+                this.errorMessageDisplayer.Show("Not enough Karma!", "You're poor haha!");
             }
         }
         
@@ -61,5 +63,10 @@ namespace Hello_World.Core
         {
             return this.HelloWorldProducers?.Select(device => device.HelloWorldPerSecond).Sum() ?? 0;
         }
+    }
+
+    public interface IErrorMessageDisplayer
+    {
+        void Show(string errorTitle, string errorMessage);
     }
 }

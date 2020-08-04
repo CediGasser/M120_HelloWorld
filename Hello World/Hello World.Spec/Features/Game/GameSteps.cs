@@ -28,10 +28,13 @@ namespace Hello_World.Spec.Features.Game
         {
             this.CreateName().WithoutParams().x(() =>
             {
-                Core.Game game = new Core.Game(new DatetimeNowProvider());
+                IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o => o.Strict());
+
+                DatetimeNowProvider datetimeNowProvider = new DatetimeNowProvider();
+                Core.Game game = new Core.Game(datetimeNowProvider, fakeErrorMessageDisplayer);
                 FileDialogFactory fileDialogFactory = new FileDialogFactory();
                 JsonFileManager jsonFileManager = new JsonFileManager(fileDialogFactory);
-                MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(fileDialogFactory, new GameViewModelFactory(),jsonFileManager);
+                MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(fileDialogFactory, new GameViewModelFactory(jsonFileManager,fakeErrorMessageDisplayer,datetimeNowProvider));
                 IWindowDisplayer fakeWindowDisplayer = A.Fake<IWindowDisplayer>();
                 A.CallTo(() => fakeWindowDisplayer.ShowWindow(A<Func<Window>>.Ignored, A<IViewModel>.Ignored))
                     .DoesNothing();
