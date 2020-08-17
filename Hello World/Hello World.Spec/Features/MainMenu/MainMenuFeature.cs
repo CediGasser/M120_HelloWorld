@@ -12,7 +12,7 @@ namespace Hello_World.Spec.Features.MainMenu
 
         public MainMenuFeature()
         {
-            this._ =
+            _ =
                 ScenarioContextBuilder
                     .Build<MainMenuGiven, MainMenuWhen, MainMenuThen>()
                     .AlwaysUsingCommon<MainWindowViewModel>();
@@ -21,18 +21,18 @@ namespace Hello_World.Spec.Features.MainMenu
         [Scenario]
         public void OnNewGame_TheGameViewModelIsShown()
         {
-            this._.Given.IHaveStartedTheGame();
-            this._.When.IClickOnNewGame();
-            this._.Then.TheGameScreenShouldBeDisplayed();
+            _.Given.IHaveStartedTheGame();
+            _.When.IClickOnNewGame();
+            _.Then.TheGameScreenShouldBeDisplayed();
         }
 
         [Scenario]
         public void OnLoadGame_TheGameViewModelIsShownAndTheGameWasLoadedCorrectly()
         {
-            this._.Given.IHaveStartedTheGame();
-            this._.When.IClickOnLoadGameAndSelectTheFileP1ToLoad(@"..\..\..\TestData\mySavegame.json");
-            this._.Then.TheGameScreenShouldBeDisplayed();
-            this._.Then.TheKarmaShouldBe(450);
+            _.Given.IHaveStartedTheGame();
+            _.When.IClickOnLoadGameAndSelectTheFileP1ToLoad(@"..\..\..\TestData\mySavegame.json");
+            _.Then.TheGameScreenShouldBeDisplayed();
+            _.Then.TheKarmaShouldBe(450);
         }
     }
 }

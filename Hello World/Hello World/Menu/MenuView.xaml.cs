@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,6 +37,11 @@ namespace Hello_World.Menu
         private void OnCloseRequested(object? sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void MenuView_OnClosing(object sender, CancelEventArgs e)
+        {
+            ((MenuViewModel)this.DataContext).IsWindowClosed = true;
         }
     }
 }

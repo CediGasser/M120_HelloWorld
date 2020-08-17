@@ -26,7 +26,7 @@ namespace Hello_World.GamePage
         {
             this.game = game;
             this.OnHelloWorldButtonClickCommand = new RelayCommand(this.OnHelloWorldButtonClick);
-            this.OnMenuCommand = new RelayCommand(this.OnMenuButtonClick);
+            this.OnMenuClickCommand = new RelayCommand(this.OnMenuButtonClick);
             this.OnShopButtonClickCommand = new RelayCommand(this.OnShopButtonClick);
             OneSecondTimer oneSecondTimer = new OneSecondTimer();
             oneSecondTimer.DispatcherTimer.Tick += this.OnTimerEnd;
@@ -34,13 +34,14 @@ namespace Hello_World.GamePage
             this.windowDisplayer = windowDisplayer;
         }
 
+
         public int HelloWorldPerSecond { get; set; }
 
-        public RelayCommand OnHelloWorldButtonClickCommand { get; set; }
+        public RelayCommand OnHelloWorldButtonClickCommand { get; private set; }
 
-        public RelayCommand OnShopButtonClickCommand { get; set; }
+        public RelayCommand OnShopButtonClickCommand { get; private set; }
 
-        public RelayCommand OnMenuCommand { get; set; }
+        public RelayCommand OnMenuClickCommand { get; private set; }
 
         public double Karma
         {
@@ -48,9 +49,10 @@ namespace Hello_World.GamePage
             private set => this.game.Karma = value;
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public string TextBoxText { get; set; } = TextToPrint;
 
-        //MVVM Event Handlers
+        //Event Handlers
         private void OnTimerEnd(object sender, EventArgs e)
         {
             int allHelloWorldPerSecond = this.CalculateAllAutomaticHelloWorldPerSecond();
@@ -68,7 +70,7 @@ namespace Hello_World.GamePage
 
         private void OnMenuButtonClick()
         {
-            this.mainWindowViewModel.MenuViewModel = new MenuViewModel(this.game, this.mainWindowViewModel);
+            this.mainWindowViewModel.MenuViewModel = new MenuViewModel(this.game, this.mainWindowViewModel) {IsWindowClosed = false};
             this.windowDisplayer.ShowDialogWindow(() => new MenuView(), this.mainWindowViewModel.MenuViewModel);
         }
 
@@ -123,10 +125,7 @@ namespace Hello_World.GamePage
 
         private int CalculateAllAutomaticHelloWorldPerSecond()
         {
-            int allAutomaticHelloWorldsPerSecond = 0;
-
-            return this.game.HelloWorldProducers?.Sum(device => device.HelloWorldPerSecond) ??
-                   allAutomaticHelloWorldsPerSecond;
+            return this.game.HelloWorldProducers?.Sum(device => device.HelloWorldPerSecond) ?? 0;
         }
     }
 }

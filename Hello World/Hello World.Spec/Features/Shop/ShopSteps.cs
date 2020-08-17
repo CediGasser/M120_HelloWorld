@@ -7,23 +7,24 @@ using Hello_World.GamePage;
 using Hello_World.Infrastructure;
 using Hello_World.Infrastructure.ViewModels;
 using Hello_World.LoadAndSaveGame;
+using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
 using Xbehave;
 using xFlowPackage.BaseStepDefinitions;
 using xFlowPackage.Context;
 
-namespace Hello_World.Spec.Features.Game
+namespace Hello_World.Spec.Features.Shop
 {
-    public class GameGiven : GivenBase
+    public class ShopGiven : GivenBase
     {
         private readonly IScenarioStorage scenarioStorage;
 
-        public GameGiven(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
+        public ShopGiven(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
         {
             this.scenarioStorage = scenarioStorage;
         }
 
-        public void IHaveStartedTheGame()
+        public void IHaveStartedTheGameWithOneMillionKarma()
         {
             this.CreateName().WithoutParams().x(() =>
             {
@@ -31,6 +32,7 @@ namespace Hello_World.Spec.Features.Game
 
                 DatetimeNowProvider datetimeNowProvider = new DatetimeNowProvider();
                 Core.Game game = new Core.Game(datetimeNowProvider, fakeErrorMessageDisplayer);
+                game.Karma = 1000000;
                 FileDialogFactory fileDialogFactory = new FileDialogFactory();
                 JsonFileManager jsonFileManager = new JsonFileManager(fileDialogFactory);
                 MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(fileDialogFactory,
@@ -43,66 +45,49 @@ namespace Hello_World.Spec.Features.Game
                 this.scenarioStorage.Store(new GameViewModel(game, mainWindowViewModel, fakeWindowDisplayer));
             });
         }
+
     }
 
-    public class GameWhen : WhenBase
+    public class ShopWhen : WhenBase
     {
         private readonly IScenarioStorage scenarioStorage;
 
-
-        public GameWhen(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
-        {
-            this.scenarioStorage = scenarioStorage;
-        }
-
-        private GameViewModel GameViewModel => this.scenarioStorage.Get<GameViewModel>();
-
-        public void IClickOnHelloWorld()
-        {
-            this.CreateName().WithoutParams().x(() => { this.GameViewModel.OnHelloWorldButtonClickCommand.Execute(); });
-        }
-
-        public void IClickOnShop()
-        {
-            this.CreateName().WithoutParams().x(() => { this.GameViewModel.OnShopButtonClickCommand.Execute(); });
-        }
-
-        public void IClickOnMenu()
-        {
-            this.CreateName().WithoutParams().x(() => { this.GameViewModel.OnMenuClickCommand.Execute(); });
-        }
-    }
-
-    public class GameThen : ThenBase
-    {
-        private readonly IScenarioStorage scenarioStorage;
-
-        public GameThen(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
+        public ShopWhen(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
         {
             this.scenarioStorage = scenarioStorage;
         }
 
         private GameViewModel GameViewModel => this.scenarioStorage.Get<GameViewModel>();
         private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
-
-        public void TheKarmaShouldBe(int karmaAmount)
+        public void IClickOnShop()
         {
-            this.CreateName().With(karmaAmount).x(() => { this.GameViewModel.Karma.Should().Be(karmaAmount); });
+            this.CreateName().WithoutParams().x(() => { this.GameViewModel.OnShopButtonClickCommand.Execute(); });
         }
 
-        public void TheShopViewModelIsWindowClosedShouldBeFalse()
+        public void IClickOnBuy(int i)
         {
             this.CreateName().WithoutParams().x(() =>
             {
-                this.MainWindowViewModel.ShopViewModel.IsWindowClosed.Should().BeFalse();
+                this.MainWindowViewModel.ShopViewModel.HelloWorldDeviceProducers[i].OnBuyButtonClickCommand.Execute();
             });
         }
+    }
 
-        public void TheMenuViewModelIsWindowClosedShouldBeFalse()
+    public class ShopThen : ThenBase
+    {
+        private readonly IScenarioStorage scenarioStorage;
+
+        private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
+
+        public ShopThen(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
+        {
+            this.scenarioStorage = scenarioStorage;
+        }
+        public void DeviceCountShouldBeOne(int i)
         {
             this.CreateName().WithoutParams().x(() =>
             {
-                this.MainWindowViewModel.MenuViewModel.IsWindowClosed.Should().BeFalse();
+                this.MainWindowViewModel.ShopViewModel.HelloWorldDeviceProducers[i].Device.Count.Should().Be(1);
             });
         }
     }

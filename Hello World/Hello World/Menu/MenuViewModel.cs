@@ -23,6 +23,8 @@ namespace Hello_World.Menu
             this.MainWindowViewModel = mainWindowViewModel;
         }
 
+        public bool IsWindowClosed { get; internal set; } = true;
+
         public RelayCommand OnResumeCommand { get; set; }
         public RelayCommand OnSaveCommand { get; set; }
         public RelayCommand OnExitCommand { get; set; }
