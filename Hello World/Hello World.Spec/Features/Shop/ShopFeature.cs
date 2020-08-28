@@ -17,7 +17,7 @@ namespace Hello_World.Spec.Features.Shop
             _ = ScenarioContextBuilder.Build<ShopGiven, ShopWhen, ShopThen>()
                 .AlwaysUsingCommon<ShopViewModel>()
                 .AlwaysUsingCommon<GameViewModel>()
-                .AlwaysUsingCommon<MainWindowViewModel>(); ;
+                .AlwaysUsingCommon<MainWindowViewModel>(); 
         }
 
         [Scenario]
