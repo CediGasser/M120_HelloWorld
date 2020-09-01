@@ -3,13 +3,13 @@
 namespace Hello_World.MainWindow
 {
     /// <summary>
-    /// Interaction logic for MainMenuView.xaml
+    ///     Interaction logic for MainMenuView.xaml
     /// </summary>
     public partial class MainWindowView : Window
     {
         public MainWindowView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

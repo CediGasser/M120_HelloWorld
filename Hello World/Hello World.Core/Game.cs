@@ -1,55 +1,69 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
 using Hello_World.Core.Device_Factory;
 
 namespace Hello_World.Core
 {
     public class Game : FodyNotifyPropertyChangedBase
     {
+        private readonly DatetimeNowProvider datetimeNowProvider;
+        private readonly IErrorMessageDisplayer errorMessageDisplayer;
+        private Karma karmaToAdd = new Karma(0, 0);
         private DateTime lastUpdate;
-        private int karmaToAdd;
-        private double karma;
+
+        public Game(DatetimeNowProvider datetimeNowProvider, IErrorMessageDisplayer errorMessageDisplayer)
+        {
+            this.datetimeNowProvider = datetimeNowProvider;
+            this.errorMessageDisplayer = errorMessageDisplayer;
+
+            this.lastUpdate = datetimeNowProvider.Now;
+            this.HelloWorldProducers = new DevicesFactory().CreateDefaultDevices();
+        }
 
         public Game()
         {
-            this.HelloWorldProducers = new DevicesFactory().CreateDefaultDevices();
         }
-        
-        public List<Device> HelloWorldProducers { get; private set; }
+
+        public List<Device> HelloWorldProducers { get; }
+
+        public Karma Karma { get; set; } = new Karma(0,0);
 
         private void BuyHelloWorldProducer(Device helloWorldProducer)
         {
-            this.karmaToAdd = CalculateAutomaticProducedHelloWorldPerSecond();
-            UpdateKarma();
-            helloWorldProducer.AddToCount();
+            this.UpdateKarma();
+            helloWorldProducer.IncreaseCountByOne();
+            this.karmaToAdd = this.CalculateAutomaticProducedHelloWorldPerSecond();
+            this.Karma -= helloWorldProducer.Cost;
         }
 
         public void TryBuyHelloWorldProducer(Device helloWorldProducer)
         {
-            if (helloWorldProducer.Prize <= Karma)
-            {
-                BuyHelloWorldProducer(helloWorldProducer);
-            }
+            if (helloWorldProducer.Cost < this.Karma)
+                this.BuyHelloWorldProducer(helloWorldProducer);
             else
-            {
-                throw new NotEnoughKarmaException();
-            }
+                this.errorMessageDisplayer.Show("Not enough Karma!", "You're poor haha!");
         }
 
-        public int Karma { get; set; }
+        public void UpdateKarma()
         {
-            double secondsSinceLastUpdate = (DateTime.Now - lastUpdate).TotalSeconds;
-            double huii = this.Karma + karmaToAdd * secondsSinceLastUpdate;
-            this.Karma = huii;
-            this.lastUpdate = DateTime.Now;
+            double secondsSinceLastUpdate = (this.datetimeNowProvider.Now - this.lastUpdate).TotalSeconds;
+            this.Karma += Convert.ToInt32(secondsSinceLastUpdate) * this.karmaToAdd;
+            this.lastUpdate = this.datetimeNowProvider.Now;
         }
 
-        private int CalculateAutomaticProducedHelloWorldPerSecond()
+        private Karma CalculateAutomaticProducedHelloWorldPerSecond()
         {
-            return HelloWorldProducers?.Select(device => device.HelloWorldPerSecond).Sum() ?? 0;
+            Karma karmaPerSecond = new Karma(0, 0);
+            if (this.HelloWorldProducers != null)
+                foreach (Device helloWorldProducer in this.HelloWorldProducers)
+                    karmaPerSecond += helloWorldProducer.HelloWorldPerSecond;
+
+            return karmaPerSecond;
         }
+    }
+
+    public interface IErrorMessageDisplayer
+    {
+        void Show(string errorTitle, string errorMessage);
     }
 }

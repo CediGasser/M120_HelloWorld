@@ -1,47 +1,46 @@
 ﻿using System;
-using Hello_World.Core;
-using Hello_World.GamePage;
+using System.Windows;
 using Hello_World.Infrastructure.Commands;
-using Hello_World.MainWindow;
 using Hello_World.Infrastructure.ViewModels;
+using Hello_World.Infrastructure.Views;
 using Hello_World.LoadAndSaveGame;
+using Hello_World.MainWindow;
 
 namespace Hello_World.MainMenuPage
 {
-    class MainMenuViewModel : ViewModelBase
+    public class MainMenuViewModel : ViewModelBase, IDisplayableViewModel
     {
+        private readonly MainWindowViewModel mainWindowViewModel;
+
+
+        public MainMenuViewModel(MainWindowViewModel mainWindowViewModel)
+        {
+            this.OnNewGameCommand = new RelayCommand(this.OnNewGameButtonClick);
+            this.OnLoadGameCommand = new RelayCommand(this.OnLoadGameButtonClick);
+            this.OnQuitCommand = new RelayCommand(this.OnQuitButtonClick);
+            this.mainWindowViewModel = mainWindowViewModel;
+        }
+
         public RelayCommand OnNewGameCommand { get; set; }
 
         public RelayCommand OnLoadGameCommand { get; set; }
 
         public RelayCommand OnQuitCommand { get; set; }
 
-        private readonly MainWindowViewModel baseViewModel;
-
-        public MainMenuViewModel(MainWindowViewModel baseViewModel)
+        private void OnNewGameButtonClick()
         {
-            this.OnNewGameCommand = new RelayCommand(OnNewGameButtonClick);
-            this.OnLoadGameCommand = new RelayCommand(OnLoadGameButtonClick);
-            this.OnQuitCommand = new RelayCommand(OnQuitButtonClick);
-            this.baseViewModel = baseViewModel;
+            this.mainWindowViewModel.ChangeSelectedViewModelToNewGame();
         }
 
-        public void OnNewGameButtonClick()
+        private void OnLoadGameButtonClick()
         {
-            Game game = new Game();
-            this.baseViewModel.SelectedPageView = new GameView() {DataContext = new GameViewModel(game, baseViewModel)};
-        }
-
-        public void OnLoadGameButtonClick()
-        {
-            JsonFileManager jsonFileManager = new JsonFileManager();
             try
             {
-                Game game = jsonFileManager.LoadGame();
-                this.baseViewModel.SelectedPageView = new GameView() { DataContext = new GameViewModel(game, baseViewModel) };
+                this.mainWindowViewModel.ChangeSelectedViewModelToLoadedGame();
             }
             catch (NoPathSelectedException)
             {
+                MessageBox.Show("Not a Valid File!", "Warning");
             }
         }
 

@@ -1,32 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using Hello_World.Core;
-using Microsoft.VisualBasic;
-using Microsoft.Win32;
 
 namespace Hello_World.LoadAndSaveGame
 {
-    class JsonFileManager
+    public class JsonFileManager
     {
+        private readonly IFileDialogFactory fileDialogFactory;
+
+        public JsonFileManager(IFileDialogFactory fileDialogFactory)
+        {
+            this.fileDialogFactory = fileDialogFactory;
+        }
+
         public void SaveGame(Game game)
         {
             string jsonString = JsonSerializer.Serialize(game);
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog
-            {
-                Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-            };
+            IFileDialog saveFileDialog = this.fileDialogFactory.CreateSaveFileDialog(
+                "JSON files (*.json)|*.json|All files (*.*)|*.*",
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
-
-            if (saveFileDialog.ShowDialog() == true)
-            {
-                File.WriteAllText(saveFileDialog.FileName, jsonString);
-            }
+            if (saveFileDialog.ShowDialog()) File.WriteAllText(saveFileDialog.FileName, jsonString);
         }
 
         public Game LoadGame()
@@ -34,26 +30,22 @@ namespace Hello_World.LoadAndSaveGame
             Game game;
             string jsonString = "";
 
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-            };
+            //OpenFileDialog openFileDialog = new OpenFileDialog
+            //{
+            //    Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
+            //    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            //};
+            IFileDialog openFileDialog = this.fileDialogFactory.CreateOpenFileDialog(
+                "JSON files (*.json)|*.json|All files (*.*)|*.*",
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
 
-            if (openFileDialog.ShowDialog() == true)
-            {
-                jsonString = File.ReadAllText(openFileDialog.FileName);
-            }
+            if (openFileDialog.ShowDialog()) jsonString = File.ReadAllText(openFileDialog.FileName);
 
             if (jsonString != "")
-            {
                 game = JsonSerializer.Deserialize<Game>(jsonString);
-            }
             else
-            {
                 throw new NoPathSelectedException();
-            }
 
             return game;
         }

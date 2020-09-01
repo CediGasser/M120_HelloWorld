@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
 
 namespace Hello_World.Core.Device_Factory
 {
-    class DevicesFactory
+    internal class DevicesFactory
     {
         public List<Device> CreateDefaultDevices()
         {
-            return  new List<Device>
+            return new List<Device>
             {
-                new Device("Nokia", 1, 10),
-                new Device("BBZW Sursee Schüler PC", 5, 150),
-                new Device("Samsung Fridge", 50, 1000),
-                new Device("Roland Buchers Fachleiter Laptop", 600, 9000)
+                new Device("Nokia", new Karma(0, 1), new Karma(0, 10)),
+                new Device("BBZW Sursee Schüler PC", new Karma(0, 5), new Karma(0, 150)),
+                new Device("Samsung Fridge", new Karma(0, 50), new Karma(0, 1000)),
+                new Device("Roland Buchers Fachleiter Laptop", new Karma(0, 600), new Karma(0, 9000))
             };
         }
     }

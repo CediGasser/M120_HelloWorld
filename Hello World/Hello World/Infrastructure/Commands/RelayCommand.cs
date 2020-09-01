@@ -14,29 +14,25 @@ namespace Hello_World.Infrastructure.Commands
 {
 #pragma warning disable SA1402 // File may only contain a single class
 
-    /// <summary>Provides an implementation of the <see cref="ICommand"/> interface. </summary>
+    /// <summary>Provides an implementation of the <see cref="ICommand" /> interface. </summary>
     public class RelayCommand : CommandBase
     {
+        private readonly Func<bool> canExecute;
         private readonly Action execute;
 
-        private readonly Func<bool> canExecute;
-
-        /// <summary>Initializes a new instance of the <see cref="RelayCommand"/> class. </summary>
+        /// <summary>Initializes a new instance of the <see cref="RelayCommand" /> class. </summary>
         /// <param name="execute">The action to execute. </param>
         public RelayCommand(Action execute)
             : this(execute, null)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="RelayCommand"/> class. </summary>
+        /// <summary>Initializes a new instance of the <see cref="RelayCommand" /> class. </summary>
         /// <param name="execute">The action to execute. </param>
         /// <param name="canExecute">The predicate to check whether the function can be executed. </param>
         public RelayCommand(Action execute, Func<bool> canExecute)
         {
-            if (execute == null)
-            {
-                throw new ArgumentNullException(nameof(execute));
-            }
+            if (execute == null) throw new ArgumentNullException(nameof(execute));
 
             this.execute = execute;
             this.canExecute = canExecute;
@@ -56,30 +52,26 @@ namespace Hello_World.Infrastructure.Commands
         }
     }
 
-    /// <summary>Provides an implementation of the <see cref="ICommand"/> interface. </summary>
+    /// <summary>Provides an implementation of the <see cref="ICommand" /> interface. </summary>
     /// <typeparam name="T">The type of the command parameter. </typeparam>
     public class RelayCommand<T> : CommandBase<T>
     {
+        private readonly Predicate<T> canExecute;
         private readonly Action<T> execute;
 
-        private readonly Predicate<T> canExecute;
-
-        /// <summary>Initializes a new instance of the <see cref="RelayCommand{T}"/> class. </summary>
+        /// <summary>Initializes a new instance of the <see cref="RelayCommand{T}" /> class. </summary>
         /// <param name="execute">The action to execute. </param>
         public RelayCommand(Action<T> execute)
             : this(execute, null)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="RelayCommand{T}"/> class. </summary>
+        /// <summary>Initializes a new instance of the <see cref="RelayCommand{T}" /> class. </summary>
         /// <param name="execute">The action to execute. </param>
         /// <param name="canExecute">The predicate to check whether the function can be executed. </param>
         public RelayCommand(Action<T> execute, Predicate<T> canExecute)
         {
-            if (execute == null)
-            {
-                throw new ArgumentNullException(nameof(execute));
-            }
+            if (execute == null) throw new ArgumentNullException(nameof(execute));
 
             this.execute = execute;
             this.canExecute = canExecute;

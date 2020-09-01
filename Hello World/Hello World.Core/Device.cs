@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Hello_World.Core
+﻿namespace Hello_World.Core
 {
     public class Device : FodyNotifyPropertyChangedBase
     {
-        public Device(string name, int baseHelloWorldPerSecond, int prize)
+        public Device(string name, Karma baseHelloWorldPerSecond, Karma cost)
         {
             this.Name = name;
             this.BaseHelloWorldPerSecond = baseHelloWorldPerSecond;
-            this.Prize = prize;
+            this.Cost = cost;
         }
 
         public Device()
@@ -21,17 +17,15 @@ namespace Hello_World.Core
 
         public int Count { get; set; }
 
-        public void AddToCount()
+        public Karma HelloWorldPerSecond => this.Count * this.BaseHelloWorldPerSecond;
+
+        public Karma BaseHelloWorldPerSecond { get; }
+
+        public Karma Cost { get; set; }
+
+        public void IncreaseCountByOne()
         {
             this.Count++;
         }
-
-        public int HelloWorldPerSecond => this.BaseHelloWorldPerSecond * Count;
-
-        public int BaseHelloWorldPerSecond { get; }
-
-        public int Prize { get; set; }
-
-
     }
 }

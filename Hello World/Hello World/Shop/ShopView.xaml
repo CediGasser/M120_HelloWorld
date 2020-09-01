@@ -5,19 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:shop="clr-namespace:Hello_World.Shop"
         mc:Ignorable="d"
-        Title="ShopView" Height="450" Width="800">
+        Title="ShopView" Height="450" Width="800" DataContextChanged="ShopView_OnDataContextChanged"
+        Closing="ShopView_OnClosing"
+        d:DataContext="{d:DesignInstance Type=shop:ShopViewModel, IsDesignTimeCreatable=True}">
     <Grid>
-        <ListView ItemsSource="{Binding HelloWorldDeviceProducers}"  BorderThickness="0" x:Name="HelloWorldProducersListView">
+        <ListView ItemsSource="{Binding HelloWorldDeviceProducers}" BorderThickness="0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="400" DisplayMemberBinding="{Binding Device.Name}"/>
-                    <GridViewColumn Header="Count" Width="100" DisplayMemberBinding="{Binding Device.Count}"/>
-                    <GridViewColumn Header="Prize" Width="100" DisplayMemberBinding="{Binding Device.Prize}"/>
-                    <GridViewColumn Header="HWpS" Width="100" DisplayMemberBinding="{Binding Device.BaseHelloWorldPerSecond}"/>
+                    <GridViewColumn Header="Name" Width="400" DisplayMemberBinding="{Binding Device.Name}" />
+                    <GridViewColumn Header="Count" Width="100" DisplayMemberBinding="{Binding Device.Count}" />
+                    <GridViewColumn Header="Cost" Width="100" DisplayMemberBinding="{Binding Device.Cost}" />
+                    <GridViewColumn Header="HWpS" Width="100"
+                                    DisplayMemberBinding="{Binding Device.BaseHelloWorldPerSecond}" />
                     <GridViewColumn Width="100" Header="Buy">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Buy"  Command="{Binding OnBuyButtonClickCommand}" />
+                                <Button Content="Buy" Command="{Binding OnBuyButtonClickCommand}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

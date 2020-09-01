@@ -4,28 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MenuView" Height="450" Width="450">
+        Title="MenuView" Height="450" Width="450" DataContextChanged="MenuView_OnDataContextChanged"
+        Closing="MenuView_OnClosing">
     <Window.Background>
-        <SolidColorBrush Opacity="0.5" Color="white"/>
+        <SolidColorBrush Opacity="0.5" Color="white" />
     </Window.Background>
 
     <Window.Resources>
         <Style x:Key="MenuButton" TargetType="Button">
-            <Setter Property="Background" Value="#c8a8a8a8"/>
+            <Setter Property="Background" Value="#c8a8a8a8" />
             <Setter Property="Foreground" Value="White" />
         </Style>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition />
+            <RowDefinition Height="20" />
+            <RowDefinition />
+            <RowDefinition Height="20" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Button Style="{StaticResource MenuButton}" Grid.Row="0"  Content="Resume" Command="{Binding OnResumeCommand}"></Button>
-        <Button Style="{StaticResource MenuButton}" Grid.Row="2"  Content="Save" Command="{Binding OnSaveCommand}"></Button>
-        <Button Style="{StaticResource MenuButton}" Grid.Row="4"  Content="Exit" Command="{Binding OnExitCommand}"></Button>
+        <Button Style="{StaticResource MenuButton}" Grid.Row="0" Content="Resume" Command="{Binding OnResumeCommand}" />
+        <Button Style="{StaticResource MenuButton}" Grid.Row="2" Content="Save" Command="{Binding OnSaveCommand}" />
+        <Button Style="{StaticResource MenuButton}" Grid.Row="4" Content="Exit" Command="{Binding OnExitCommand}" />
     </Grid>
 </Window>
