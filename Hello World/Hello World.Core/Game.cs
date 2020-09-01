@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
 using Hello_World.Core.Device_Factory;
 
 namespace Hello_World.Core
@@ -11,8 +8,8 @@ namespace Hello_World.Core
     {
         private readonly DatetimeNowProvider datetimeNowProvider;
         private readonly IErrorMessageDisplayer errorMessageDisplayer;
+        private Karma karmaToAdd = new Karma(0, 0);
         private DateTime lastUpdate;
-        private int karmaToAdd;
 
         public Game(DatetimeNowProvider datetimeNowProvider, IErrorMessageDisplayer errorMessageDisplayer)
         {
@@ -25,12 +22,11 @@ namespace Hello_World.Core
 
         public Game()
         {
-
         }
 
-        public List<Device> HelloWorldProducers { get; private set; }
+        public List<Device> HelloWorldProducers { get; }
 
-        public double Karma { get; set; }
+        public Karma Karma { get; set; } = new Karma(0,0);
 
         private void BuyHelloWorldProducer(Device helloWorldProducer)
         {
@@ -42,26 +38,27 @@ namespace Hello_World.Core
 
         public void TryBuyHelloWorldProducer(Device helloWorldProducer)
         {
-            if (helloWorldProducer.Cost <= this.Karma)
-            {
+            if (helloWorldProducer.Cost < this.Karma)
                 this.BuyHelloWorldProducer(helloWorldProducer);
-            }
             else
-            {
                 this.errorMessageDisplayer.Show("Not enough Karma!", "You're poor haha!");
-            }
         }
-        
+
         public void UpdateKarma()
         {
             double secondsSinceLastUpdate = (this.datetimeNowProvider.Now - this.lastUpdate).TotalSeconds;
-            this.Karma += this.karmaToAdd * secondsSinceLastUpdate;
+            this.Karma += Convert.ToInt32(secondsSinceLastUpdate) * this.karmaToAdd;
             this.lastUpdate = this.datetimeNowProvider.Now;
         }
 
-        private int CalculateAutomaticProducedHelloWorldPerSecond()
+        private Karma CalculateAutomaticProducedHelloWorldPerSecond()
         {
-            return this.HelloWorldProducers?.Select(device => device.HelloWorldPerSecond).Sum() ?? 0;
+            Karma karmaPerSecond = new Karma(0, 0);
+            if (this.HelloWorldProducers != null)
+                foreach (Device helloWorldProducer in this.HelloWorldProducers)
+                    karmaPerSecond += helloWorldProducer.HelloWorldPerSecond;
+
+            return karmaPerSecond;
         }
     }
 

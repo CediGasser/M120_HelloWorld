@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
@@ -37,13 +36,13 @@ namespace Hello_World.GamePage
 
         public int HelloWorldPerSecond { get; set; }
 
-        public RelayCommand OnHelloWorldButtonClickCommand { get; private set; }
+        public RelayCommand OnHelloWorldButtonClickCommand { get; }
 
-        public RelayCommand OnShopButtonClickCommand { get; private set; }
+        public RelayCommand OnShopButtonClickCommand { get; }
 
-        public RelayCommand OnMenuClickCommand { get; private set; }
+        public RelayCommand OnMenuClickCommand { get; }
 
-        public double Karma
+        public Karma Karma
         {
             get => this.game.Karma;
             private set => this.game.Karma = value;
@@ -64,7 +63,7 @@ namespace Hello_World.GamePage
         private void OnHelloWorldButtonClick()
         {
             this.PrintHelloWorld();
-            this.UpdateKarma(1);
+            this.UpdateKarma(new Karma(0, 1));
             this.UpdateClicksPerSecond(1);
         }
 
@@ -108,7 +107,7 @@ namespace Hello_World.GamePage
             this.clicksPerSecond = 0;
         }
 
-        private void UpdateKarma(int newHelloWorldCount)
+        private void UpdateKarma(Karma newHelloWorldCount)
         {
             this.Karma += newHelloWorldCount;
         }
@@ -125,7 +124,7 @@ namespace Hello_World.GamePage
 
         private int CalculateAllAutomaticHelloWorldPerSecond()
         {
-            return this.game.HelloWorldProducers?.Sum(device => device.HelloWorldPerSecond) ?? 0;
+            return 2; //this.game.HelloWorldProducers?.Sum(device => device.HelloWorldPerSecond) ?? 0;
         }
     }
 }

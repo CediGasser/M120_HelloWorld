@@ -85,25 +85,19 @@ namespace Hello_World.Spec.Features.Game
         private GameViewModel GameViewModel => this.scenarioStorage.Get<GameViewModel>();
         private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
 
-        public void TheKarmaShouldBe(int karmaAmount)
+        public void TheKarmaShouldBe(Karma karmaAmount)
         {
-            this.CreateName().With(karmaAmount).x(() => { this.GameViewModel.Karma.Should().Be(karmaAmount); });
+            this.CreateName().With(karmaAmount.Value).x(() => { this.GameViewModel.Karma.Value.Should().BeEquivalentTo(karmaAmount.Value); });
         }
 
         public void TheShopViewModelIsWindowClosedShouldBeFalse()
         {
-            this.CreateName().WithoutParams().x(() =>
-            {
-                this.MainWindowViewModel.ShopViewModel.IsWindowClosed.Should().BeFalse();
-            });
+            this.CreateName().WithoutParams().x(() => { this.MainWindowViewModel.ShopViewModel.IsWindowClosed.Should().BeFalse(); });
         }
 
         public void TheMenuViewModelIsWindowClosedShouldBeFalse()
         {
-            this.CreateName().WithoutParams().x(() =>
-            {
-                this.MainWindowViewModel.MenuViewModel.IsWindowClosed.Should().BeFalse();
-            });
+            this.CreateName().WithoutParams().x(() => { this.MainWindowViewModel.MenuViewModel.IsWindowClosed.Should().BeFalse(); });
         }
     }
 }

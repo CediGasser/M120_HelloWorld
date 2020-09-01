@@ -8,8 +8,8 @@ namespace Hello_World.Core.Test
         [Fact]
         public void IncreaseCountByOne_IncreasesCountByOne()
         {
-            Device testee = new Device("SomeDevice", 1, 10);
-              
+            Device testee = new Device("SomeDevice", new Karma(0, 1), new Karma(0, 10));
+
             int originalCount = testee.Count;
 
             testee.IncreaseCountByOne();

@@ -1,3 +1,4 @@
+using Hello_World.Core;
 using Hello_World.GamePage;
 using Hello_World.MainWindow;
 using Xbehave;
@@ -9,7 +10,7 @@ namespace Hello_World.Spec.Features.Game
     // ReSharper disable ArrangeThisQualifier -- '_' should not be qualified with this for improved readability
     public class GameFeature
     {
-        private ScenarioContext<GameGiven, GameWhen, GameThen> _;
+        private readonly ScenarioContext<GameGiven, GameWhen, GameThen> _;
 
         public GameFeature()
         {
@@ -41,7 +42,7 @@ namespace Hello_World.Spec.Features.Game
         {
             _.Given.IHaveStartedTheGame();
             _.When.IClickOnHelloWorld();
-           _.Then.TheKarmaShouldBe(1);
+            _.Then.TheKarmaShouldBe(new Karma(0,1));
         }
     }
 }

@@ -14,10 +14,10 @@
         <ContentControl Content="{Binding SelectedViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type mainMenuPage:MainMenuViewModel}">
-                    <mainMenuPage:MainMenuView DataContext="{Binding}"></mainMenuPage:MainMenuView>
-                </DataTemplate>                
+                    <mainMenuPage:MainMenuView DataContext="{Binding}" />
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type gamePage:GameViewModel}">
-                    <gamePage:GameView DataContext="{Binding}"></gamePage:GameView>
+                    <gamePage:GameView DataContext="{Binding}" />
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

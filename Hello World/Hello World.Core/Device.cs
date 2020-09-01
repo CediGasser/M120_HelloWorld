@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Hello_World.Core
+﻿namespace Hello_World.Core
 {
     public class Device : FodyNotifyPropertyChangedBase
     {
-        public Device(string name, int baseHelloWorldPerSecond, int cost)
+        public Device(string name, Karma baseHelloWorldPerSecond, Karma cost)
         {
             this.Name = name;
             this.BaseHelloWorldPerSecond = baseHelloWorldPerSecond;
@@ -21,15 +17,15 @@ namespace Hello_World.Core
 
         public int Count { get; set; }
 
+        public Karma HelloWorldPerSecond => this.Count * this.BaseHelloWorldPerSecond;
+
+        public Karma BaseHelloWorldPerSecond { get; }
+
+        public Karma Cost { get; set; }
+
         public void IncreaseCountByOne()
         {
             this.Count++;
         }
-
-        public int HelloWorldPerSecond => this.BaseHelloWorldPerSecond * Count;
-
-        public int BaseHelloWorldPerSecond { get; }
-
-        public int Cost { get; set; }
     }
 }

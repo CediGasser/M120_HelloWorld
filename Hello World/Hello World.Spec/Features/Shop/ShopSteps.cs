@@ -7,7 +7,6 @@ using Hello_World.GamePage;
 using Hello_World.Infrastructure;
 using Hello_World.Infrastructure.ViewModels;
 using Hello_World.LoadAndSaveGame;
-using Hello_World.MainMenuPage;
 using Hello_World.MainWindow;
 using Xbehave;
 using xFlowPackage.BaseStepDefinitions;
@@ -32,7 +31,7 @@ namespace Hello_World.Spec.Features.Shop
 
                 DatetimeNowProvider datetimeNowProvider = new DatetimeNowProvider();
                 Core.Game game = new Core.Game(datetimeNowProvider, fakeErrorMessageDisplayer);
-                game.Karma = 1000000;
+                game.Karma = new Karma(0, 1000000);
                 FileDialogFactory fileDialogFactory = new FileDialogFactory();
                 JsonFileManager jsonFileManager = new JsonFileManager(fileDialogFactory);
                 MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(fileDialogFactory,
@@ -45,7 +44,6 @@ namespace Hello_World.Spec.Features.Shop
                 this.scenarioStorage.Store(new GameViewModel(game, mainWindowViewModel, fakeWindowDisplayer));
             });
         }
-
     }
 
     public class ShopWhen : WhenBase
@@ -59,6 +57,7 @@ namespace Hello_World.Spec.Features.Shop
 
         private GameViewModel GameViewModel => this.scenarioStorage.Get<GameViewModel>();
         private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
+
         public void IClickOnShop()
         {
             this.CreateName().WithoutParams().x(() => { this.GameViewModel.OnShopButtonClickCommand.Execute(); });
@@ -66,10 +65,8 @@ namespace Hello_World.Spec.Features.Shop
 
         public void IClickOnBuy(int i)
         {
-            this.CreateName().WithoutParams().x(() =>
-            {
-                this.MainWindowViewModel.ShopViewModel.HelloWorldDeviceProducers[i].OnBuyButtonClickCommand.Execute();
-            });
+            this.CreateName().WithoutParams()
+                .x(() => { this.MainWindowViewModel.ShopViewModel.HelloWorldDeviceProducers[i].OnBuyButtonClickCommand.Execute(); });
         }
     }
 
@@ -77,18 +74,16 @@ namespace Hello_World.Spec.Features.Shop
     {
         private readonly IScenarioStorage scenarioStorage;
 
-        private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
-
         public ShopThen(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
         {
             this.scenarioStorage = scenarioStorage;
         }
+
+        private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
+
         public void DeviceCountShouldBeOne(int i)
         {
-            this.CreateName().WithoutParams().x(() =>
-            {
-                this.MainWindowViewModel.ShopViewModel.HelloWorldDeviceProducers[i].Device.Count.Should().Be(1);
-            });
+            this.CreateName().WithoutParams().x(() => { this.MainWindowViewModel.ShopViewModel.HelloWorldDeviceProducers[i].Device.Count.Should().Be(1); });
         }
     }
 }

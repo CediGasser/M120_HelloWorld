@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FakeItEasy;
 using FluentAssertions;
 using Xunit;
@@ -7,23 +8,6 @@ namespace Hello_World.Core.Test
 {
     public class GameTest
     {
-        private class FakeDatetimeNowProvider : DatetimeNowProvider
-        {
-            public FakeDatetimeNowProvider(DateTime fakeNow)
-            {
-                this.FakeNow = fakeNow;
-            }
-
-            private DateTime FakeNow { get; set; }
-
-            public override DateTime Now => this.FakeNow;
-
-            public void IncrementSeconds(int seconds)
-            {
-                this.FakeNow += TimeSpan.FromSeconds(seconds);
-            }
-        }
-
         [Fact]
         public void TryBuyHelloWorldProducer_WhenEnoughKarma_ThenHelloWorldProducerIsBoughtAndKarmaSpent()
         {
@@ -32,15 +16,15 @@ namespace Hello_World.Core.Test
             IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o => o.Strict());
             Game game = new Game(nowProvider, fakeErrorMessageDisplayer);
 
-            Device deviceCosting500 = new Device("name", 10, 500);
+            Device deviceCosting500 = new Device("name", new Karma(0, 10), new Karma(0, 500));
             game.HelloWorldProducers.Add(deviceCosting500);
-            game.Karma = 600;
-
+            game.Karma = new Karma(0, 600);
             nowProvider.IncrementSeconds(1);
             game.TryBuyHelloWorldProducer(deviceCosting500);
+            Karma expectedKarma = new Karma(new List<long> {100});
 
             deviceCosting500.Count.Should().Be(1);
-            game.Karma.Should().Be(100);
+            game.Karma.Value.Should().BeEquivalentTo(expectedKarma.Value);
         }
 
         [Fact]
@@ -53,9 +37,9 @@ namespace Hello_World.Core.Test
 
             Game testee = new Game(nowProvider, fakeErrorMessageDisplayer);
 
-            Device deviceCosting500 = new Device("name", 10, 500);
+            Device deviceCosting500 = new Device("name", new Karma(0, 10), new Karma(0, 500));
             testee.HelloWorldProducers.Add(deviceCosting500);
-            testee.Karma = 400;
+            testee.Karma = new Karma(0, 400);
             testee.TryBuyHelloWorldProducer(deviceCosting500);
 
             nowProvider.IncrementSeconds(1);
@@ -72,15 +56,34 @@ namespace Hello_World.Core.Test
             IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o => o.Strict());
             Game game = new Game(nowProvider, fakeErrorMessageDisplayer);
 
-            Device deviceProducing100KarmaPerSecond = new Device("name", 100, 0);
+            Device deviceProducing100KarmaPerSecond = new Device("name", new Karma(0, 100), new Karma(0, 0));
             game.HelloWorldProducers.Add(deviceProducing100KarmaPerSecond);
-            game.Karma = 100;
+            game.Karma = new Karma(0, 100);
             game.TryBuyHelloWorldProducer(deviceProducing100KarmaPerSecond);
 
             nowProvider.IncrementSeconds(1);
             game.UpdateKarma();
 
-            game.Karma.Should().Be(200);
+            Karma expectedKarma = new Karma(new List<long> {200});
+
+            game.Karma.Value.Should().BeEquivalentTo(expectedKarma.Value);
+        }
+
+        private class FakeDatetimeNowProvider : DatetimeNowProvider
+        {
+            public FakeDatetimeNowProvider(DateTime fakeNow)
+            {
+                this.FakeNow = fakeNow;
+            }
+
+            private DateTime FakeNow { get; set; }
+
+            public override DateTime Now => this.FakeNow;
+
+            public void IncrementSeconds(int seconds)
+            {
+                this.FakeNow += TimeSpan.FromSeconds(seconds);
+            }
         }
     }
 }

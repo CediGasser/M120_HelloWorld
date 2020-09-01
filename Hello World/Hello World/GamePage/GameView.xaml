@@ -1,12 +1,12 @@
 ﻿<UserControl x:Class="Hello_World.GamePage.GameView"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:gamePage="clr-namespace:Hello_World.GamePage"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      d:DataContext="{d:DesignInstance Type = gamePage:GameViewModel}">
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:gamePage="clr-namespace:Hello_World.GamePage"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type = gamePage:GameViewModel}">
 
     <UserControl.Resources>
         <Style x:Key="RoundedEdgeBorder" TargetType="Border">
@@ -29,42 +29,44 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="150"></ColumnDefinition>
-            <ColumnDefinition Width="10"></ColumnDefinition>
-            <ColumnDefinition Width="150"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="50" />
         </Grid.ColumnDefinitions>
 
-        <Border Style="{StaticResource RoundedEdgeBorder}" Grid.Column="3" Grid.Row="0" >
-            <Label Style="{StaticResource CenteredTextLabel}" Content="{Binding Karma}"></Label>
+        <Border Style="{StaticResource RoundedEdgeBorder}" Grid.Column="3" Grid.Row="0">
+            <Label Style="{StaticResource CenteredTextLabel}" Content="{Binding Karma}" />
         </Border>
-        <Border Style="{StaticResource RoundedEdgeBorder}"  Grid.Column="5" Grid.Row="0" >
-            <Label Style="{StaticResource CenteredTextLabel}" Content="{Binding HelloWorldPerSecond}"></Label>
+        <Border Style="{StaticResource RoundedEdgeBorder}" Grid.Column="5" Grid.Row="0">
+            <Label Style="{StaticResource CenteredTextLabel}" Content="{Binding HelloWorldPerSecond}" />
         </Border>
 
-        <TextBox Style="{StaticResource ScrollableTextBoxViewer}" Text="{Binding TextBoxText}" Grid.Column="2" Grid.ColumnSpan="5" Grid.Row="2" Grid.RowSpan="3"></TextBox>
+        <TextBox Style="{StaticResource ScrollableTextBoxViewer}" Text="{Binding TextBoxText}" Grid.Column="2"
+                 Grid.ColumnSpan="5" Grid.Row="2" Grid.RowSpan="3" />
 
-        <Button Content="Hello World" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="6" Command="{Binding OnHelloWorldButtonClickCommand}"></Button>
+        <Button Content="Hello World" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="6"
+                Command="{Binding OnHelloWorldButtonClickCommand}" />
 
-        <Button  Grid.Column="0" Grid.Row="0" Command="{Binding OnMenuClickCommand}">
+        <Button Grid.Column="0" Grid.Row="0" Command="{Binding OnMenuClickCommand}">
             <Image Source="\Resources\icon\HamburgerMenu_icon.png" />
         </Button>
-        <Button  Grid.Column="0" Grid.Row="7" Command="{Binding OnShopButtonClickCommand}">
+        <Button Grid.Column="0" Grid.Row="7" Command="{Binding OnShopButtonClickCommand}">
             <Image Source="\Resources\icon\ShopingCart_icon.png" />
         </Button>
     </Grid>

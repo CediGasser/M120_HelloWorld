@@ -8,7 +8,7 @@ namespace Hello_World.Spec.Features.MainMenu
     // ReSharper disable ArrangeThisQualifier -- '_' should not be qualified with this for improved readability
     public class MainMenuFeature
     {
-        private ScenarioContext<MainMenuGiven, MainMenuWhen, MainMenuThen> _;
+        private readonly ScenarioContext<MainMenuGiven, MainMenuWhen, MainMenuThen> _;
 
         public MainMenuFeature()
         {

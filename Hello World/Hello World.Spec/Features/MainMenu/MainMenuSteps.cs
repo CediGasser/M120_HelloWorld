@@ -27,32 +27,30 @@ namespace Hello_World.Spec.Features.MainMenu
             {
                 IErrorMessageDisplayer fakeErrorMessageDisplayer = A.Fake<IErrorMessageDisplayer>(o => o.Strict());
                 SpecFileDialogFactory specFileDialogFactory = new SpecFileDialogFactory();
-                this.scenarioStorage.Store(new MainWindowViewModel(specFileDialogFactory,new GameViewModelFactory(new JsonFileManager(specFileDialogFactory), fakeErrorMessageDisplayer,new DatetimeNowProvider())));
+                this.scenarioStorage.Store(new MainWindowViewModel(specFileDialogFactory,
+                    new GameViewModelFactory(new JsonFileManager(specFileDialogFactory), fakeErrorMessageDisplayer, new DatetimeNowProvider())));
             });
         }
-    }    
-    
+    }
+
     public class MainMenuWhen : WhenBase
     {
-        private IScenarioStorage scenarioStorage;
-
-        private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
-
-        private MainMenuViewModel MainMenuViewModel => ((MainMenuViewModel)this.MainWindowViewModel.SelectedViewModel);
-
-        private SpecFileDialogFactory SpecFileDialogFactory => (SpecFileDialogFactory)this.MainWindowViewModel.FileDialogFactory;
+        private readonly IScenarioStorage scenarioStorage;
 
         public MainMenuWhen(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
         {
             this.scenarioStorage = scenarioStorage;
         }
 
+        private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
+
+        private MainMenuViewModel MainMenuViewModel => (MainMenuViewModel) this.MainWindowViewModel.SelectedViewModel;
+
+        private SpecFileDialogFactory SpecFileDialogFactory => (SpecFileDialogFactory) this.MainWindowViewModel.FileDialogFactory;
+
         public void IClickOnNewGame()
         {
-            this.CreateName().WithoutParams().x(() =>
-            {
-                this.MainMenuViewModel.OnNewGameCommand.Execute();
-            });
+            this.CreateName().WithoutParams().x(() => { this.MainMenuViewModel.OnNewGameCommand.Execute(); });
         }
 
         public void IClickOnLoadGameAndSelectTheFileP1ToLoad(string fileToLoad)
@@ -63,35 +61,29 @@ namespace Hello_World.Spec.Features.MainMenu
                 this.MainMenuViewModel.OnLoadGameCommand.Execute();
             });
         }
- }    
-    
+    }
+
     public class MainMenuThen : ThenBase
     {
-        private IScenarioStorage scenarioStorage;
+        private readonly IScenarioStorage scenarioStorage;
 
-        private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
-
-        private GameViewModel GameViewModel => ((GameViewModel)this.MainWindowViewModel.SelectedViewModel);
-        
         public MainMenuThen(IScenarioStorage scenarioStorage, bool useAnd) : base(scenarioStorage, useAnd)
         {
             this.scenarioStorage = scenarioStorage;
         }
 
+        private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
+
+        private GameViewModel GameViewModel => (GameViewModel) this.MainWindowViewModel.SelectedViewModel;
+
         public void TheGameScreenShouldBeDisplayed()
         {
-            this.CreateName().WithoutParams().x(() =>
-            {
-                this.MainWindowViewModel.SelectedViewModel.Should().BeOfType<GameViewModel>();
-            });
+            this.CreateName().WithoutParams().x(() => { this.MainWindowViewModel.SelectedViewModel.Should().BeOfType<GameViewModel>(); });
         }
 
         public void TheKarmaShouldBe(int karmaAmount)
         {
-            this.CreateName().With(karmaAmount).x(() =>
-            {
-                this.GameViewModel.Karma.Should().Be(karmaAmount);
-            });
+            this.CreateName().With(karmaAmount).x(() => { this.GameViewModel.Karma.Should().Be(karmaAmount); });
         }
     }
 }

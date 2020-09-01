@@ -6,18 +6,18 @@ using xFlowPackage;
 using xFlowPackage.Context;
 
 namespace Hello_World.Spec.Features.Shop
-{ 
+{
     // ReSharper disable ArrangeThisQualifier -- '_' should not be qualified with this for improved readability
     public class ShopFeature
     {
-        private ScenarioContext<ShopGiven, ShopWhen, ShopThen> _;
+        private readonly ScenarioContext<ShopGiven, ShopWhen, ShopThen> _;
 
         public ShopFeature()
         {
             _ = ScenarioContextBuilder.Build<ShopGiven, ShopWhen, ShopThen>()
                 .AlwaysUsingCommon<ShopViewModel>()
                 .AlwaysUsingCommon<GameViewModel>()
-                .AlwaysUsingCommon<MainWindowViewModel>(); 
+                .AlwaysUsingCommon<MainWindowViewModel>();
         }
 
         [Scenario]
