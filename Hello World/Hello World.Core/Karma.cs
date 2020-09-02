@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace Hello_World.Core
 {
@@ -75,14 +76,16 @@ namespace Hello_World.Core
         {
             IEnumerable<(long, long)> longerListZip = a.Value.LongerListZip(b.Value);
             IEnumerable<long> zippedList = longerListZip.Select(t => t.Item1 - t.Item2);
-            return zippedList.All(l => !(l < 0));
+
+            return zippedList.Reverse().Any(l => l ! > 0);
         }
 
         public static bool operator <(Karma a, Karma b)
         {
             IEnumerable<(long, long)> longerListZip = b.Value.LongerListZip(a.Value);
             IEnumerable<long> zippedList = longerListZip.Select(t => t.Item1 - t.Item2);
-            return zippedList.All(l => !(l < 0));
+
+            return zippedList.Reverse().All(l => (l !> 0));
         }
     
         public static bool operator >=(Karma a, Karma b)

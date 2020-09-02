@@ -91,5 +91,16 @@ namespace Hello_World.Core.Test
 
             ergebnis.Value.Should().BeEquivalentTo(expectedKarma);
         }
+
+        [Fact]
+        public void TestKarmaBiggerThan()
+        {
+            Karma biggerKarma = new Karma(1, 5);
+            Karma smallerKarma = new Karma(0, 100_000);
+
+            bool ergebnis = biggerKarma > smallerKarma;
+
+            ergebnis.Should().BeTrue();
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace Hello_World.Core
 
         public void TryBuyHelloWorldProducer(Device helloWorldProducer)
         {
-            if (helloWorldProducer.Cost < this.Karma)
+            if (this.Karma > helloWorldProducer.Cost)
                 this.BuyHelloWorldProducer(helloWorldProducer);
             else
                 this.errorMessageDisplayer.Show("Not enough Karma!", "You're poor haha!");

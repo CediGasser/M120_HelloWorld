@@ -31,7 +31,7 @@ namespace Hello_World.Spec.Features.Shop
 
                 DatetimeNowProvider datetimeNowProvider = new DatetimeNowProvider();
                 Core.Game game = new Core.Game(datetimeNowProvider, fakeErrorMessageDisplayer);
-                game.Karma = new Karma(0, 1000000);
+                game.Karma = new Core.Karma(0, 1000000);
                 FileDialogFactory fileDialogFactory = new FileDialogFactory();
                 JsonFileManager jsonFileManager = new JsonFileManager(fileDialogFactory);
                 MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(fileDialogFactory,

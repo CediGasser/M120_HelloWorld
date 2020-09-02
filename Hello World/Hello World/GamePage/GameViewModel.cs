@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Linq;
 using Hello_World.Core;
 using Hello_World.Infrastructure.Commands;
 using Hello_World.Infrastructure.Timer;
 using Hello_World.Infrastructure.ViewModels;
 using Hello_World.Infrastructure.Views;
+using Hello_World.Karma;
 using Hello_World.MainWindow;
 using Hello_World.Menu;
 using Hello_World.Shop;
@@ -19,7 +21,7 @@ namespace Hello_World.GamePage
 
         private readonly IWindowDisplayer windowDisplayer;
 
-        private int clicksPerSecond;
+        private Core.Karma clicksPerSecond = new Core.Karma(0,0);
 
         public GameViewModel(Game game, MainWindowViewModel mainWindowViewModel, IWindowDisplayer windowDisplayer)
         {
@@ -34,7 +36,7 @@ namespace Hello_World.GamePage
         }
 
 
-        public int HelloWorldPerSecond { get; set; }
+        public Core.Karma HelloWorldPerSecond { get; set; }
 
         public RelayCommand OnHelloWorldButtonClickCommand { get; }
 
@@ -42,9 +44,17 @@ namespace Hello_World.GamePage
 
         public RelayCommand OnMenuClickCommand { get; }
 
-        public Karma Karma
+        public string ViewAbleCurrentKarma { get; set; }
+
+        public string ViewAbleHelloWorldPerSecond { get; set; }
+
+        public Core.Karma Karma
         {
-            get => this.game.Karma;
+            get
+            {
+                this.ViewAbleCurrentKarma = KarmaViewer.ShowAbleKarma(this.game.Karma);
+                return this.game.Karma;
+            }
             private set => this.game.Karma = value;
         }
 
@@ -54,17 +64,18 @@ namespace Hello_World.GamePage
         //Event Handlers
         private void OnTimerEnd(object sender, EventArgs e)
         {
-            int allHelloWorldPerSecond = this.CalculateAllAutomaticHelloWorldPerSecond();
+            Core.Karma allHelloWorldPerSecond = this.CalculateAllAutomaticHelloWorldPerSecond();
             this.RefreshHelloWorldPerSecond();
             this.game.UpdateKarma();
             this.UpdateHelloWorldPerSecond(allHelloWorldPerSecond);
+            this.ViewAbleHelloWorldPerSecond = KarmaViewer.ShowAbleKarma(this.HelloWorldPerSecond);
         }
 
         private void OnHelloWorldButtonClick()
         {
             this.PrintHelloWorld();
-            this.UpdateKarma(new Karma(0, 1));
-            this.UpdateClicksPerSecond(1);
+            this.UpdateKarma(new Core.Karma(0, 1));
+            this.UpdateClicksPerSecond(new Core.Karma(0,1));
         }
 
         private void OnMenuButtonClick()
@@ -96,7 +107,7 @@ namespace Hello_World.GamePage
         }
 
         //Methods
-        private void UpdateClicksPerSecond(int newClicks)
+        private void UpdateClicksPerSecond(Core.Karma newClicks)
         {
             this.clicksPerSecond += newClicks;
         }
@@ -104,15 +115,15 @@ namespace Hello_World.GamePage
         private void RefreshHelloWorldPerSecond()
         {
             this.HelloWorldPerSecond = this.clicksPerSecond;
-            this.clicksPerSecond = 0;
+            this.clicksPerSecond = new Core.Karma(0,0);
         }
 
-        private void UpdateKarma(Karma newHelloWorldCount)
+        private void UpdateKarma(Core.Karma newHelloWorldCount)
         {
             this.Karma += newHelloWorldCount;
         }
 
-        private void UpdateHelloWorldPerSecond(int newHelloWorldCount)
+        private void UpdateHelloWorldPerSecond(Core.Karma newHelloWorldCount)
         {
             this.HelloWorldPerSecond += newHelloWorldCount;
         }
@@ -122,9 +133,16 @@ namespace Hello_World.GamePage
             this.TextBoxText += $"{Environment.NewLine}{TextToPrint}";
         }
 
-        private int CalculateAllAutomaticHelloWorldPerSecond()
+        private Core.Karma CalculateAllAutomaticHelloWorldPerSecond()
         {
-            return 2; //this.game.HelloWorldProducers?.Sum(device => device.HelloWorldPerSecond) ?? 0;
+            Core.Karma karma = new Core.Karma(0,0);
+
+            return this.game.HelloWorldProducers.Aggregate
+            (
+                karma, 
+                (current, helloWorldProducer) 
+                    => current + helloWorldProducer.HelloWorldPerSecond
+                );
         }
     }
 }

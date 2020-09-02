@@ -42,7 +42,7 @@ namespace Hello_World.Spec.Features.Game
         {
             _.Given.IHaveStartedTheGame();
             _.When.IClickOnHelloWorld();
-            _.Then.TheKarmaShouldBe(new Karma(0,1));
+            _.Then.TheKarmaShouldBe(new Core.Karma(0,1));
         }
     }
 }

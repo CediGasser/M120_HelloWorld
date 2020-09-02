@@ -51,10 +51,10 @@
         </Grid.ColumnDefinitions>
 
         <Border Style="{StaticResource RoundedEdgeBorder}" Grid.Column="3" Grid.Row="0">
-            <Label Style="{StaticResource CenteredTextLabel}" Content="{Binding Karma}" />
+            <Label Style="{StaticResource CenteredTextLabel}" Content="{Binding ViewAbleCurrentKarma}" />
         </Border>
         <Border Style="{StaticResource RoundedEdgeBorder}" Grid.Column="5" Grid.Row="0">
-            <Label Style="{StaticResource CenteredTextLabel}" Content="{Binding HelloWorldPerSecond}" />
+            <Label Style="{StaticResource CenteredTextLabel}" Content="{Binding ViewAbleHelloWorldPerSecond}" />
         </Border>
 
         <TextBox Style="{StaticResource ScrollableTextBoxViewer}" Text="{Binding TextBoxText}" Grid.Column="2"

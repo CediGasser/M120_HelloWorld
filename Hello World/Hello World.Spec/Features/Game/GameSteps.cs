@@ -85,7 +85,7 @@ namespace Hello_World.Spec.Features.Game
         private GameViewModel GameViewModel => this.scenarioStorage.Get<GameViewModel>();
         private MainWindowViewModel MainWindowViewModel => this.scenarioStorage.Get<MainWindowViewModel>();
 
-        public void TheKarmaShouldBe(Karma karmaAmount)
+        public void TheKarmaShouldBe(Core.Karma karmaAmount)
         {
             this.CreateName().With(karmaAmount.Value).x(() => { this.GameViewModel.Karma.Value.Should().BeEquivalentTo(karmaAmount.Value); });
         }
